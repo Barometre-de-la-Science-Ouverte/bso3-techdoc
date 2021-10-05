@@ -1,4 +1,4 @@
-#Resource file organization
+# Resource file organization
 
 This is an initial proposal for organising resource files on a file system. 
 
