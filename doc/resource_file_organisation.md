@@ -4,13 +4,13 @@ This is an initial proposal for organising resource files on a file system.
 
 Challenges:
 
-- very high number of primary documents (full texts, bibliographical records) and secondary documents produced by our pipeline (annotations, extractions, etc.): Unpaywall alone corresponds to a volume of 20M full texts, to be complemented by 80+ million additional bibliographical records and json documents/objects. 
+- very high number of primary documents (full texts, bibliographical records) and secondary documents produced by the text-mining pipeline (annotations, extractions, etc.): Unpaywall alone corresponds to a volume of 20M full texts, to be complemented by 80+ million additional bibliographical records and json documents/objects. 
 
-- no natural naming: DOI for instance is relevant only to a subset of the collections
+- no natural naming: DOI for instance is relevant only to a subset of the collections 
 
-- requirement for persistent identifiers (in the case of incremental harvesting)
+- requirement for persistent identifiers (in the case of incremental harvesting), many article strong identifiers do not ensure real persistency (e.g. PMC ID, PMID) or limited ones (DOI, metadata can be entirely removed and old DOI redicted)
 
-- requirement to manage deployments on cloud (Swift, S3), without too many objects per directory for scalability/performance reasons
+- requirement to manage deployments on cloud (Swift), without too many objects per directory for scalability/performance reasons
 
 - keep it stupid and simple, but not too stupid and too simple
 
