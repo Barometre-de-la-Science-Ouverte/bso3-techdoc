@@ -6,7 +6,7 @@
 
 2) Define what should be considered as a "dataset" object in the scopre of the BSO
 
-3) what are the minimal criteria for consider that a software or a dataset is shared ?
+3) what are the minimal criteria for considering that a software or a dataset is shared ?
 
 ## 1) Software
 
@@ -70,7 +70,7 @@ The guideline thus also means that when it is not clear that we refer to the dat
 
 Example:
 
-[PMC4644012]()
+[PMC4644012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4644012/)
 
     The Gram-negative coccobacilli were initially identified as Pasturella pneumotropica by the 
     VITEK 2 system, software version 06.01 (BioMerieux, France) using the GN card, with bionumber 
@@ -82,21 +82,21 @@ Given the variety of software embodiments, what is mentioned is often larger sys
 
 This is however less an issue for software sharing (the software here is part of a commercial product, not really produced by researchers and described in a research publication), and it is more relevant to research software citation. 
  
-- **software components** of a more complete infrastructure: A reference is made to a general infrastructure, including some software components. For example in [10.20955/r.2018.1-16]() "Bitcoin wallet". 
+- **software components** of a more complete infrastructure: A reference is made to a general infrastructure, including some software components. For example in [10.20955/r.2018.1-16](http://herosolutions.com.pk/breera/foundation/images/whitepaper.pdf) "Bitcoin wallet". 
 
 - Reference to a **programing languages**. For example:
 
-[10.1257/jep.4.1.99]()
+[10.1257/jep.4.1.99](https://www.aeaweb.org/articles?id=10.1257/jep.4.1.99)
 
     It is written in BASIC, a close analogue to FORTRAN.
 
 Software language per se (written in BASIC, in FORTRAN, ...) are normally not software, but software tools for a software language (like a C compiler, a Java virtual machine, a Integrated Development Environment like R-Studio, etc.) are. 
 
-
-
 - Non-named usage of a programming environment. Software was produced on the environment (some code was written), but it is implicit, not shared, not reusable. 
 
-Example 10.1136/gut.2011.238386
+Example:
+
+[10.1136/gut.2011.238386](https://gut.bmj.com/content/gutjnl/61/1/69.full.pdf)
 
     Multiple imputation was conducted in R 2.11." 
 
@@ -119,8 +119,7 @@ dividually (include libraries/R packages).
 
 - Programming Environment (includes compilers or interpreters)
 
-When used together with a specific software mention, OS and programing environments can be considered as "attributes" of this software (e.g. running on Windows, developed with R-Studio). However OS and programing environments can also be referenced as such. 
-
+When used together with a specific software mention, OS and programing environments can be considered as "attributes" of this software (e.g. running on Windows, developed with R-Studio). However, OS and programing environments can also be referenced as such. 
 
 
 ## 2) Dataset
@@ -128,6 +127,14 @@ When used together with a specific software mention, OS and programing environme
 Actual dataset mentions also present some heterogeneity, as observed for software, although we think in a less important manner. With variation of types, formats and access, the scope for "datasets" is not always clear. As far as we know, this is however not discussed in the literature. 
 
 - **implicit versus named datasets**: most mention of set of data are implicit. The research study can mention some data acquisition, but the dataset is not named, nor shared. Most of the data discussed in papers in the biomedical field for instance are created for the study, but remain implicit and not shared. 
+
+For example:
+
+[10.1038/srep14168](https://www.nature.com/articles/srep14168)
+
+    The 47 tilapia DNA samples were sent to Beijing Genome Institute (BGI) for 101 bp paired-end sequencing using Illumina Hiseq 2500. 
+
+The Illumina Hiseq 2500 device produces sequencing data, which are part of the described study. These data are however not named and not shared. 
 
 - mentioning a **database** rather than independent dataset: The main point here is usually if the research work refers to the data/dataset stored in the database or if some data has been loaded and shared via this database.
 
@@ -138,47 +145,52 @@ On the other hand, a "dataset" typically exists independently from a database ma
 
 - Reference not with a dataset name, but to a **data sharing initiative/project**, which purpose is a collection of datasets. For example:
 
+For example the Coleridge Kaggle dataset (which is a particularly "noisy", imprecise and incomplete annotated corpus) is annotating the Alzheimer's Disease Neuroimaging Initiative (ADNI) as a dataset name: 
 
+    Genome-wide pathway analysis of memory impairment in the Alzheimer’s Disease Neuroimaging Initiative (ADNI) cohort implicates gene candidates, canonical pathways, and networks.
 
-
-
-
+This is however not a standard dataset citation, although the location of some data used in the research work is supported. 
 
 - Reference to an **entry in a database**, for instance via a unique identifier such as an accession number. The dataset here is defined by the combination of the data service and the identifier. 
 
+For example: 
+
+https://doi.org/10.1371/journal.pone.0204936
+
+    The mutations in selected resistance genes (gyrA, gryB, parC, parE, mexR, ampC, ampD and 
+    ampR) of each strain were determined with reference to P. aeruginosa PAO1 (Genbank RefSeq 
+    accession no. NC_002516.2).
+
 - Primary versus secondary data
 
-- Reference to a large project/collaboration, for actually referencing data produced/shared by the collaboration and not the collaboration itself - this should be disambiguated in context. 
-
-
-
+- Reference to a large project/collaboration, for actually referencing data produced/shared by the collaboration and not the collaboration itself. 
  
 
 ## 3) Sharing
 
 The form of sharing statements, the nature of the shared data/software and the proportion of shared data can vary significantly. Examining the publications in a bottom-up approach shows that data sharing is not a dichotomy (shared/not shared), but rather shades of grey, which makes complicated to decide which criteria and sharing "threshold" should be considered. 
 
-- sharing statement corresponding to no actual public data sharing: "data available on reasonable demand"
+- sharing statement corresponding to **no actual public data sharing**: "data available on reasonable demand"
 
-- sharing statement on secured domain: the data is shared but not available without some authorization and credentials validation process
+- sharing statement on **secured domain**: the data is shared but not available without some authorization and credentials validation process
 
-- partial sharing: only some data of the study are shared, this is the most common case of data sharing
+- **partial sharing**: only some data of the study are shared, this is the most common case of data sharing
     * sharing of secondary/analysis data, but not of primary data (e.g. sharing of the data ploints of figures)
     * cherry pick-up data sharing: "relevant" data
     * patial data sharing without further discussion
 
-- insufficient or invalid data sharing: 
+- **insufficient or invalid data sharing**: 
 
     * case of partial reuse of a dataset/database, the authors cite properly the shared dataset where a selection of data is made, but does not disclosed/share openly which subset is used for experiements
     * "data are available in article and/or supplementary data", which means that the figures/tables are supposed to disclose the data. However, what is disclosed is a visualization or sumary of the data, not in exploitable format for computers, and not the actual and usable primary data.
     * sharing is stated with some public URI, but the links are invalid/outdated
 
-- The usage of data sharing statements (as an independent section at the end of an article) is limited to certain technical domains and journals, mainly bio-medicine and natural sciences. Without data sharing statement requirements, the sharing is usually clearer because the authors are not forced by a kind of bureacratic statement requirement which often result in some obfuscation: they disclose the shared datasets and how to access them or they -say nothing about the availability of data. On the other hand, data sharing is then less frequent and requires much more sophisticated text mining process to be captured, with lower recall. 
+The usage of data sharing statements (as an independent section at the end of an article) is limited to certain technical domains and journals, mainly bio-medicine and natural sciences. Without data sharing statement requirements, the sharing is usually clearer because the authors are not forced by a kind of bureacratic statement requirement which often result in some obfuscation: they disclose the shared datasets and how to access them or they -say nothing about the availability of data. On the other hand, data sharing is then less frequent and requires much more sophisticated text mining process to be captured, with lower recall. 
 
-- In general, we can expect to be able to determine that a certain proportion of research article shares "some" data effectively (not just stating a possibility of request for data or an intend). 
-* we cannot judge the comprehensiveness of the shared data
-* we need to identify evidence of actual sharing e.g. url, data repository, permanent identifier to access that some data is shared
-* mention of the usage of some selection of research data available online (e.g. ) is not enough to determine which data is used and is not shared data
+- In general, we can expect to be able to determine that a certain proportion of research article shares "some" data effectively (not just stating a possibility of request for data or an intend):
+    * we cannot judge the comprehensiveness of the shared data
+    * we need to identify evidence of actual sharing e.g. url, data repository, permanent identifier to access that some data is shared
+    * mention of the usage of some selection of research data available online (e.g. ) is not enough to determine which data is used and is not shared data
 
 
 ## References
