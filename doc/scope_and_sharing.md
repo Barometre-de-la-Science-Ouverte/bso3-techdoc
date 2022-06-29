@@ -185,7 +185,7 @@ Furthermore, such promise/intent expressions actually indicate that, on the cont
 - **partial sharing**: only some data of the study are shared, this is the most common case of data sharing
     * sharing of secondary/analysis data, but not of primary data (e.g. sharing of the data ploints of figures)
     * cherry pick-up data sharing: "relevant" data
-    * patial data sharing without further discussion
+    * partial data sharing without further discussion
 
 - **insufficient or invalid data sharing**: 
 
