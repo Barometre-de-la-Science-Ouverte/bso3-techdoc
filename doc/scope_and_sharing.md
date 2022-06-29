@@ -132,9 +132,14 @@ For example:
 
 [10.1038/srep14168](https://www.nature.com/articles/srep14168)
 
-    The 47 tilapia DNA samples were sent to Beijing Genome Institute (BGI) for 101 bp paired-end sequencing using Illumina Hiseq 2500. 
+    The 47 tilapia DNA samples were sent to Beijing Genome Institute (BGI) for 101 bp 
+    paired-end sequencing using Illumina Hiseq 2500. 
 
 The Illumina Hiseq 2500 device produces sequencing data, which are part of the described study. These data are however not named and not shared. 
+
+The occurrence of a data acquisition device is usually a very reliable hint that some research data have been produced and could be shared for reproducibility and reuse reasons. In our dataset recognition approach, we are thus also trying to identify automatically mention on data acquisition devices. 
+
+Estimating the number of mentions of implicit datasets would be necessary to estimate the proportion of shared data (against all produced data) in a research work. 
 
 - mentioning a **database** rather than independent dataset: The main point here is usually if the research work refers to the data/dataset stored in the database or if some data has been loaded and shared via this database.
 
@@ -147,7 +152,8 @@ On the other hand, a "dataset" typically exists independently from a database ma
 
 For example the Coleridge Kaggle dataset (which is a particularly "noisy", imprecise and incomplete annotated corpus) is annotating the Alzheimer's Disease Neuroimaging Initiative (ADNI) as a dataset name: 
 
-    Genome-wide pathway analysis of memory impairment in the Alzheimer’s Disease Neuroimaging Initiative (ADNI) cohort implicates gene candidates, canonical pathways, and networks.
+    Genome-wide pathway analysis of memory impairment in the Alzheimer’s Disease Neuroimaging 
+    Initiative (ADNI) cohort implicates gene candidates, canonical pathways, and networks.
 
 This is however not a standard dataset citation, although the location of some data used in the research work is supported. 
 
@@ -171,6 +177,8 @@ https://doi.org/10.1371/journal.pone.0204936
 The form of sharing statements, the nature of the shared data/software and the proportion of shared data can vary significantly. Examining the publications in a bottom-up approach shows that data sharing is not a dichotomy (shared/not shared), but rather shades of grey, which makes complicated to decide which criteria and sharing "threshold" should be considered. 
 
 - sharing statement corresponding to **no actual public data sharing**: "data available on reasonable demand"
+
+Furthermore, such promise/intent expressions actually indicate that, on the contrary, the data will in general not be shared at all, even on fair demand, see [4] "Among 1792 manuscripts in which DAS indicated that authors are willing to share their data, 1670 (93%) authors either did not respond or declined to share their data with us.".  
 
 - sharing statement on **secured domain**: the data is shared but not available without some authorization and credentials validation process
 
@@ -201,4 +209,5 @@ The usage of data sharing statements (as an independent section at the end of an
 
 [3] David Schindler, Felix Bensmann, Stefan Dietze, and Frank Krüger. 2021. [SoMeSci- A 5 Star Open Data Gold Standard Knowledge Graph of Software Mentions in Scientific Articles](https://dl.acm.org/doi/10.1145/3459637.3482017). Proceedings of the 30th ACM International Conference on Information & Knowledge Management. Association for Computing Machinery, New York, NY, USA, 4574–4583. https://doi.org/10.1145/3459637.3482017
 
-
+[4] Mirko Gabelica, Ružica Bojčić, Livia Puljak, Many researchers were not compliant with their published data sharing statement: mixed-methods study,
+Journal of Clinical Epidemiology, 2022. https://doi.org/10.1016/j.jclinepi.2022.05.019.
