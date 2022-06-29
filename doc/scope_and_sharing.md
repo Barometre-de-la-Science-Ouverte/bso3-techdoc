@@ -185,14 +185,11 @@ https://doi.org/10.1016/j.ijmm.2016.03.004
 
 However, sometimes only secondary data (analysis of raw data, summary of raw data, etc.) are shared. The sharing could be limited to the values of a figure or table that underline characteristics of raw data. 
 
+Similarly the sharing of data can be limited to the reference of figures or tables in the article (which is a human presentation of a summary of some researchdata), for example:
 
+[PMC6956868](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6956868/)
 
-
-
-Similarly the sharing of data can be limited to the reference of a figure or table in the article (which is a human presentation of a summary of some researchdata).
-
-
-
+    The data supporting this article are available in Figures 1–12. 
 
 
 ## 3) Sharing
@@ -201,7 +198,7 @@ The form of sharing statements, the nature of the shared data/software and the p
 
 - sharing statement corresponding to **no actual public data sharing**: "data available on reasonable demand"
 
-Furthermore, such promise/intent expressions actually indicate that, on the contrary, the data will in general not be shared at all, even on fair demand, see [4] "Among 1792 manuscripts in which DAS indicated that authors are willing to share their data, 1670 (93%) authors either did not respond or declined to share their data with us.".  
+Furthermore, such promise/intent expressions actually indicate that, on the contrary, the data will in general not be shared at all, even on fair demand, see [4] "Among 1792 manuscripts in which DAS indicated that authors are willing to share their data, 1670 (93%) authors either did not respond or declined to share their data with us.". Note that such disappointing actual data sharing rate was reported in [6], but better rate after request to share data were reported in [7] for studies in Psychology. 
 
 - sharing statement on **secured domain**: the data is shared but not available without some authorization and credentials validation process
 
@@ -227,6 +224,10 @@ https://doi.org/10.1371/journal.pone.0210388
 
     All relevant data are within the manuscript and its Supporting Information files
 
+These vague statements are very common and introduce a major difference between declared and actual sharing of data (e.g. via URL, Datacite PID, accession number, ...). In [5] for instance in relation to clinical trial data: 
+
+    In this cross-sectional study of 487 clinical trials published in JAMA, Lancet, and New England Journal of Medicine, 334 articles (68.6%) declared data sharing. Only 2 (0.6%) individual-participant data sets were actually deidentified and publicly available on a journal website
+
 **Note:** The usage of data sharing statements (as an independent section at the end of an article) is limited to certain technical domains and journals, mainly bio-medicine and natural sciences. Without data sharing statement requirements, the sharing is usually clearer for text mining because the authors are not forced by a kind of bureacratic statement requirement which often result in some obfuscation: they disclose the shared datasets and how to access them or they -say nothing about the availability of data. On the other hand, data sharing is then less frequent and requires much more sophisticated text mining process to be captured, with lower recall. 
 
 - In general, we can expect to be able to determine that a certain proportion of research article shares "some" data effectively (not just stating a possibility of request for data or an intend):
@@ -245,3 +246,9 @@ https://doi.org/10.1371/journal.pone.0210388
 
 [4] Mirko Gabelica, Ružica Bojčić, Livia Puljak, Many researchers were not compliant with their published data sharing statement: mixed-methods study,
 Journal of Clinical Epidemiology, 2022. https://doi.org/10.1016/j.jclinepi.2022.05.019.
+
+[5] Danchev V, Min Y, Borghi J, Baiocchi M, Ioannidis JPA. Evaluation of Data Sharing After Implementation of the International Committee of Medical Journal Editors Data Sharing Statement Requirement. JAMA Netw Open. 2021;4(1):e2033972. doi:10.1001/jamanetworkopen.2020.33972
+
+[6] Rowhani-Farid A, Barnett AG. Has open data arrived at the British Medical Journal (BMJ)? An observational study. BMJ Open 2016;6:e011784. https://doi.org/10.1136/bmjopen-2016-011784
+
+[7] Neve, Judith, and Guillaume Rousselet. "The Evolution of Data Sharing Practices in the Psychological Literature." (2021). https://doi.org/10.31234/osf.io/3xdja
