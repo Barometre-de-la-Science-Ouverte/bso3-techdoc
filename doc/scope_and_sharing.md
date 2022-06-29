@@ -157,9 +157,16 @@ For example the Coleridge Kaggle dataset (which is a particularly "noisy", impre
 
 This is however not a standard dataset citation, although the location of some data used in the research work is supported. 
 
+Very similar, we can see reference to a large project/collaboration/experiments (*collaboration* in the sense of HEP or Astronomy, such as ATLAS, CMS, LHCb), for actually referencing data produced/shared by the collaboration and not the collaboration itself. 
+
 - Reference to an **entry in a database**, for instance via a unique identifier such as an accession number. The dataset here is defined by the combination of the data service and the identifier. 
 
 For example: 
+
+https://doi.org/10.1038/nature21374
+    
+    The RNA-seq data generated in this study have been deposited in DDBJ under accession codes 
+    DRA001101 and DRA004790."
 
 https://doi.org/10.1371/journal.pone.0204936
 
@@ -167,10 +174,26 @@ https://doi.org/10.1371/journal.pone.0204936
     ampR) of each strain were determined with reference to P. aeruginosa PAO1 (Genbank RefSeq 
     accession no. NC_002516.2).
 
-- Primary versus secondary data
+- **Primary versus secondary data**: It is normally expected that the raw primary data are shared (e.g. sequence data, MR images, etc.) and it appears usually the case from the existing manually labeled corpus. 
 
-- Reference to a large project/collaboration, for actually referencing data produced/shared by the collaboration and not the collaboration itself. 
- 
+As example for primary data:
+
+https://doi.org/10.1016/j.ijmm.2016.03.004
+
+    anonymized sequence data can be accessed online under the accession number 
+    PRJEB12853 at the European Nucleotide Archive.
+
+However, sometimes only secondary data (analysis of raw data, summary of raw data, etc.) are shared. The sharing could be limited to the values of a figure or table that underline characteristics of raw data. 
+
+
+
+
+
+Similarly the sharing of data can be limited to the reference of a figure or table in the article (which is a human presentation of a summary of some researchdata).
+
+
+
+
 
 ## 3) Sharing
 
@@ -189,17 +212,28 @@ Furthermore, such promise/intent expressions actually indicate that, on the cont
 
 - **insufficient or invalid data sharing**: 
 
-    * case of partial reuse of a dataset/database, the authors cite properly the shared dataset where a selection of data is made, but does not disclosed/share openly which subset is used for experiements
-    * "data are available in article and/or supplementary data", which means that the figures/tables are supposed to disclose the data. However, what is disclosed is a visualization or sumary of the data, not in exploitable format for computers, and not the actual and usable primary data.
+    * case of partial reuse of a dataset/database, the authors cite properly the shared dataset where a selection of data is made, but does not disclosed/share openly which subset is used for experiments
     * sharing is stated with some public URI, but the links are invalid/outdated
+    * "data are available in article and/or supplementary data", which means that the figures/tables are supposed to disclose the data. However, what is disclosed is a visualization, a summary or a selection of the data, not in exploitable format for computers, and not the actual and usable primary data.
 
-The usage of data sharing statements (as an independent section at the end of an article) is limited to certain technical domains and journals, mainly bio-medicine and natural sciences. Without data sharing statement requirements, the sharing is usually clearer because the authors are not forced by a kind of bureacratic statement requirement which often result in some obfuscation: they disclose the shared datasets and how to access them or they -say nothing about the availability of data. On the other hand, data sharing is then less frequent and requires much more sophisticated text mining process to be captured, with lower recall. 
+For example:
+
+https://doi.org/10.1186/s13064-019-0127-z
+
+    All data generated of analyzed during the current study are included in this
+    published article.
+
+https://doi.org/10.1371/journal.pone.0210388
+
+    All relevant data are within the manuscript and its Supporting Information files
+
+**Note:** The usage of data sharing statements (as an independent section at the end of an article) is limited to certain technical domains and journals, mainly bio-medicine and natural sciences. Without data sharing statement requirements, the sharing is usually clearer for text mining because the authors are not forced by a kind of bureacratic statement requirement which often result in some obfuscation: they disclose the shared datasets and how to access them or they -say nothing about the availability of data. On the other hand, data sharing is then less frequent and requires much more sophisticated text mining process to be captured, with lower recall. 
 
 - In general, we can expect to be able to determine that a certain proportion of research article shares "some" data effectively (not just stating a possibility of request for data or an intend):
     * we cannot judge the comprehensiveness of the shared data
     * we need to identify evidence of actual sharing e.g. url, data repository, permanent identifier to access that some data is shared
-    * mention of the usage of some selection of research data available online (e.g. ) is not enough to determine which data is used and is not shared data
-
+    * a mention of the usage of some selection of research data available online (e.g. "we used samples from GenBank") is not enough to determine which data is used and is not shared data
+    * vague statements like "all relevant data are within the manuscript and its Supporting Information files" (typical PLOS One) or "All relevant data are within the manuscript" very rarely match the usual expected requirements of data sharing
 
 ## References
 
