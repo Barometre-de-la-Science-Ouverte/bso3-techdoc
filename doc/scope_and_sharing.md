@@ -2,9 +2,9 @@
 
 ## Objective
 
-1) Define what should be considered as a "software" object in the scopre of the BSO
+1) Define what should be considered as a "software" object in the scope of the BSO
 
-2) Define what should be considered as a "dataset" object in the scopre of the BSO
+2) Define what should be considered as a "dataset" object in the scope of the BSO
 
 3) what are the minimal criteria for considering that a software or a dataset is shared ?
 
