@@ -228,7 +228,9 @@ These vague statements are very common and introduce a major difference between 
 
     In this cross-sectional study of 487 clinical trials published in JAMA, Lancet, and New England Journal of Medicine, 334 articles (68.6%) declared data sharing. Only 2 (0.6%) individual-participant data sets were actually deidentified and publicly available on a journal website
 
-**Note:** The usage of data sharing statements (as an independent section at the end of an article) is limited to certain technical domains and journals, mainly bio-medicine and natural sciences. Without data sharing statement requirements, the sharing is usually clearer for text mining because the authors are not forced by a kind of bureacratic statement requirement which often result in some obfuscation: they disclose the shared datasets and how to access them or they -say nothing about the availability of data. On the other hand, data sharing is then less frequent and requires much more sophisticated text mining process to be captured, with lower recall. 
+**Note 1:** The usage of data sharing statements (as an independent section at the end of an article) is limited to certain technical domains and journals, mainly bio-medicine and natural sciences. Without data sharing statement requirements, the sharing is usually clearer for text mining because the authors are not forced by a kind of bureacratic statement requirement which often result in some obfuscation: they disclose the shared datasets and how to access them or they -say nothing about the availability of data. On the other hand, data sharing is then less frequent and requires much more sophisticated text mining process to be captured, with lower recall. 
+
+**Note 2**: These issues were already observed from early data sharing policies. For instance, PLOS requests the authors to include systematically a data availability statement. However, [8] reported that only about 20% of the statements indicate that data are deposited in a repository (which is "strongly recommended" by PLOS data sharing policy). In addition, satisfying the level of sharing required in the PLOS policy, even with data deposit in a repository, was unclear.  
 
 - In general, we can expect to be able to determine that a certain proportion of research article shares "some" data effectively (not just stating a possibility of request for data or an intend):
     * we cannot judge the comprehensiveness of the shared data
@@ -252,3 +254,6 @@ Journal of Clinical Epidemiology, 2022. https://doi.org/10.1016/j.jclinepi.2022.
 [6] Rowhani-Farid A, Barnett AG. Has open data arrived at the British Medical Journal (BMJ)? An observational study. BMJ Open 2016;6:e011784. https://doi.org/10.1136/bmjopen-2016-011784
 
 [7] Neve, Judith, and Guillaume Rousselet. "The Evolution of Data Sharing Practices in the Psychological Literature." (2021). https://doi.org/10.31234/osf.io/3xdja
+
+[8] Federer LM, Belter CW, Joubert DJ, Livinski A, Lu Y-L, Snyders LN, et al. (2018) Data sharing in PLOS ONE: An analysis of Data Availability Statements. PLoS ONE 13(5): e0194768. https://doi.org/10.1371/journal.pone.0194768
+
