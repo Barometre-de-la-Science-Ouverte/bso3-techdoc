@@ -2,7 +2,7 @@
 
 ## Objective
 
-1) Define what should be considered as a "software" object in the scope of the French Open Science Monitor (Baromètre de la Science Ouverte : BSO)
+1) Define what should be considered as a "software" object in the scope of the French Open Science Monitor (Baromètre de la Science Ouverte, BSO)
 
 2) Define what should be considered as a "dataset" object in the scope of the BSO
 
@@ -10,17 +10,17 @@
 
 ## 1) Software
 
-From the point of view of software sharing, a "research software" is usually a software produced by researchers or by research software engineers. 
+From the point of view of software sharing, "research software" is usually software produced by researchers or by research software engineers. 
 
-From the point of view of software citation, a "research software" is a software mentioned in scholar literature - this is a "software of interest" for research. This could cover also general purposes and mainstream software such as Excel, Photoshop or PostgresSQL. 
+From the point of view of software citation, "research software" is software mentioned in scholar literature - this is "software of interest" for research. This could cover also general purposes and mainstream software such as Excel, Photoshop or PostgresSQL. 
 
-Software correspond in practice to various artefacts, which are not always obvious to consider as a "software". This is particularly challenging from the point of view of software citation, but this remains an issue even when identifying software sharing. 
+Software products correspond in practice to various artefacts, which are not always obvious to consider as "software". This is particularly challenging from the point of view of software citation, but this remains an issue even when identifying software sharing. 
 
-A standard definition of a software is "a collection of computer programs that provides the instructions for telling a computer what to do and how to do it" (Wikipedia). Everything that can provide processing instructions to a computer, whatever its form, can therefore be seen as a software.
+A standard definition of software is "a collection of computer programs that provides the instructions for telling a computer what to do and how to do it" (Wikipedia). Everything that can provide processing instructions to a computer, whatever its form, can therefore be seen as software.
 
 The types/formats of software depend a lot on the technical domain and the used programing framework. 
 
-- **Software** typically can be published as standalone applications or libraries/plugins, either as executable code (binaries), package (e.g. R package, combining script and binaries), as a more comprehensive open source project (program, script, resources, document, build scripts, etc.), script to be exectuted within a particular software environment, source code that require manual building, small standalone script (e.g. "gist"), plaform (data, data management software and service software), web services, images to be executed as containers, or software embedded in an hardware device.
+- **Software** products typically can be published as standalone applications or libraries/plugins, either as executable code (binaries), package (e.g. R package, combining script and binaries), as a more comprehensive open source project (program, script, resources, document, build scripts, etc.), script to be exectuted within a particular software environment, source code that require manual building, small standalone script (e.g. "gist"), plaform (data, data management software and service software), web services, images to be executed as containers, or software embedded in an hardware device.
 
 - The notion of **models** (machine learning models, simulation models) versus software is unclear. Models encode data processing and executable action/prediction process. They are however in a format closer to data, because the "instructions" are only digital transformations. Models themselves should be run in a software environment. Despite their "executable" nature, models are usually not considered as software. 
 
@@ -41,10 +41,10 @@ Examples:
     for BON-1; HPRT and YWAZ for QGP-1) according to the geNorm algorithm (Mestdagh et 
     al, 2009). 
 
-*geNorm* is an algorithm and referenced as such above, but it is a software too - and the software is actually used for the normalization in the described research.
+*geNorm* is an algorithm and referenced as such above, but it is software too - and the software is actually used for the normalization in the described research.
 
 
-- **Database** versus software: in scientific publications, it is quite frequent to mention a database name as a general service covering the data and the software to access/search the data (including web services and database management software, e.g. PostgresSQL). 
+- **Database** versus software: in scientific publications, it is quite frequent to mention a database name as a general service covering the data and  software to access/search the data (including web services and database management software, e.g. PostgresSQL). 
 
 * PMC4863732
 
@@ -80,9 +80,9 @@ The [VITEK 2 system](https://www.biomerieux-usa.com/clinical/vitek-2-healthcare)
 
 Given the variety of software embodiments, what is mentioned is often larger system or devices including software. It is thus important to decide in context to which part the authors are referring to, and if the statement refers to the software part of the device. 
 
-This is however less an issue for software sharing (the software here is part of a commercial product, not really produced by researchers and described in a research publication), and it is more relevant to research software citation. 
+This is however less an issue for software sharing (software here is part of a commercial product, not really produced by researchers and described in a research publication), and it is more relevant to research software citation. 
  
-- **Software components** of a more complete infrastructure: a reference is made to a general infrastructure, including some software components. For example in [10.20955/r.2018.1-16](http://herosolutions.com.pk/breera/foundation/images/whitepaper.pdf) "Bitcoin wallet". 
+- **Software components** of a more complete infrastructure: A reference is made to a general infrastructure, including some software components. For example in [10.20955/r.2018.1-16](http://herosolutions.com.pk/breera/foundation/images/whitepaper.pdf) "Bitcoin wallet". 
 
 - Reference to a **programming languages**. For example:
 
@@ -90,7 +90,7 @@ This is however less an issue for software sharing (the software here is part of
 
     It is written in BASIC, a close analogue to FORTRAN.
 
-Software language per se (written in BASIC, in FORTRAN, ...) are normally not software, but software tools for a software language (like a C compiler, a Java virtual machine, an Integrated Development Environment like R-Studio, etc.) are. 
+Software language per se (written in BASIC, in FORTRAN, ...) are normally not software, but software tools for implementing a software language (like a C compiler, a Java virtual machine, an Integrated Development Environment like R-Studio, etc.) are. 
 
 - Non-named usage of a programming environment. Software was produced on the environment (some code was written), but it is implicit, not shared, nor reusable. 
 
@@ -137,7 +137,7 @@ For example:
 
 The Illumina Hiseq 2500 device produces sequencing data, which are part of the described study. These data are however not named and not shared. 
 
-The occurrence of a data acquisition device is usually a very reliable hint that some research data have been produced and could be shared for reproducibility and reuse reasons. In our dataset recognition approach, we are thus also trying to identify automatically mentions on data acquisition devices. 
+The occurrence of a data acquisition device is usually a very reliable hint that some research data have been produced and could be shared for reproducibility and reuse reasons. In our dataset recognition approach, we are thus also trying to identify automatically mentions to data acquisition devices. 
 
 Estimating the number of mentions of implicit datasets would be necessary to estimate the proportion of shared data (against all produced data) in a research work. 
 
@@ -148,14 +148,14 @@ This is however identical to what is usually understood as a "dataset". In the c
 
 On the other hand, a "dataset" typically exists independently from a database management system and is not ambiguous. 
 
-- Reference not to a dataset name, but to a **data sharing initiative/project**, which purpose is a collection of datasets.
+- Reference made not with a dataset name to a single dataset, but with a **data sharing initiative/project** name used to reference a collection of datasets developed by this initiative/project.
 
 For example the Coleridge Kaggle dataset (which is a particularly "noisy", imprecise and incomplete annotated corpus) is annotating the Alzheimer's Disease Neuroimaging Initiative (ADNI) as a dataset name: 
 
     Genome-wide pathway analysis of memory impairment in the Alzheimer’s Disease Neuroimaging 
     Initiative (ADNI) cohort implicates gene candidates, canonical pathways, and networks.
 
-This is however not a standard dataset citation, although the location of some data used in the research work is supported. 
+This is however not a standard dataset citation. It informs about the origin and location of some data used in the research work, but does not describe precisely which data is considered. 
 
 Very similar, we can see references to a large project/collaboration/experiments (*collaboration* in the sense of HEP or Astronomy, such as ATLAS, CMS, LHCb), for actually referencing data produced/shared by the collaboration and not the collaboration itself. 
 
@@ -198,7 +198,7 @@ The form of sharing statements, the nature of the shared data/software and the p
 
 - Sharing statement corresponding to **no actual public data sharing**: "data available on reasonable demand"
 
-Furthermore, such promise/intent expressions actually indicate that, on the contrary, the data will in general not be shared at all, even on fair demand, see [4] "Among 1792 manuscripts in which DAS indicated that authors are willing to share their data, 1670 (93%) authors either did not respond or declined to share their data with us.". Note that such disappointing actual data sharing rate was reported in [6], but better rates after request to share the data were reported in [7] for studies in Psychology. 
+Furthermore, such promise/intent expressions actually indicate that, on the contrary, the data will in general not be shared at all, even on fair demand, see [4] "Among 1792 manuscripts in which DAS indicated that authors are willing to share their data, 1670 (93%) authors either did not respond or declined to share their data with us.". Note that such disappointing data sharing rate was reported in [6], but higher rates after request to share the data were reported in [7] for studies in Psychology. 
 
 - Sharing statement on **secured domain**: the data is shared but not available without some authorization and credentials validation process
 
