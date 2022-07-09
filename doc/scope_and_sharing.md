@@ -20,9 +20,9 @@ A standard definition of software is "a collection of computer programs that pro
 
 The types/formats of software depend a lot on the technical domain and the used programing framework. 
 
-- **Software** products typically can be published as standalone applications or libraries/plugins, either as executable code (binaries), package (e.g. R package, combining script and binaries), as a more comprehensive open source project (program, script, resources, document, build scripts, etc.), script to be exectuted within a particular software environment, source code that require manual building, small standalone script (e.g. "gist"), plaform (data, data management software and service software), web services, images to be executed as containers, or software embedded in an hardware device.
+- **Software** products typically can be published as standalone applications or libraries/plugins, either as executable code (binaries), package (e.g. R package, combining script and binaries), as a more comprehensive open source project (program, script, data resources, documentation, build scripts, etc.), script program to be interpreted and exectuted within a particular software environment, source code that require manual building, small standalone script (e.g. "gist"), plaform (including data, data management software and service software), web services, images to be executed as containers, or software embedded in an hardware device.
 
-- The notion of **models** (machine learning models, simulation models) versus software is unclear. Models encode data processing and executable action/prediction process. They are however in a format closer to data, because the "instructions" are only digital transformations. Models themselves should be run in a software environment. Despite their "executable" nature, models are usually not considered as software. 
+- The notion of **models** (machine learning models, simulation models) versus software is unclear. Models encode data processing and executable action/prediction process. They are however in a format closer to data, because the "instructions" are only digital transformations. Models themselves should be run in a software environment. Despite their "executable" nature, models are usually not considered as software and have dedicated distinct sharing infrastructure (e.g. the [CoMSES Net](https://www.comses.net)). 
 
 - **Algorithm** versus software: it is quite frequent that the name of an algorithm and its implementation (so as software) are used in papers in an interchangeable manner. While it is clear that we want to exclude "algorithm names" from software entities, they can be used to refer to the implementation. This is one of the most frequent ambiguity we have identified in Softcite and this was similarly reported by [3]. The distinction could sometime be done in context, but a guideline is necessary when the usage of the name is general and ambiguous on purpose. 
 
@@ -99,6 +99,9 @@ Example:
 [10.1136/gut.2011.238386](https://gut.bmj.com/content/gutjnl/61/1/69.full.pdf)
 
     Multiple imputation was conducted in R 2.11." 
+
+**We propose to cover the notion of software in general independently from any particular distribution forms.** 
+In addition to the exclusions we discussed above (mentions to algorithm independently from its implementation, mentions to database when referring to the stored data, and programing language when indicating in which language some software is written), we consider the following clarifications: 
 
 - When defining the scope of software, [2] introduces the following exclusions:
 
