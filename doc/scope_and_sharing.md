@@ -14,11 +14,15 @@ From the point of view of software sharing, "research software" is usually softw
 
 From the point of view of software citation, "research software" is software mentioned in scholar literature - this is "software of interest" for research. This could cover also general purposes and mainstream software such as Excel, Photoshop or PostgresSQL. 
 
-Software products correspond in practice to various artefacts, which are not always obvious to consider as "software". This is particularly challenging from the point of view of software citation, but this remains an issue even when identifying software sharing. 
+Software products correspond in practice to various artefacts, which are not always clear to consider as "software". This is particularly challenging from the point of view of software citation, but this remains an issue even when identifying software sharing. 
 
-A standard definition of software is "a collection of computer programs that provides the instructions for telling a computer what to do and how to do it" (Wikipedia). Everything that can provide processing instructions to a computer, whatever its form, can therefore be seen as software.
+A standard definition of software is "a collection of computer programs that provides the instructions for telling a computer what to do and how to do it" (Wikipedia). Everything that can provide processing instructions to a computer, whatever its form, can therefore be seen as software. This relatively broad definition of software covers a large variety of software products, for instance from macro and formula part of an Excel sheet to large software project with multiple components, hundred thousand lines of source code and binary packages for a variety of computing environments. 
+
+Any of these software products have a potential research interest, for reuse or reproducibility purposes, and could be therefore valuable to share. Monitoring the openness of software in research supposes to be able to identify any mentions of a software product independently from the scale of the software production and independently from its form. 
 
 The types/formats of software depend a lot on the technical domain and the used programing framework. 
+
+**We propose to cover the notion of software in general independently from any particular distribution forms.** 
 
 - **Software** products typically can be published as standalone applications or libraries/plugins, either as executable code (binaries), package (e.g. R package, combining script and binaries), as a more comprehensive open source project (program, script, data resources, documentation, build scripts, etc.), script program to be interpreted and exectuted within a particular software environment, source code that require manual building, small standalone script (e.g. "gist"), plaform (including data, data management software and service software), web services, images to be executed as containers, or software embedded in an hardware device.
 
@@ -90,7 +94,7 @@ This is however less an issue for software sharing (software here is part of a c
 
     It is written in BASIC, a close analogue to FORTRAN.
 
-Software language per se (written in BASIC, in FORTRAN, ...) are normally not software, but software tools for implementing a software language (like a C compiler, a Java virtual machine, an Integrated Development Environment like R-Studio, etc.) are. 
+Software language per se (written in BASIC, in FORTRAN, ...) are normally not software per se, but software tools for implementing a software language (like a C compiler, a Java virtual machine, an Integrated Development Environment like R-Studio, etc.) are. 
 
 - Non-named usage of a programming environment. Software was produced on the environment (some code was written), but it is implicit, not shared, nor reusable. 
 
@@ -100,7 +104,12 @@ Example:
 
     Multiple imputation was conducted in R 2.11." 
 
+- **Workflow** as high-level specifications: in data-intensive scientific domains, the complexity of data processing has led to the common definiton and usage of workflows associated to a scientific experiments. Examples of such workflow systems are [Galaxy](https://galaxyproject.org) (life science), [Kepler](https://kepler-project.org) (physics and environment sciences), [Apache Taverna](https://incubator.apache.org/projects/taverna.html) (bioinformatics, astronomy, biodiversity - now retired), or [KNIME](https://www.knime.com). As workflows are formal instructions similar to high level scripting language, interpreted in a computer environment, and actually shared for reproducibility and reuse purposes, we consider them as software product. 
+
+- **API**: An API is an intermediary product between documentation and executable software. It is challenging to decide if an API should be considered as software, because it requires an implementation to be executable. On the other hand, an API corresponds to instructions that can be executed when used on an environment or with other software components implementing the API, like other software depending on other software components. Given that it is the nature of an API to be shared and used for collaborative work in software, we consider API product as software too. 
+
 **We propose to cover the notion of software in general independently from any particular distribution forms.** 
+
 In addition to the exclusions we discussed above (mentions to algorithm independently from its implementation, mentions to database when referring to the stored data, and programing language when indicating in which language some software is written), we consider the following clarifications: 
 
 - When defining the scope of software, [2] introduces the following exclusions:
@@ -231,15 +240,20 @@ These vague statements are very common and introduce a major difference between 
 
     In this cross-sectional study of 487 clinical trials published in JAMA, Lancet, and New England Journal of Medicine, 334 articles (68.6%) declared data sharing. Only 2 (0.6%) individual-participant data sets were actually deidentified and publicly available on a journal website
 
-**Note 1:** The usage of data sharing statements (as an independent section at the end of an article) is limited to certain technical domains and journals, mainly bio-medicine and natural sciences. Without data sharing statement requirements, the sharing is usually clearer for text mining because the authors are not forced by a kind of bureacratic statement requirement which often result in some obfuscation: they disclose the shared datasets and how to access them or they say nothing about the availability of data. On the other hand, data sharing is then less frequent and requires much more sophisticated text mining process to be captured, with lower recall. 
+- The case of software sharing limited to the sharing of the API (probably to be discussed, but only relevant in a limited manner to the fields of computer science and telecommunication).
 
-**Note 2**: These issues were already observed from early data sharing policies. For instance, PLOS requests the authors to include systematically a data availability statement. However, [8] reported that only about 20% of the statements indicate that data are deposited in a repository (which is "strongly recommended" by PLOS data sharing policy). In addition, satisfying the level of sharing required in the PLOS policy, even with data deposit in a repository, was unclear.  
+**Conclusion**
 
-- In general, we can expect to be able to determine that a certain proportion of research article shares "some" data effectively (not just stating a possibility of request for data or an intend):
-    * we cannot judge the comprehensiveness of the shared data
-    * we need to identify evidence of actual sharing e.g. url, data repository, permanent identifier to access that some data is shared
+Our goal is to be able to determine that a certain proportion of research article shares "some" data effectively (not just stating a possibility of request for data or an intend):
+    * we cannot judge the comprehensiveness of the shared data ("level of sharing")
+    * to assess that some data is shared, we need to identify evidence of actual sharing e.g. url, data repository, permanent identifier 
     * a mention of the usage of some selection of research data available online (e.g. "we used samples from GenBank") is not enough to determine which data is used and is not shared data
     * vague statements like "all relevant data are within the manuscript and its Supporting Information files" (typical PLOS One) or "All relevant data are within the manuscript" very rarely match the usual expected requirements of data sharing
+
+**Note 1:** The usage of "Data Sharing Statements" in an article (as an independent section at the end of an article) is limited to certain technical domains and journals, mainly bio-medicine and natural sciences. Without *Data sharing statement* requirements, the sharing is usually clearer for text mining because the authors are not forced by a kind of bureacratic statement requirement which often result in some obfuscation: they disclose the shared datasets and how to access them or they say nothing about the availability of data. On the other hand, data sharing is then less frequent and requires much more sophisticated text mining process to be captured, with lower recall. 
+
+**Note 2**: The issue of expressing a *Data Sharing Statement* versus actually sharing data was already observed from early data sharing policies. For instance, PLOS requests the authors to include systematically a data availability statement. However, [8] reported that only about 20% of the statements indicate that data are deposited in a repository (which is "strongly recommended" by PLOS data sharing policy). In addition, satisfying the level of sharing required in the PLOS policy, even with data deposit in a repository, was unclear.  
+
 
 ## References
 
