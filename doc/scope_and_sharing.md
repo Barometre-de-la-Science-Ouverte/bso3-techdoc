@@ -226,7 +226,7 @@ The form of sharing statements, the nature of the shared data/software and the p
 
 Furthermore, such promise/intent expressions actually indicate that, on the contrary, the data will in general not be shared at all, even on fair demand, see [4] "Among 1792 manuscripts in which DAS indicated that authors are willing to share their data, 1670 (93%) authors either did not respond or declined to share their data with us.". Note that such disappointing data sharing rate was reported in [6], but higher rates after request to share the data were reported in [7] for studies in Psychology. 
 
-- Sharing statement on **secured domain**: the data is shared but not available without some authorization and credentials validation process
+- Sharing statement on **secured domain**: the data is shared but not available without some authorization and credentials validation process. The FAIR principles recognized that some level of authentication and protection can be associated to data sharing when necessary, in particular for possibly sensitive data and private data (see [here](https://www.go-fair.org/fair-principles/a1-2-protocol-allows-authentication-authorisation-required/)). We thus also consider that sharing should not be limited to fully open sharing without any authentifications and restrictions.
 
 - **Partial sharing**: only some data of the study are shared, this is the most common case of data sharing
     * sharing of secondary/analysis data, but not of primary data (e.g. sharing of the data points of figures)
