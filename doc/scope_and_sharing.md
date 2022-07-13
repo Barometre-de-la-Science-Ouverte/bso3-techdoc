@@ -259,10 +259,14 @@ These vague statements are very common and introduce a major difference between 
 **Conclusion on the notion of sharing**
 
 Our goal is to be able to determine that a certain proportion of research articles shares "some" data effectively (not just stating a possibility of request for data or an intend):
-    * we cannot judge the comprehensiveness of the shared data ("level of sharing")
-    * to assess that some data is shared, we need to identify evidence of actual sharing e.g. url, data repository, permanent identifier 
-    * a mention of the usage of some selection of research data available online (e.g. "we used samples from GenBank") is not enough to determine which data is used and is not shared data
-    * vague statements like "all relevant data are within the manuscript and its Supporting Information files" (typical PLOS One) or "All relevant data are within the manuscript" very rarely match the usual expected requirements of data sharing
+    
+    - we cannot judge the comprehensiveness of the shared data ("level of sharing")
+    
+    - to assess that some data is shared, we need to identify evidence of actual sharing e.g. url, data repository, permanent identifier 
+    
+    - a mention of the usage of some selection of research data available online (e.g. "we used samples from GenBank") is not enough to determine which data is used and is not shared data
+    
+    - vague statements like "all relevant data are within the manuscript and its Supporting Information files" (typical PLOS One) or "All relevant data are within the manuscript" very rarely match the usual expected requirements of data sharing
 
 **Note 1:** The usage of "Data Sharing Statements" in an article (as an independent section at the end of an article) is limited to certain technical domains and journals, mainly bio-medicine and natural sciences. Without *Data sharing statement* requirements, the sharing is usually clearer for text mining because the authors are not forced by a kind of bureacratic statement requirement which often result in some obfuscation: they disclose the shared datasets and how to access them or they say nothing about the availability of data. On the other hand, data sharing is then less frequent and requires much more sophisticated text mining process to be captured, with lower recall. 
 
