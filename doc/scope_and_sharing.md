@@ -120,26 +120,30 @@ Example:
 
 In addition to the exclusions we discussed above (mentions to algorithm independently from its implementation, mentions to database when referring to the stored data, and programing language when indicating in which language some software is written), we consider the following clarifications with respect to the main existing software annotation efforts (in addition to Softcite [9], from which this work is derived): 
 
-- When defining the scope of software, [2] introduces the following exclusions:
+When defining the scope of software, [2] introduces the following exclusions:
 
+```
     We explicitly exclude database record numbers/identifiers (e.g., GO:0002474, Q8HWB0), file 
     formats (e.g., PDF), programming languages and their libraries (e.g., Python, BioPython), 
     operating systems (e.g., Linux), algorithms (e.g., Merge-Sort), methods (e.g., ANOVA, 
     Random Forests) and approaches (e.g., Machine Learning, Dynamic Programming)." 
+```
 
 We follow the same exclusions regarding data formats and identifiers, but we further acknowledge and consider that mentions to algorithms can also refer (on purposes) to software implementing the algorithm. In addition, we consider programming language tools/libraries as software per se. Programming languages (the general concept of "language") and operating systems (when introduced as system to run software) are considered attribute characterizing a software product. 
 
 [3] distinguishes 4 subtypes of software:
 
-- Application, a standalone program, designed for end-users
-(include web-based applications such as web-services).
+```
+    - Application, a standalone program, designed for end-users
+    (include web-based applications such as web-services).
 
-- Plugin is an extension to a software that cannot be used in-
-dividually (include libraries/R packages).
+    - Plugin is an extension to a software that cannot be used in-
+    dividually (include libraries/R packages).
 
-- Operating System (OS) 
+    - Operating System (OS) 
 
-- Programming Environment (includes compilers or interpreters)
+    - Programming Environment (includes compilers or interpreters)
+```
 
 We consider and annotate mentions to application and plugin as standard software mention too. Relatively to OS and programing environment, when used together with a specific software mention, OS and programing environments are considered as "attributes" of this software (e.g. running on Windows, developed with R-Studio). However, OS and programing environments can also be referenced as such when the mention refer specifically to the OS implementation or programming language tools/libraries and not to some software using them. 
 
