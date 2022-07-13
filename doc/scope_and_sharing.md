@@ -116,9 +116,9 @@ Example:
 
 - **API**: An API is an intermediary product between documentation and executable software. It is challenging to decide if an API should be considered as software, because it requires an implementation to be executable. On the other hand, an API corresponds to instructions that can be executed when used on an environment or with other software components implementing the API, like other software depending on other software components. Given that it is the nature of an API to be shared and used for collaborative work in software, we consider API product as software too. 
 
-**We propose to cover the notion of software in general independently from any particular distribution forms.** 
+**Difference with Duck and al. annotated corpus [2] and SoMeSci corpus [3]**
 
-In addition to the exclusions we discussed above (mentions to algorithm independently from its implementation, mentions to database when referring to the stored data, and programing language when indicating in which language some software is written), we consider the following clarifications: 
+In addition to the exclusions we discussed above (mentions to algorithm independently from its implementation, mentions to database when referring to the stored data, and programing language when indicating in which language some software is written), we consider the following clarifications with respect to the main existing software annotation efforts (in addition to Softcite [9], from which this work is derived): 
 
 - When defining the scope of software, [2] introduces the following exclusions:
 
@@ -126,6 +126,8 @@ In addition to the exclusions we discussed above (mentions to algorithm independ
     formats (e.g., PDF), programming languages and their libraries (e.g., Python, BioPython), 
     operating systems (e.g., Linux), algorithms (e.g., Merge-Sort), methods (e.g., ANOVA, 
     Random Forests) and approaches (e.g., Machine Learning, Dynamic Programming)." 
+
+We follow the same exclusions regarding data formats and identifiers, but we further acknowledge and consider that mentions to algorithms can also refer (on purposes) to software implementing the algorithm. In addition, we consider programming language tools/libraries as software per se. Programming languages (the general concept of "language") and operating systems (when introduced as system to run software) are considered attribute characterizing a software product. 
 
 [3] distinguishes 4 subtypes of software:
 
@@ -139,7 +141,7 @@ dividually (include libraries/R packages).
 
 - Programming Environment (includes compilers or interpreters)
 
-When used together with a specific software mention, OS and programing environments can be considered as "attributes" of this software (e.g. running on Windows, developed with R-Studio). However, OS and programing environments can also be referenced as such. 
+We consider and annotate mentions to application and plugin as standard software mention too. Relatively to OS and programing environment, when used together with a specific software mention, OS and programing environments are considered as "attributes" of this software (e.g. running on Windows, developed with R-Studio). However, OS and programing environments can also be referenced as such when the mention refer specifically to the OS implementation or programming language tools/libraries and not to some software using them. 
 
 
 ## 2) Dataset
@@ -252,7 +254,7 @@ These vague statements are very common and introduce a major difference between 
 
 **Conclusion**
 
-Our goal is to be able to determine that a certain proportion of research article shares "some" data effectively (not just stating a possibility of request for data or an intend):
+Our goal is to be able to determine that a certain proportion of research articles shares "some" data effectively (not just stating a possibility of request for data or an intend):
     * we cannot judge the comprehensiveness of the shared data ("level of sharing")
     * to assess that some data is shared, we need to identify evidence of actual sharing e.g. url, data repository, permanent identifier 
     * a mention of the usage of some selection of research data available online (e.g. "we used samples from GenBank") is not enough to determine which data is used and is not shared data
@@ -282,3 +284,4 @@ Journal of Clinical Epidemiology, 2022. https://doi.org/10.1016/j.jclinepi.2022.
 
 [8] Federer LM, Belter CW, Joubert DJ, Livinski A, Lu Y-L, Snyders LN, et al. (2018) Data sharing in PLOS ONE: An analysis of Data Availability Statements. PLoS ONE 13(5): e0194768. https://doi.org/10.1371/journal.pone.0194768
 
+[9] Du, C, Cohoon, J, Lopez, P, Howison, J. Softcite dataset: A dataset of software mentions in biomedical and economic research publications. J Assoc Inf Sci Technol. 2021; 72: 870– 884. https://doi.org/10.1002/asi.24454
