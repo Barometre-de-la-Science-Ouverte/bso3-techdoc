@@ -102,7 +102,7 @@ This is however less an issue for software sharing (software here is part of a c
 
     It is written in BASIC, a close analogue to FORTRAN.
 
-Software language per se (written in BASIC, in FORTRAN, ...) are normally not software per se, but software tools for implementing a software language (like a C compiler, a Java virtual machine, an Integrated Development Environment like R-Studio, etc.) are. 
+Software language (written in BASIC, in FORTRAN, ...) are normally not software per se, but software tools for implementing a software language (like a C compiler, a Java virtual machine, an Integrated Development Environment like R-Studio, etc.) are. 
 
 - Non-named usage of a programming environment. Software was produced on the environment (some code was written), but it is implicit, not shared, nor reusable. 
 
