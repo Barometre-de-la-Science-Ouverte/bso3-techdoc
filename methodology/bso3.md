@@ -1,0 +1,82 @@
+---
+title: '..'
+subtitle: '...'
+author:
+  - Laetitia Bracco:
+      institute: université de lorraine
+      orcid: 0000-0002-2939-9110
+      idref: 19945468X
+  - Anne L'Hôte:
+      institute: mesr
+      orcid: 0000-0003-1353-5584
+      idref: 258076186
+  - Eric Jeangirard:
+      institute: mesr
+      orcid: 0000-0002-3767-7125
+      idref: 242241344
+  - Patrice Lopez:
+      institute: scienceminer
+      orcid: 0000-0002-9959-9441
+      idref: 157929930
+
+institute:
+  - mesr:
+      name: 'French Ministry of Higher Education, Research, Paris, France'
+  - université de lorraine:
+      name: 'University of Lorraine, France'
+  - scienceminer:
+      name: 'Science-miner, Naves, France'
+bibliography: bso3.bib
+date: December 2022
+keywords:
+  - research software
+  - research data
+  - open access
+  - open science
+  - scientometrics
+geometry: "left=3cm, right=3cm, top=3cm, bottom=3cm"
+---
+
+**Keywords**: research software, research data, open access, open science, scientometrics
+
+# Abstract
+
+We present a method implemented at the French national level to measure the openness of French research data, codes and software.
+
+The French Open Science Monitor (BSO) website: [https://frenchopensciencemonitor.esr.gouv.fr](https://frenchopensciencemonitor.esr.gouv.fr) presents ...
+
+The source code and the data of the French Open Science Monitor are shared with an open licence.
+
+# 1. Introduction
+
+A first version of the French Open Science Monitor, also called BSO for 'Baromètre de la Science Ouverte' was launched in 2019, as a tool for monitoring and steering the public policy linked to the first French National Plan for Open Science [@mesri_national_2018]. Since then 2nd Plan for Open Science [@mesri_2nd_2021] has been published to continue the open science policy, with a specific focus, among others, on research data and on softwares. The French Open Science Monitor has been updated [@bracco_extending_2022], however, the public policy areas of research datasets and software were not covered yet by the BSO.
+
+[@du_softcite_2021]
+
+# 2. Method
+
+## 2.1 Softwares and codes
+
+## 2.2 Research data
+
+# 3. Results
+
+
+## 3.4 Limitations and future research
+
+### 3.4.1 Limitations
+
+### 3.4.2 Future work and local implementation
+
+
+# Software and code availability
+
+The source code used for the French Open Science Monitor is available on GitHub, and shared with an open licence.
+
+# Data availability
+
+The data resulting of this work is shared on the French Ministry of Higher Education, Research and Innovation open data portal: 
+
+# Acknowledgements
+
+# References

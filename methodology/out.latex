@@ -1,0 +1,237 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={..},
+  pdfkeywords={research software, research data, open access, open
+science, scientometrics},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+% for compatibility with pandoc 2.10
+\newenvironment{cslreferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+
+\title{..}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{\ldots{}}
+\usepackage{authblk}
+\author[%
+  2%
+  ]{%
+  Laetitia Bracco%
+  %
+  %
+}
+\author[%
+  1%
+  ]{%
+  Anne L'Hôte%
+  %
+  %
+}
+\author[%
+  1%
+  ]{%
+  Eric Jeangirard%
+  %
+  %
+}
+\author[%
+  3%
+  ]{%
+  Patrice Lopez%
+  %
+  %
+}
+\affil[1]{French Ministry of Higher Education, Research, Paris, France}
+\affil[2]{University of Lorraine, France}
+\affil[3]{Science-miner, Naves, France}
+\date{December 2022}
+
+\makeatletter
+\def\@maketitle{%
+  \newpage \null \vskip 2em
+  \begin {center}%
+    \let \footnote \thanks
+         {\LARGE \@title \par}%
+         \vskip 1.5em%
+                {\large \lineskip .5em%
+                  \begin {tabular}[t]{c}%
+                    \@author
+                  \end {tabular}\par}%
+                                                \vskip 1em{\large \@date}%
+  \end {center}%
+  \par
+  \vskip 1.5em}
+\makeatother
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We present a method implemented at the French national level to measure
+the openness of French research data, codes and software.
+
+The French Open Science Monitor (BSO) website:
+\url{https://frenchopensciencemonitor.esr.gouv.fr} presents \ldots{}
+
+The source code and the data of the French Open Science Monitor are
+shared with an open licence.
+\end{abstract}
+
+\textbf{Keywords}: research software, research data, open access, open
+science, scientometrics
+
+\hypertarget{introduction}{%
+\section{1. Introduction}\label{introduction}}
+
+A first version of the French Open Science Monitor, also called BSO for
+`Baromètre de la Science Ouverte' was launched in 2019, as a tool for
+monitoring and steering the public policy linked to the first French
+National Plan for Open Science (MESRI 2018). Since then 2nd Plan for
+Open Science (MESRI 2021) has been published to continue the open
+science policy, with a specific focus, among others, on research data
+and on softwares. The French Open Science Monitor has been updated
+(Bracco et al. 2022), however, the public policy areas of research
+datasets and software were not covered yet by the BSO.
+
+(Du et al. 2021)
+
+\hypertarget{method}{%
+\section{2. Method}\label{method}}
+
+\hypertarget{softwares-and-codes}{%
+\subsection{2.1 Softwares and codes}\label{softwares-and-codes}}
+
+\hypertarget{research-data}{%
+\subsection{2.2 Research data}\label{research-data}}
+
+\hypertarget{results}{%
+\section{3. Results}\label{results}}
+
+\hypertarget{limitations-and-future-research}{%
+\subsection{3.4 Limitations and future
+research}\label{limitations-and-future-research}}
+
+\hypertarget{limitations}{%
+\subsubsection{3.4.1 Limitations}\label{limitations}}
+
+\hypertarget{future-work-and-local-implementation}{%
+\subsubsection{3.4.2 Future work and local
+implementation}\label{future-work-and-local-implementation}}
+
+\hypertarget{software-and-code-availability}{%
+\section{Software and code
+availability}\label{software-and-code-availability}}
+
+The source code used for the French Open Science Monitor is available on
+GitHub, and shared with an open licence.
+
+\hypertarget{data-availability}{%
+\section{Data availability}\label{data-availability}}
+
+The data resulting of this work is shared on the French Ministry of
+Higher Education, Research and Innovation open data portal:
+
+\hypertarget{acknowledgements}{%
+\section{Acknowledgements}\label{acknowledgements}}
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{cslreferences}
+\leavevmode\hypertarget{ref-bracco_extending_2022}{}%
+Bracco, Laetitia, L'Hôte, Anne, Jeangirard, Eric, and Torny, Didier.
+2022. ``Extending the Open Monitoring of Open Science: A New Framework
+for the French Open Science Monitor (BSO).''
+\url{https://hal.archives-ouvertes.fr/hal-03651518}.
+
+\leavevmode\hypertarget{ref-du_softcite_2021}{}%
+Du, Caifan, Johanna Cohoon, Patrice Lopez, and James Howison. 2021.
+``Softcite Dataset: A Dataset of Software Mentions in Biomedical and
+Economic Research Publications.'' \emph{Journal of the Association for
+Information Science and Technology} 72 (7): 870--84.
+\url{https://doi.org/10.1002/asi.24454}.
+
+\leavevmode\hypertarget{ref-mesri_national_2018}{}%
+MESRI. 2018. ``National Plan for Open Science.''
+\url{https://cache.media.enseignementsup-recherche.gouv.fr/file/Recherche/50/1/SO_A4_2018_EN_01_leger_982501.pdf}.
+
+\leavevmode\hypertarget{ref-mesri_2nd_2021}{}%
+---------. 2021. ``2nd National Plan for Open Science.''
+\url{https://cache.media.enseignementsup-recherche.gouv.fr/file/science_ouverte/20/9/MEN_brochure_PNSO_web_1415209.pdf}.
+\end{cslreferences}
+
+
+\end{document}
