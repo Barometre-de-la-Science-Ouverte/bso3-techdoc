@@ -51,6 +51,8 @@ The source code and the data of the French Open Science Monitor are shared with 
 
 A first version of the French Open Science Monitor, also called BSO for 'Baromètre de la Science Ouverte' was launched in 2019, as a tool for monitoring and steering the public policy linked to the first French National Plan for Open Science [@mesri_national_2018]. Since then 2nd Plan for Open Science [@mesri_2nd_2021] has been published to continue the open science policy, with a specific focus, among others, on research data and on softwares. The French Open Science Monitor has been updated [@bracco_extending_2022], however, the public policy areas of research datasets and software were not covered yet by the BSO.
 
+Through a call for projects within the framework of the french Recovery Plan, funding was obtained for the implementation of this project. The University of Lorraine has been asked by the Ministry of Higher Education and Research (MESRI) to lead this project alongside the MESRI's Department of Decision Support Tools and INRIA.  The project will be led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESRI), Eric Jeangirard (MESRI), Anne L'Hôte (INRIA) and Laurent Romary (INRIA). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.
+
 [@du_softcite_2021]
 
 # 2. Method
