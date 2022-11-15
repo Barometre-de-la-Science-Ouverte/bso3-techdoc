@@ -129,7 +129,7 @@ When defining the scope of software, [2] introduces the following exclusions:
     Random Forests) and approaches (e.g., Machine Learning, Dynamic Programming)." 
 ```
 
-We follow the same exclusions regarding data formats and identifiers, but we further acknowledge and consider that mentions to algorithms can also refer (on purposes) to software implementing the algorithm. In addition, we consider programming language tools/libraries as software per se. Programming languages (the general concept of "language") and operating systems (when introduced as system to run software) are considered attribute characterizing a software product. 
+We follow the same exclusions regarding data formats and identifiers, but we further acknowledge and consider that mentions to algorithms can also refer (on purposes) to software implementing the algorithm. In addition, we consider programming language tools/libraries as software per se. Programming languages (the general concept of "language") and operating systems (when introduced as system to run software) are considered otherwise attribute characterizing a software product. 
 
 [3] distinguishes 4 subtypes of software:
 
