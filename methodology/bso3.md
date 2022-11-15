@@ -1,5 +1,5 @@
 ---
-title: '..'
+title: 'Large-scale Machine-Learning analysis of scientific PDF for following the production and the openness of research data and software in France'
 subtitle: '...'
 author:
   - Aricia Bassinet:
@@ -22,6 +22,10 @@ author:
       institute: scienceminer
       orcid: 0000-0002-9959-9441
       idref: 157929930
+  - Laurent Romary:
+      institute: inria
+      orcid: 
+      idref: 
 
 institute:
   - mesr:
@@ -30,6 +34,8 @@ institute:
       name: 'University of Lorraine, France'
   - scienceminer:
       name: 'science-miner, France'
+  - inria:
+      name: 'Inria, France'
 bibliography: bso3.bib
 date: December 2022
 keywords:
@@ -47,11 +53,10 @@ geometry: "left=3cm, right=3cm, top=3cm, bottom=3cm"
 
 There is today no standard way for referencing research datasets and research software in scientific communication. Emerging editorial workflows and supporting infrastructures dedicated to dataset and software are still very little adhered to publishing practices and are very fragmented.
 
-To better follow the production of research datasets and software, we present a method relying on a text mining process targeting scientific publications at scale, implemented at the French national level to measure the openness of French research data and software.
+To better follow the production of research datasets and software, we present a method relying on a text mining process targeting scientific publications at scale, implemented at the French national level.
+Our approach relies on state-of-the-art Machine Learning and document engineering techniques to ensure satisfactory accuracy across multiple research areas and document types, combining full-text harvesting, mention extraction, context characterization and corpus-level analysis. 
 
-Our approach relies on state-of-the-art Machine Learning and document engineering developments to ensure satisfactory accuracy across multiple research areas and document types, combining full-text harvesting, mention extraction, context characterization and corpus-level analysis. 
-
-The French Open Science Monitor (BSO) website: [https://frenchopensciencemonitor.esr.gouv.fr](https://frenchopensciencemonitor.esr.gouv.fr) presents ...
+The annotations produced by our system are used by the French Open Science Monitor (BSO) [platform](https://frenchopensciencemonitor.esr.gouv.fr) to follow the production and the openness of research data and software, in the context of the second National Plan for Open Science.
 
 The source code and the data of the French Open Science Monitor, as well as all the associated tools and datasets, are available under open licences.
 
@@ -60,39 +65,44 @@ The source code and the data of the French Open Science Monitor, as well as all 
 ## Motivations
 
 Datasets and software are today a core element of the research activities, whose increasing role is broadly acknowledged []. With the objective of better supporting the reuse and the reproducibility of research results, many initiatives to improve the visibility of research dataset and software took place in the last decade, in particular focusing on improving dataset and software cataloging [] and standards for citation [].
-However, the large majority of research data and software creation, usage and sharing information are only available in narative forms in the content of scientific publications...
 
+However, the usage, creation, and sharing information for the large majority of research data and software are only available in narative forms inside the content of scientific publications...
 Among the main reasons, we can mention the lack of incentive for researchers to invest time on work not credited and considered for career and promotion, fragmentation of policies, standards, infrastructures and workflows, and the absence of investment by most of the scientific publishers to implement standard referencing of dataset and software.  
-As a way to enforce higer standards of openness and visibility for all research products, national Open Science policies are currently rapidly developing... To measure the effect of these policies and adapt them to maximize their adoption, monitoring tool and dashboards are crucial... 
+
+To address these pitfalls, and as a way to enforce higer standards of openness and visibility for all research results, national Open Science policies are currently rapidly developing... To measure the effect of these policies and adapt them to maximize their adoption, monitoring tool and dashboards are crucial... 
 
 ## The French Open Science Monitor
 
 The French Open Science Monitor, also called BSO for 'Baromètre de la Science Ouverte', is a tool for monitoring and steering the public policy linked to the first French National Plan for Open Science [@mesri_national_2018]. A first version of the tool was launched in 2019 providing measurements of the rate of Open Access publications produced by all public French research entities []. A follow-up second Plan for Open Science [@mesri_2nd_2021] has started to further promote and develop the French open science policy, including a focus on research data and research software. The French Open Science Monitor is updated every year [@bracco_extending_2022], however measurements related to research datasets and software were not covered yet.
 
-The coverage of the French Open Science Monitor to research datasets and software was funded following a call for projects within the framework of the French Recovery Plan. The University of Lorraine has been asked by the Ministry of Higher Education and Research (MESR) to lead this project alongside the MESR's Department of Decision Support Tools and Inria. 
+The extension of the French Open Science Monitor to research datasets and software was funded following a call for projects within the framework of the French Recovery Plan. The University of Lorraine has been asked by the Ministry of Higher Education and Research (MESR) to lead this project alongside the MESR's Department of Decision Support Tools and Inria. 
 
-[//]: # The project will be led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (INRIA), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.
+<!--- The project will be led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (INRIA), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.  -->
 
 ## Challenges
 
-Complementary to the slow adoption of better formal reference workflows, mining dataset and software mentions in scientific publication appeared early as a possible solution to increase at scale the visibility of these new key research products. 
+In view of the slow adoption of better formal and manual reference workflows, mining dataset and software mentions in scientific publications appeared early as a possible solution to increase at scale the visibility of these new key research products. 
 
-Description of prior works... regular expressions, domain-specific rules, restriction to XML full texts availability. 
+Description of prior works... dictionary/term search, regular expressions, domain-specific rules, restriction to XML full texts availability. 
+
 Lack of annotated data and reliable evaluations. 
+
 Lack of quality metadata and fragmentation of source code repository. 
 
 
 
 # 2. Method
 
-## 2.1 Research software and code
+## 2.1 Machine Learning for mention detection and characterization
+
+## 2.2 Research software and code
 
 [@du_softcite_2021]
 
 
-## 2.2 Research data
+## 2.3 Research datasets
 
-## 2.3 Matching and aggregation
+## 2.4 Matching and aggregation
 
 
 # 3. Implementation
