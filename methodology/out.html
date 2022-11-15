@@ -10,7 +10,7 @@ attribution is appreciated. Thanks, broccolini! -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <meta name="keywords" content="research software, research data, open access, open science, scientometrics" />
-  <title>..</title>
+  <title>Large-scale Machine-Learning analysis of scientific PDF for following the production and the openness of research data and software in France</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">@font-face {
 font-family: 'Arvo';
@@ -426,51 +426,88 @@ color:#444;
 <div class="wrapper">
 <article typeof="ScholarlyArticle" vocab="http://schema.org/">
     <!-- <header class="article-header"> -->
-<h1 property="headline">..</h1>
+<h1 property="headline">Large-scale Machine-Learning analysis of scientific PDF for following the production and the openness of research data and software in France</h1>
 <p property="alternativeHeadline" class="subtitle">…</p>
 <!-- </header> -->
 <p class="author-list">
+  <span property="author" typeof="Person">
+    Aricia Bassinet</span><sup>2</sup>,
   <span property="author" typeof="Person">
     Laetitia Bracco</span><sup>2</sup>,
   <span property="author" typeof="Person">
     Anne L&#39;Hôte</span><sup>1</sup>,
   <span property="author" typeof="Person">
     Eric Jeangirard</span><sup>1</sup>,
+  <span property="author" typeof="Person">
+    Patrice Lopez</span><sup>3</sup>,
   and <span property="author" typeof="Person">
-    Patrice Lopez</span><sup>3</sup></p>
+    Laurent Romary</span><sup>4</sup></p>
 <div class="author-affiliations">
   <div class="affiliation"><sup>1</sup>French Ministry of Higher Education, Research, Paris, France
   </div>
   <div class="affiliation"><sup>2</sup>University of Lorraine, France
   </div>
-  <div class="affiliation"><sup>3</sup>Science-miner, Naves, France
+  <div class="affiliation"><sup>3</sup>science-miner, France
+  </div>
+  <div class="affiliation"><sup>4</sup>Inria, France
   </div>
 </div>
 <div class="author-info">
         </div>
-<p class="abstract" property="description"><p>We present a method implemented at the French national level to measure the openness of French research data, codes and software.</p>
-<p>The French Open Science Monitor (BSO) website: <a href="https://frenchopensciencemonitor.esr.gouv.fr">https://frenchopensciencemonitor.esr.gouv.fr</a> presents …</p>
-<p>The source code and the data of the French Open Science Monitor are shared with an open licence.</p></p>
+<p class="abstract" property="description"><p>There is today no standard way for referencing research datasets and research software in scientific communication. Emerging editorial workflows and supporting infrastructures dedicated to dataset and software are still poorly adopted by current publishing practices and are highly fragmented.</p>
+<p>To better follow the production of research datasets and software, we present a text mining method applied to scientific publications at scale and implemented at the French national level. Our approach relies on state-of-the-art Machine Learning and document engineering techniques to ensure satisfactory accuracy across multiple research areas and document types, combining full-text harvesting, mention extraction, context characterization and corpus-level analysis.</p>
+<p>The annotations produced by our system are used by the French Open Science Monitor (BSO) <a href="https://frenchopensciencemonitor.esr.gouv.fr">platform</a> to follow the production and the openness of research data and software, in the context of the second National Plan for Open Science.</p>
+<p>The source code and the data of the French Open Science Monitor, as well as all the associated tools and datasets, are available under open licences.</p></p>
 
 
 
 <div property="articleBody" class="article-body">
 <p><strong>Keywords</strong>: research software, research data, open access, open science, scientometrics</p>
 <h1 id="introduction">1. Introduction</h1>
-<p>A first version of the French Open Science Monitor, also called BSO for ‘Baromètre de la Science Ouverte’ was launched in 2019, as a tool for monitoring and steering the public policy linked to the first French National Plan for Open Science <span class="citation" data-cites="mesri_national_2018">(MESRI 2018)</span>. Since then 2nd Plan for Open Science <span class="citation" data-cites="mesri_2nd_2021">(MESRI 2021)</span> has been published to continue the open science policy, with a specific focus, among others, on research data and on softwares. The French Open Science Monitor has been updated <span class="citation" data-cites="bracco_extending_2022">(Bracco et al. 2022)</span>, however, the public policy areas of research datasets and software were not covered yet by the BSO.</p>
-<p><span class="citation" data-cites="du_softcite_2021">(Du et al. 2021)</span></p>
+<h2 id="motivations">Motivations</h2>
+<p>Datasets and software are today a core element of the research activities, whose increasing role is broadly acknowledged []. With the objective of better supporting the reuse and the reproducibility of research results, many initiatives to improve the visibility of research dataset and software took place in the last decade, in particular focusing on improving dataset and software cataloging [] and standards for citation [].</p>
+<p>However, the usage, creation, and sharing information for the large majority of research data and software are only available in narative forms inside the content of scientific publications… Among the main reasons, we can mention the lack of incentive for researchers to invest time on work not credited and not considered for career and promotion, the fragmentation of policies, standards, infrastructures and workflows, and the absence of investment by most of the scientific publishers to implement standard for referencing of dataset and software.</p>
+<p>To address these pitfalls, and as a way to enforce higer standards of openness and visibility for all research results, national Open Science policies are currently rapidly developing… To measure the effect of these policies and adapt them to maximize their adoption, monitoring tool and dashboards are crucial…</p>
+<h2 id="the-french-open-science-monitor">The French Open Science Monitor</h2>
+<p>The French Open Science Monitor, also called BSO for ‘Baromètre de la Science Ouverte’, is a tool for monitoring and steering the public policy linked to the first French National Plan for Open Science <span class="citation" data-cites="mesri_national_2018">(MESRI 2018)</span>. A first version of the tool was launched in 2019 providing measurements of the rate of Open Access publications produced by all public French research entities. A follow-up second Plan for Open Science <span class="citation" data-cites="mesri_2nd_2021">(MESRI 2021)</span> has started to further promote and develop the French open science policy, including a focus on research data and research software. The French Open Science Monitor is updated every year <span class="citation" data-cites="bracco_extending_2022">(Bracco et al. 2022)</span>, however measurements related to research datasets and software were not covered yet.</p>
+<p>The extension of the French Open Science Monitor to research datasets and software was funded following a call for projects within the framework of the French Recovery Plan. The University of Lorraine has been asked by the Ministry of Higher Education and Research (MESR) to lead this project alongside the MESR’s Department of Decision Support Tools and Inria.</p>
+<!--- The project is led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (INRIA), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.  -->
+<h2 id="challenges">Challenges</h2>
+<p>In view of the slow adoption of more comprehensive formal and manual reference workflows, mining dataset and software mentions in scientific publications appeared early as a possible solution to increase at scale the visibility of these new key research products.</p>
+<p>Description of prior works… dictionary/term search, regular expressions, domain-specific rules, restriction to XML full texts availability. Lack of annotated data and reliable evaluations.</p>
+<p>Characterizing the data and software usage and sharing: Often too much “publication centric” (e.g. is the publication uses/shares some data and code? versus what are the data/code product and how these data and software are they shared and reused?)</p>
+<p>Lack of quality metadata and considerable fragmentation of source code repositories.</p>
+<p>Which indicators should be selected to provide meaningful information on data and software production and openness: how the reliability and coverage of automatic extraction can influence these indicators? Which minimal information should be extracted to ensure clear and trustworthy indicators for visitors of the BSO platform?</p>
+<!---- note: below, this might be more an implementation requirement (related to the existing BSO) than a methodological challenge for software/data... We should clarify the objective/scope of this paper, if we focus on the methodology to measure software/data production (then used in an existing platform) or we extend to the Open Science Monitor platform (which is covering much much more, etc.). This is more for section 4.4 -->
 <h1 id="method">2. Method</h1>
-<h2 id="softwares-and-codes">2.1 Softwares and codes</h2>
-<h2 id="research-data">2.2 Research data</h2>
-<h1 id="results">3. Results</h1>
-<h2 id="limitations-and-future-research">3.4 Limitations and future research</h2>
-<h3 id="limitations">3.4.1 Limitations</h3>
-<h3 id="future-work-and-local-implementation">3.4.2 Future work and local implementation</h3>
-<h1 id="software-and-code-availability">Software and code availability</h1>
-<p>The source code used for the French Open Science Monitor is available on GitHub, and shared with an open licence.</p>
-<h1 id="data-availability">Data availability</h1>
-<p>The data resulting of this work is shared on the French Ministry of Higher Education, Research and Innovation open data portal:</p>
+<h2 id="machine-learning-for-mention-detection-and-characterization">2.1 Machine Learning for mention detection and characterization</h2>
+<h2 id="research-software-and-code">2.2 Research software and code</h2>
+<p><span class="citation" data-cites="du_softcite_2021">(Du et al. 2021)</span></p>
+<h2 id="research-datasets">2.3 Research datasets</h2>
+<h2 id="matching-and-aggregation">2.4 Matching and aggregation</h2>
+<h1 id="implementation">3. Implementation</h1>
+<p>Architecture diagram</p>
+<p>Workflow description</p>
+<p>Infrastructure and runtime indications</p>
+<h1 id="results">4. Results</h1>
+<h2 id="full-text-harvesting-and-affiliation-extraction">4.1 Full text harvesting and affiliation extraction</h2>
+<h2 id="dataset-and-software-mention-extraction">4.2 Dataset and software mention extraction</h2>
+<h2 id="research-product-deduplication">4.3 Research product deduplication</h2>
+<h2 id="french-open-science-monitor-indicators-and-dashboards">4.4 French Open Science Monitor indicators and dashboards</h2>
+<p>…</p>
+<p>One of the ojectives of the French Open Science Monitor is to provide all research institutions with a local version of the indicators. Similarly as for measuring the openness of research publications on the existing platform, the new indicators can be bounded to datasets and software produced by the researchers only affiliated to a particular organization. The ability to measure the research activity at different scale, from a given organization to the national level has led to the creation of a BSO user group (https://groupes.renater.fr/sympa/info/bso-etablissements).</p>
+<!---- the local level is in line with the Barometer on publications, the first local version of which was developed by the University of Lorraine, before being deployed to many institutions. --->
+<h2 id="limitations-and-future-work">5 Limitations and future work</h2>
+<h3 id="limitations">5.1 Limitations</h3>
+<h3 id="future-work">5.2 Future work</h3>
+<h4 id="domain-coverage">5.2.1 Domain coverage</h4>
+<h4 id="large-scale-research-entity-disambiguation">5.2.2 Large-scale research entity disambiguation</h4>
+<h4 id="local-open-science-monitor">5.2.3 Local Open Science Monitor</h4>
+<h1 id="data-and-software-availability">Data and software availability</h1>
+<p>The data resulting from this work are publicly available on the French Ministry of Higher Education, Research and Innovation open data portal:</p>
+<p>The source code used for the French Open Science Monitor is available on GitHub, and shared with open source licences.</p>
 <h1 id="acknowledgements">Acknowledgements</h1>
+<p>Thank you to the readers.</p>
 <h1 class="unnumbered" id="references">References</h1>
 <div id="refs" class="references hanging-indent" role="doc-bibliography">
 <div id="ref-bracco_extending_2022">

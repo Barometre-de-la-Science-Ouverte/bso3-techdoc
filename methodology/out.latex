@@ -36,7 +36,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={..},
+  pdftitle={Large-scale Machine-Learning analysis of scientific PDF for following the production and the openness of research data and software in France},
   pdfkeywords={research software, research data, open access, open
 science, scientometrics},
   hidelinks,
@@ -76,7 +76,9 @@ science, scientometrics},
   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
   {\par}
 
-\title{..}
+\title{Large-scale Machine-Learning analysis of scientific PDF for
+following the production and the openness of research data and software
+in France}
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
@@ -85,6 +87,13 @@ science, scientometrics},
 \makeatother
 \subtitle{\ldots{}}
 \usepackage{authblk}
+\author[%
+  2%
+  ]{%
+  Aricia Bassinet%
+  %
+  %
+}
 \author[%
   2%
   ]{%
@@ -113,9 +122,17 @@ science, scientometrics},
   %
   %
 }
+\author[%
+  4%
+  ]{%
+  Laurent Romary%
+  %
+  %
+}
 \affil[1]{French Ministry of Higher Education, Research, Paris, France}
 \affil[2]{University of Lorraine, France}
-\affil[3]{Science-miner, Naves, France}
+\affil[3]{science-miner, France}
+\affil[4]{Inria, France}
 \date{December 2022}
 
 \makeatletter
@@ -138,14 +155,29 @@ science, scientometrics},
 \begin{document}
 \maketitle
 \begin{abstract}
-We present a method implemented at the French national level to measure
-the openness of French research data, codes and software.
+There is today no standard way for referencing research datasets and
+research software in scientific communication. Emerging editorial
+workflows and supporting infrastructures dedicated to dataset and
+software are still poorly adopted by current publishing practices and
+are highly fragmented.
 
-The French Open Science Monitor (BSO) website:
-\url{https://frenchopensciencemonitor.esr.gouv.fr} presents \ldots{}
+To better follow the production of research datasets and software, we
+present a text mining method applied to scientific publications at scale
+and implemented at the French national level. Our approach relies on
+state-of-the-art Machine Learning and document engineering techniques to
+ensure satisfactory accuracy across multiple research areas and document
+types, combining full-text harvesting, mention extraction, context
+characterization and corpus-level analysis.
 
-The source code and the data of the French Open Science Monitor are
-shared with an open licence.
+The annotations produced by our system are used by the French Open
+Science Monitor (BSO)
+\href{https://frenchopensciencemonitor.esr.gouv.fr}{platform} to follow
+the production and the openness of research data and software, in the
+context of the second National Plan for Open Science.
+
+The source code and the data of the French Open Science Monitor, as well
+as all the associated tools and datasets, are available under open
+licences.
 \end{abstract}
 
 \textbf{Keywords}: research software, research data, open access, open
@@ -154,56 +186,177 @@ science, scientometrics
 \hypertarget{introduction}{%
 \section{1. Introduction}\label{introduction}}
 
-A first version of the French Open Science Monitor, also called BSO for
-`Baromètre de la Science Ouverte' was launched in 2019, as a tool for
-monitoring and steering the public policy linked to the first French
-National Plan for Open Science (MESRI 2018). Since then 2nd Plan for
-Open Science (MESRI 2021) has been published to continue the open
-science policy, with a specific focus, among others, on research data
-and on softwares. The French Open Science Monitor has been updated
-(Bracco et al. 2022), however, the public policy areas of research
-datasets and software were not covered yet by the BSO.
+\hypertarget{motivations}{%
+\subsection{Motivations}\label{motivations}}
 
-(Du et al. 2021)
+Datasets and software are today a core element of the research
+activities, whose increasing role is broadly acknowledged {[}{]}. With
+the objective of better supporting the reuse and the reproducibility of
+research results, many initiatives to improve the visibility of research
+dataset and software took place in the last decade, in particular
+focusing on improving dataset and software cataloging {[}{]} and
+standards for citation {[}{]}.
+
+However, the usage, creation, and sharing information for the large
+majority of research data and software are only available in narative
+forms inside the content of scientific publications\ldots{} Among the
+main reasons, we can mention the lack of incentive for researchers to
+invest time on work not credited and not considered for career and
+promotion, the fragmentation of policies, standards, infrastructures and
+workflows, and the absence of investment by most of the scientific
+publishers to implement standard for referencing of dataset and
+software.
+
+To address these pitfalls, and as a way to enforce higer standards of
+openness and visibility for all research results, national Open Science
+policies are currently rapidly developing\ldots{} To measure the effect
+of these policies and adapt them to maximize their adoption, monitoring
+tool and dashboards are crucial\ldots{}
+
+\hypertarget{the-french-open-science-monitor}{%
+\subsection{The French Open Science
+Monitor}\label{the-french-open-science-monitor}}
+
+The French Open Science Monitor, also called BSO for `Baromètre de la
+Science Ouverte', is a tool for monitoring and steering the public
+policy linked to the first French National Plan for Open Science (MESRI
+2018). A first version of the tool was launched in 2019 providing
+measurements of the rate of Open Access publications produced by all
+public French research entities. A follow-up second Plan for Open
+Science (MESRI 2021) has started to further promote and develop the
+French open science policy, including a focus on research data and
+research software. The French Open Science Monitor is updated every year
+(Bracco et al. 2022), however measurements related to research datasets
+and software were not covered yet.
+
+The extension of the French Open Science Monitor to research datasets
+and software was funded following a call for projects within the
+framework of the French Recovery Plan. The University of Lorraine has
+been asked by the Ministry of Higher Education and Research (MESR) to
+lead this project alongside the MESR's Department of Decision Support
+Tools and Inria.
+
+\hypertarget{challenges}{%
+\subsection{Challenges}\label{challenges}}
+
+In view of the slow adoption of more comprehensive formal and manual
+reference workflows, mining dataset and software mentions in scientific
+publications appeared early as a possible solution to increase at scale
+the visibility of these new key research products.
+
+Description of prior works\ldots{} dictionary/term search, regular
+expressions, domain-specific rules, restriction to XML full texts
+availability. Lack of annotated data and reliable evaluations.
+
+Characterizing the data and software usage and sharing: Often too much
+``publication centric'' (e.g.~is the publication uses/shares some data
+and code? versus what are the data/code product and how these data and
+software are they shared and reused?)
+
+Lack of quality metadata and considerable fragmentation of source code
+repositories.
+
+Which indicators should be selected to provide meaningful information on
+data and software production and openness: how the reliability and
+coverage of automatic extraction can influence these indicators? Which
+minimal information should be extracted to ensure clear and trustworthy
+indicators for visitors of the BSO platform?
 
 \hypertarget{method}{%
 \section{2. Method}\label{method}}
 
-\hypertarget{softwares-and-codes}{%
-\subsection{2.1 Softwares and codes}\label{softwares-and-codes}}
+\hypertarget{machine-learning-for-mention-detection-and-characterization}{%
+\subsection{2.1 Machine Learning for mention detection and
+characterization}\label{machine-learning-for-mention-detection-and-characterization}}
 
-\hypertarget{research-data}{%
-\subsection{2.2 Research data}\label{research-data}}
+\hypertarget{research-software-and-code}{%
+\subsection{2.2 Research software and
+code}\label{research-software-and-code}}
+
+(Du et al. 2021)
+
+\hypertarget{research-datasets}{%
+\subsection{2.3 Research datasets}\label{research-datasets}}
+
+\hypertarget{matching-and-aggregation}{%
+\subsection{2.4 Matching and
+aggregation}\label{matching-and-aggregation}}
+
+\hypertarget{implementation}{%
+\section{3. Implementation}\label{implementation}}
+
+Architecture diagram
+
+Workflow description
+
+Infrastructure and runtime indications
 
 \hypertarget{results}{%
-\section{3. Results}\label{results}}
+\section{4. Results}\label{results}}
 
-\hypertarget{limitations-and-future-research}{%
-\subsection{3.4 Limitations and future
-research}\label{limitations-and-future-research}}
+\hypertarget{full-text-harvesting-and-affiliation-extraction}{%
+\subsection{4.1 Full text harvesting and affiliation
+extraction}\label{full-text-harvesting-and-affiliation-extraction}}
+
+\hypertarget{dataset-and-software-mention-extraction}{%
+\subsection{4.2 Dataset and software mention
+extraction}\label{dataset-and-software-mention-extraction}}
+
+\hypertarget{research-product-deduplication}{%
+\subsection{4.3 Research product
+deduplication}\label{research-product-deduplication}}
+
+\hypertarget{french-open-science-monitor-indicators-and-dashboards}{%
+\subsection{4.4 French Open Science Monitor indicators and
+dashboards}\label{french-open-science-monitor-indicators-and-dashboards}}
+
+\ldots{}
+
+One of the ojectives of the French Open Science Monitor is to provide
+all research institutions with a local version of the indicators.
+Similarly as for measuring the openness of research publications on the
+existing platform, the new indicators can be bounded to datasets and
+software produced by the researchers only affiliated to a particular
+organization. The ability to measure the research activity at different
+scale, from a given organization to the national level has led to the
+creation of a BSO user group
+(https://groupes.renater.fr/sympa/info/bso-etablissements).
+
+\hypertarget{limitations-and-future-work}{%
+\subsection{5 Limitations and future
+work}\label{limitations-and-future-work}}
 
 \hypertarget{limitations}{%
-\subsubsection{3.4.1 Limitations}\label{limitations}}
+\subsubsection{5.1 Limitations}\label{limitations}}
 
-\hypertarget{future-work-and-local-implementation}{%
-\subsubsection{3.4.2 Future work and local
-implementation}\label{future-work-and-local-implementation}}
+\hypertarget{future-work}{%
+\subsubsection{5.2 Future work}\label{future-work}}
 
-\hypertarget{software-and-code-availability}{%
-\section{Software and code
-availability}\label{software-and-code-availability}}
+\hypertarget{domain-coverage}{%
+\paragraph{5.2.1 Domain coverage}\label{domain-coverage}}
+
+\hypertarget{large-scale-research-entity-disambiguation}{%
+\paragraph{5.2.2 Large-scale research entity
+disambiguation}\label{large-scale-research-entity-disambiguation}}
+
+\hypertarget{local-open-science-monitor}{%
+\paragraph{5.2.3 Local Open Science
+Monitor}\label{local-open-science-monitor}}
+
+\hypertarget{data-and-software-availability}{%
+\section{Data and software
+availability}\label{data-and-software-availability}}
+
+The data resulting from this work are publicly available on the French
+Ministry of Higher Education, Research and Innovation open data portal:
 
 The source code used for the French Open Science Monitor is available on
-GitHub, and shared with an open licence.
-
-\hypertarget{data-availability}{%
-\section{Data availability}\label{data-availability}}
-
-The data resulting of this work is shared on the French Ministry of
-Higher Education, Research and Innovation open data portal:
+GitHub, and shared with open source licences.
 
 \hypertarget{acknowledgements}{%
 \section{Acknowledgements}\label{acknowledgements}}
+
+Thank you to the readers.
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
