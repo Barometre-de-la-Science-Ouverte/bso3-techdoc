@@ -45,13 +45,13 @@ geometry: "left=3cm, right=3cm, top=3cm, bottom=3cm"
 
 # Abstract
 
-There is today no standard way for referencing research datasets and research software in scientific communication. Emerging editorial workflows and supporting infrastructures dedicated to dataset and software are still very little adhered to publishing practices and are very fragmented.
+There is today no standard way for referencing research datasets and research software in scientific communication. Emerging editorial workflows and supporting infrastructures dedicated to dataset and software are still very inconsistent with publishing practices and are highly fragmented.
 
 To better follow the production of research datasets and software, we present a method relying on a text mining process targeting scientific publications at scale, implemented at the French national level to measure the openness of French research data and software.
 
 Our approach relies on state-of-the-art Machine Learning and document engineering developments to ensure satisfactory accuracy across multiple research areas and document types, combining full-text harvesting, mention extraction, context characterization and corpus-level analysis. 
 
-The French Open Science Monitor (BSO) website: [https://frenchopensciencemonitor.esr.gouv.fr](https://frenchopensciencemonitor.esr.gouv.fr) presents ...
+The French Open Science Monitor (BSO) website: [https://frenchopensciencemonitor.esr.gouv.fr](https://frenchopensciencemonitor.esr.gouv.fr) presents all the indicators developed so far.
 
 The source code and the data of the French Open Science Monitor, as well as all the associated tools and datasets, are available under open licences.
 
@@ -62,8 +62,9 @@ The source code and the data of the French Open Science Monitor, as well as all 
 Datasets and software are today a core element of the research activities, whose increasing role is broadly acknowledged []. With the objective of better supporting the reuse and the reproducibility of research results, many initiatives to improve the visibility of research dataset and software took place in the last decade, in particular focusing on improving dataset and software cataloging [] and standards for citation [].
 However, the large majority of research data and software creation, usage and sharing information are only available in narative forms in the content of scientific publications...
 
-Among the main reasons, we can mention the lack of incentive for researchers to invest time on work not credited and considered for career and promotion, fragmentation of policies, standards, infrastructures and workflows, and the absence of investment by most of the scientific publishers to implement standard referencing of dataset and software.  
-As a way to enforce higer standards of openness and visibility for all research products, national Open Science policies are currently rapidly developing... To measure the effect of these policies and adapt them to maximize their adoption, monitoring tool and dashboards are crucial... 
+Among the main reasons, we can mention the lack of incentive for researchers to invest time on work not credited nor considered for career and promotion, fragmentation of policies, standards, infrastructures and workflows, and the absence of investment by most of the scientific publishers to implement standard referencing of dataset and software.  
+
+As a way to enforce higher standards of openness and visibility for all research products, national Open Science policies are currently rapidly developing... To measure the effect of these policies and adapt them to maximize their adoption, monitoring tool and dashboards are crucial... 
 
 ## The French Open Science Monitor
 
@@ -71,7 +72,7 @@ The French Open Science Monitor, also called BSO for 'Baromètre de la Science O
 
 The coverage of the French Open Science Monitor to research datasets and software was funded following a call for projects within the framework of the French Recovery Plan. The University of Lorraine has been asked by the Ministry of Higher Education and Research (MESR) to lead this project alongside the MESR's Department of Decision Support Tools and Inria. 
 
-[//]: # The project will be led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (INRIA), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.
+[//]: # The project is led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (INRIA), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.
 
 ## Challenges
 
@@ -81,7 +82,7 @@ Description of prior works... regular expressions, domain-specific rules, restri
 Lack of annotated data and reliable evaluations. 
 Lack of quality metadata and fragmentation of source code repository. 
 
-
+One of the challenges of this project is also to provide all higher education institutions with a local version of these new indicators on data sets and software codes, in order to give them the means to monitor the openness of the scientific production of their researchers. This possibility of adapting the indicators at the local level is in line with the Barometer on publications, the first local version of which was developed by the University of Lorraine, before being deployed to many institutions. The success of the barometer led to the creation of a Monitor user club: https://groupes.renater.fr/sympa/info/bso-etablissements
 
 # 2. Method
 
