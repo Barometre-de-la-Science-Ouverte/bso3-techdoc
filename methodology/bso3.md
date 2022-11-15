@@ -59,7 +59,11 @@ The source code and the data of the French Open Science Monitor, as well as all 
 
 ## Motivations
 
+Datasets and software are today a core element of the research activities, whose increasing role is broadly acknowledged []. With the objective of better supporting the reuse and the reproducibility of research results, many initiatives to improve the visibility of research dataset and software took place in the last decade, in particular focusing on improving dataset and software cataloging [] and standards for citation [].
+However, the large majority of research data and software creation, usage and sharing information are only available in narative forms in the content of scientific publications...
 
+Among the main reasons, we can mention the lack of incentive for researchers to invest time on work not credited and considered for career and promotion, fragmentation of policies, standards, infrastructures and workflows, and the absence of investment by most of the scientific publishers to implement standard referencing of dataset and software.  
+As a way to enforce higer standards of openness and visibility for all research products, national Open Science policies are currently rapidly developing... To measure the effect of these policies and adapt them to maximize their adoption, monitoring tool and dashboards are crucial... 
 
 ## The French Open Science Monitor
 
@@ -71,13 +75,17 @@ The coverage of the French Open Science Monitor to research datasets and softwar
 
 ## Challenges
 
+Complementary to the slow adoption of better formal reference workflows, mining dataset and software mentions in scientific publication appeared early as a possible solution to increase at scale the visibility of these new key research products. 
 
+Description of prior works... regular expressions, domain-specific rules, restriction to XML full texts availability. 
+Lack of annotated data and reliable evaluations. 
+Lack of quality metadata and fragmentation of source code repository. 
 
 
 
 # 2. Method
 
-## 2.1 Research Software and code
+## 2.1 Research software and code
 
 [@du_softcite_2021]
 
