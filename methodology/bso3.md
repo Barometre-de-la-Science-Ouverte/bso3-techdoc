@@ -91,9 +91,15 @@ What are the quality criteria for useful and reliable indicators on the producti
 
 - adaptibility to different geographical and organizational levels
 
-Why the current Open Science monitors related to data and software fail regarding these criteria? e.g. OpenAire
+- adaptibility to different scientific and technical domains
 
-Why we think an automatic data-centric approach to capture the actual scientific activity and production could lead to higher quality indicators than the manually referencing approach? 
+- fair: maintain consistency in term of domains and languages
+
+Why the current Open Science monitors related to data and software fail regarding these criteria? e.g. OpenAire. 
+Extremely limited coverage leads to extremely biased and unreliable indicators, leading to counter-productive dashboards (for instance indicating that a handful of datasets is produced at the scale of a whole University during one year). Publishing aggregated dashboard on unreliable and non-representative data can lead to disengagement of the public for the tool, false interpretation, wrong public policy decisions and unability to assess public the application of Open Science policies. 
+
+Why do we think an automatic data-centric approach to capture the actual scientific activity and production could lead to higher quality indicators than the manually referencing approach? 
+Because it can offer a more trustful snapshot of the scientific production, but it needs to be reliable enough (precision and coverage) and applied to a very significant amount of scientific publications. 
 
 ## Challenges
 
@@ -107,8 +113,6 @@ Characterizing the data and software usage and sharing: Often too much "publicat
 Lack of quality metadata and considerable fragmentation of source code repositories. 
 
 Which indicators should be selected to provide meaningful information on data and software production and openness: how the reliability and coverage of automatic extraction can influence these indicators? Which minimal information should be extracted to ensure clear and trustworthy indicators for visitors of the BSO platform?  
-
-<!---- note: below, this might be more an implementation requirement (related to the existing BSO) than a methodological challenge for software/data... We should clarify the objective/scope of this paper, if we focus on the methodology to measure software/data production (then used in an existing platform) or we extend to the Open Science Monitor platform (which is covering much much more, etc.). This is more for section 4.4 -->
 
 
 # 2. Method
