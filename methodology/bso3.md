@@ -79,6 +79,22 @@ The extension of the French Open Science Monitor to research datasets and softwa
 
 <!--- The project is led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (INRIA), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.  -->
 
+## Quality criteria for Open Science indicators
+
+What are the quality criteria for useful and reliable indicators on the production of research datasets and research software ?
+
+- coverage
+
+- accuracy
+
+- freshness
+
+- adaptibility to different geographical and organizational levels
+
+Why the current Open Science monitors related to data and software fail regarding these criteria? e.g. OpenAire
+
+Why we think an automatic data-centric approach to capture the actual scientific activity and production could lead to higher quality indicators than the manually referencing approach? 
+
 ## Challenges
 
 In view of the slow adoption of more comprehensive formal and manual reference workflows, mining dataset and software mentions in scientific publications appeared early as a possible solution to increase at scale the visibility of these new key research products. 

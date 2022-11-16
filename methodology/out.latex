@@ -236,6 +236,31 @@ been asked by the Ministry of Higher Education and Research (MESR) to
 lead this project alongside the MESR's Department of Decision Support
 Tools and Inria.
 
+\hypertarget{quality-criteria-for-open-science-indicators}{%
+\subsection{Quality criteria for Open Science
+indicators}\label{quality-criteria-for-open-science-indicators}}
+
+What are the quality criteria for useful and reliable indicators on the
+production of research datasets and research software ?
+
+\begin{itemize}
+\item
+  coverage
+\item
+  accuracy
+\item
+  freshness
+\item
+  adaptibility to different geographical and organizational levels
+\end{itemize}
+
+Why the current Open Science monitors related to data and software fail
+regarding these criteria? e.g.~OpenAire
+
+Why we think an automatic data-centric approach to capture the actual
+scientific activity and production could lead to higher quality
+indicators than the manually referencing approach?
+
 \hypertarget{challenges}{%
 \subsection{Challenges}\label{challenges}}
 
