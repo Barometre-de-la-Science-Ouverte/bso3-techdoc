@@ -133,7 +133,7 @@ Which indicators should be selected to provide meaningful information on data an
 
 Architecture diagram
 
-Workflow description 
+Workflow description  
 
 Infrastructure and runtime indications
 
