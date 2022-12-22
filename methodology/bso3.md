@@ -1,6 +1,6 @@
 ---
-title: 'Large-scale Machine-Learning analysis of scientific PDF for following the production and the openness of research data and software in France'
-subtitle: '...'
+title: 'Large-scale Machine-Learning analysis of scientific PDF to monitor the production and the openness of research data and software in France'
+subtitle: 'Widening the French Open Science Monitor scope'
 author:
   - Aricia Bassinet:
       institute: université de lorraine
@@ -37,7 +37,7 @@ institute:
   - inria:
       name: 'Inria, France'
 bibliography: bso3.bib
-date: December 2022
+date: January 2023
 keywords:
   - research software
   - research data
@@ -128,6 +128,51 @@ Which indicators should be selected to provide meaningful information on data an
 
 ## 2.4 Matching and aggregation
 
+## 2.5 Monitoring indicators construction
+
+To help steer French public policy, the BSO must have indicators that meet several conditions:
+
+- indicators that evolve "quickly" according to changes in uses and practices (indicators with little temporal inertia)
+
+- indicators that are easily understandable and interpretable
+
+- indicators whose floor and ceiling are known in advance and which are achievable.
+
+For example, for the publications component, the BSO looks at the percentage of open access publications for the previous year: each year the new indicator does not depend on previous years. It varies between 0% and 100%, and 100% is the target for 2030.
+
+Although the subject is more complex, it is important that the same applies to indicators for research data and software. The detection work uses the full-text PDFs of the publications as raw material. It is therefore natural to propose indicators relating to the proportion of publications. As the methodology is similar for both datasets and software, the proposed indicators will be equivalent, replacing each time dataset by software. A "naive" indicator would be, for example, the proportion of publications that share a dataset :
+
+$$ I_{naive} = {\text{number of publications that shares a dataset} \over \text{total number of publications}} $$
+
+This indicator is simple, but has several shortcomings:
+- first, concerning the denominator, not all publications can be analysed by Softcite / DataStet, because the PDF could not systematically be downloaded (closed access for which we do not have a subscription, missing PDF, etc ...). It should therefore be replaced at least by the number of publications that have been analysed.
+- secondly, we want to have an indicator whose upper bound has a meaning linked to the objectives of the public policy. For example, an article for which the research work did not require the use of any dataset cannot share it. 
+
+We therefore propose to monitor a modified key indicator:
+
+$$ I_{share} = {\text{number of publications that use, create and share a dataset} \over \text{number of publications analyzed that use and create a dataset}} $$
+
+The disadvantage of reasoning in this way is that we lose some of the lessons that could be learned from the non-actionable part of the scope (publications that do not create a dataset). This is why we propose to complete the analysis with two additional indicators:
+
+$$ I_{create} = {\text{number of publications that use and create a dataset} \over \text{number of publications analyzed that use a dataset}} $$
+
+and
+
+$$ I_{use} = {\text{number of publications that use a dataset} \over \text{number of publications analyzed}} $$
+
+These three indicators therefore make it possible to have a global and decomposable view of all the cases: the top of the pyramid, which is actionable, and which we want to increase. The other two are more descriptive, but will provide a better understanding of practices and uses, particularly by breaking them down by subject area.
+
+We note in particular that we find the naive indicator initially proposed as follows:
+
+$$ I_{naive} = I_{share} \times I_{create} \times I_{use} \times P_{analyzed} $$
+
+where
+
+$$ P_{analyzed} = {\text{number of publications analyzed} \over \text{total number of publications}} $$
+
+All these indicators can be broken down by the components linked to the publications themselves: year of publication, disciplines, publishers etc.
+
+We supplement these indicators with a simpler one, linked simply to the presence, in the structure of the full text, of an explicit Data Availibility Statement paragraph (which in no way guarantees sharing) but nevertheless makes it possible to observe the evolution of this practice (which is very much linked to the publication's editor).
 
 # 3. Implementation
 
