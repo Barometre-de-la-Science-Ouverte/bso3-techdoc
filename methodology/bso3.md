@@ -142,11 +142,15 @@ For example, for the publications component, the BSO looks at the percentage of 
 
 Although the subject is more complex, it is important that the same applies to indicators for research data and software. The detection work uses the full-text PDFs of the publications as raw material. It is therefore natural to propose indicators relating to the proportion of publications. As the methodology is similar for both datasets and software, the proposed indicators will be equivalent, replacing each time dataset by software. A "naive" indicator would be, for example, the proportion of publications that share a dataset :
 
-$$ I_{naive} = {\text{number of publications that shares a dataset} \over \text{total number of publications}} $$
+$$ I_{naive} = {\text{number of publications that 'shares' a dataset} \over \text{total number of publications}} $$
 
 This indicator is simple, but has several shortcomings:
+
 - first, concerning the denominator, not all publications can be analysed by Softcite / DataStet, because the PDF could not systematically be downloaded (closed access for which we do not have a subscription, missing PDF, etc ...). It should therefore be replaced at least by the number of publications that have been analysed.
-- secondly, we want to have an indicator whose upper bound has a meaning linked to the objectives of the public policy. For example, an article for which the research work did not require the use of any dataset cannot share it. 
+
+- secondly, we want to have an indicator whose upper bound has a meaning linked to the objectives of the public policy. For example, an article for which the research work did not require the use of any dataset cannot share it.
+
+Thus, the notion of a publication that shares a dataset should be clarified as a publication that uses, creates and shares a dataset. 
 
 We therefore propose to monitor a modified key indicator:
 
@@ -170,7 +174,7 @@ where
 
 $$ P_{analyzed} = {\text{number of publications analyzed} \over \text{total number of publications}} $$
 
-All these indicators can be broken down by the components linked to the publications themselves: year of publication, disciplines, publishers etc.
+All these indicators can be broken down by the components linked to the publications themselves: year of publication, disciplines, publishers etc. Monitoring by year of publication (rather than the full stock of publications since the 2010s) allows for a responsive indicator.
 
 We supplement these indicators with a simpler one, linked simply to the presence, in the structure of the full text, of an explicit Data Availibility Statement paragraph (which in no way guarantees sharing) but nevertheless makes it possible to observe the evolution of this practice (which is very much linked to the publication's editor).
 
