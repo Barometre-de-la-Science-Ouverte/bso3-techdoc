@@ -178,9 +178,13 @@ All these indicators can be broken down by the components linked to the publicat
 
 We supplement these indicators with a simpler one, linked simply to the presence, in the structure of the full text, of an explicit Data Availibility Statement paragraph (which in no way guarantees sharing) but nevertheless makes it possible to observe the evolution of this practice (which is very much linked to the publication's editor).
 
+\newpage
+
 # 3. Implementation
 
 Architecture diagram
+
+![Global overview of the publications data flows](https://raw.githubusercontent.com/Barometre-de-la-Science-Ouverte/bso3-techdoc/master/methodology/flow_chart_publications_bso3.png){ width=600 }
 
 Workflow description  
 
