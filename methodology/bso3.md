@@ -193,7 +193,21 @@ Infrastructure and runtime indications
 # 4. Results
 
 
-## 4.1 Full text harvesting and affiliation extraction
+## 4.1 Full text harvesting
+
+| is_oa  | number of publications  | number of PDF downloaded | % download success |
+| :--------------- |:---------------:| -----:| ------:|
+| True | 698,610 | 616,733 | 88 % |
+| False | 659,584 | 272,070 | 41 % |
+| Total | 1,358,194 | 888,803 | 65 % |
+
+
+| harvester_type  | number of PDF downloaded | % of total |
+| :--------------- |:---------------:| -----:| 
+| standard | 559,332 | 63 % |
+| Elsevier TDM API | 200,155 | 22 % |
+| arXiv | 78,078 | 9 % |
+| Wiley TDM API | 51,238 | 6 % |
 
 ## 4.2 Dataset and software mention extraction
 

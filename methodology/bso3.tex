@@ -43,6 +43,16 @@ science, scientometrics},
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -448,9 +458,32 @@ Infrastructure and runtime indications
 \hypertarget{results}{%
 \section{4. Results}\label{results}}
 
-\hypertarget{full-text-harvesting-and-affiliation-extraction}{%
-\subsection{4.1 Full text harvesting and affiliation
-extraction}\label{full-text-harvesting-and-affiliation-extraction}}
+\hypertarget{full-text-harvesting}{%
+\subsection{4.1 Full text harvesting}\label{full-text-harvesting}}
+
+\begin{longtable}[]{@{}lcrr@{}}
+\toprule
+is\_oa & number of publications & number of PDF downloaded & \% download
+success\tabularnewline
+\midrule
+\endhead
+True & 698,610 & 616,733 & 88 \%\tabularnewline
+False & 659,584 & 272,070 & 41 \%\tabularnewline
+Total & 1,358,194 & 888,803 & 65 \%\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}lcr@{}}
+\toprule
+harvester\_type & number of PDF downloaded & \% of total\tabularnewline
+\midrule
+\endhead
+standard & 559,332 & 63 \%\tabularnewline
+Elsevier TDM API & 200,155 & 22 \%\tabularnewline
+arXiv & 78,078 & 9 \%\tabularnewline
+Wiley TDM API & 51,238 & 6 \%\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{dataset-and-software-mention-extraction}{%
 \subsection{4.2 Dataset and software mention
