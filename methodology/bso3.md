@@ -137,8 +137,9 @@ Which indicators should be selected to provide meaningful information on data an
 
 ## 2.1 Machine Learning for mention detection and characterization
 
-## 2.2 Research software and code
+## 2.2 Research software
 
+[@10.1145/3459637.3481936]
 [@GROBID]
 [@du_softcite_2021]
 
