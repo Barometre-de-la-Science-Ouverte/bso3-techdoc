@@ -4,8 +4,8 @@ subtitle: 'Widening the French Open Science Monitor scope'
 author:
   - Aricia Bassinet:
       institute: université de lorraine
-      orcid: 
-      idref: 
+      orcid: 0000-0003-1723-7517
+      idref: 232370028
   - Laetitia Bracco:
       institute: université de lorraine
       orcid: 0000-0002-2939-9110
@@ -24,8 +24,8 @@ author:
       idref: 157929930
   - Laurent Romary:
       institute: inria
-      orcid: 
-      idref: 
+      orcid: 0000-0002-0756-0508
+      idref: 060702494
 
 institute:
   - mesr:
@@ -76,14 +76,14 @@ Much of the published data is still essentially unavailable for integration into
 The deposited data is also be incomplete, sometimes intentionally and fragmented ().
 Similarly as for software, PID associated to data are almost not used to reference datasets in publications (). 
 
-Multiple initiatives took place in last decade to address this issue, in particular focusing on improving dataset and software cataloging [], advocacy efforts and standards for data and software citation [], with limited impact until now (Du et al. 2022). 
+Multiple initiatives took place in last decade to address this issue, in particular focusing on improving dataset and software cataloging [], advocacy efforts and standards for data and software citation [], with limited impact until now (Du et al. 2022).
 
-Among the main reasons for this limited impact, we can mention the lack of incentive for researchers to invest time on work not credited and not considered for career and promotion, the fragmentation of policies, standards, infrastructures and workflows, and the absence of investment by most of the scientific publishers to implement standard for referencing of dataset and software.  
+Among the main reasons for this limited impact, we can mention the lack of incentive for researchers to invest time on work not credited and not considered for career and promotion, the fragmentation of policies, standards, infrastructures and workflows, and the absence of investment by most of the scientific publishers to implement standard for referencing datasets and software.
 
 
-To address these pitfalls, it is considered that more pro-active and voluntarist policies are necessary to enforce higer standards of openness and visibility for all research results. National Open Science policies are currently rapidly developing... To measure the effect of these policies and adapt them to maximize their adoption, monitoring tool and dashboards are crucial... 
+To address these pitfalls, it is considered that more pro-active and voluntarist policies are necessary to enforce higher standards of openness and visibility for all research results. National Open Science policies are currently rapidly developing... To measure the effect of these policies and adapt them to maximize their adoption, monitoring tool and dashboards are crucial...
 
-However, the usage, creation, and sharing information for the large majority of research data and software are only available in narative forms inside the content of scientific publications...
+However, the usage, creation, and sharing of information for the large majority of research data and software are only available in narative forms inside the content of scientific publications...
 
 
 
@@ -95,7 +95,7 @@ The French Open Science Monitor, also called BSO for 'Baromètre de la Science O
 
 The extension of the French Open Science Monitor to research datasets and software was funded following a call for projects within the framework of the French Recovery Plan. The University of Lorraine has been asked by the Ministry of Higher Education and Research (MESR) to lead this project alongside the MESR's Department of Decision Support Tools and Inria. 
 
-<!--- The project is led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (INRIA), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.  -->
+<!--- The project is led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (Inria), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.  -->
 
 ## Quality criteria for Open Science indicators
 
@@ -113,7 +113,7 @@ What are the quality criteria for useful and reliable indicators on the producti
 
 - fair: maintain consistency in term of domains and languages
 
-Why the current Open Science monitors related to data and software fail regarding these criteria? e.g. OpenAire. 
+Why the existing Open Science monitors related to data and software fail regarding these criteria? e.g. OpenAire. 
 Extremely limited coverage leads to extremely biased and unreliable indicators, leading to counter-productive dashboards (for instance indicating that a handful of datasets is produced at the scale of a whole University during one year). Publishing aggregated dashboard on unreliable and non-representative data can lead to disengagement of the public for the tool, false interpretation, wrong public policy decisions and unability to assess public the application of Open Science policies. 
 
 Why do we think an automatic data-centric approach to capture the actual scientific activity and production could lead to higher quality indicators than the manually referencing approach? 
@@ -258,7 +258,7 @@ The ability to measure the research activity at different scale, from a given or
 
 # Data and software availability
 
-The data resulting from this work are publicly available on the French Ministry of Higher Education, Research and Innovation open data portal: 
+The data resulting from this work are publicly available on the French Ministry of Higher Education and Research open data portal: 
 
 The source code used for the French Open Science Monitor is available on GitHub, and shared with open source licences.
 
