@@ -92,6 +92,20 @@ The French Open Science Monitor, also called BSO for 'Baromètre de la Science O
 
 The extension of the French Open Science Monitor to research datasets and software was funded following a call for projects within the framework of the French Recovery Plan (_France Relance_). The University of Lorraine has been asked by the Ministry of Higher Education and Research (MESR) to lead this project alongside the MESR's Department of Decision Support Tools and Inria. 
 
+Laetitia : je propose une introduction un peu plus détaillée ci-dessous
+
+Open Science is the unrestricted dissemination of research publications, data and software software. This makes science more cumulative, more strongly supported by data, more transparent, faster and more universally accessible.  Open Science leads to a democratization of access to knowledge, useful for research, training, economy, society.  It thus increases the efficiency of research, promotes scientific progress and is a lever for scientific advances and is a lever for scientific integrity while promoting the confidence of citizens in science. The National Plan for Open Science, launched in 2018, has set an ambitious course and instilled new practices in terms of open access to publications and the opening of research data and codes. 
+
+In 2019, the French Open Science Barometer was created to measure the openness of publications and the annual progression of this openness.  It is composed of graphs showing the proportion of open access publications by year, publisher and discipline. 
+
+In 2020, the University of Lorraine published the first local version of the with the online publication of the Lorraine Open Science Barometer. This publication has led to many monitors by other institutions such as the University of Evry, the University of Paris Saclay, and the University of Versailles-Saint-Quentin-en-Yvelines. 
+ 
+In 2021, the new version of BSO, BSO 2, was extended with tese indicators in the field of health, including new information on clinical trials and observational studies. The BSO is therefore constantly evolving. While publications are an essential aspect of Open Science, they are not sufficient to capture all its facets. Indeed, it is reductive to consider it from this angle alone: the opening of research data software codes, descriptive metadata of publications and data (see the work of OpenCitations on this subject) promotes the reproducibility of research results, the reuse of reuse of data and the transparency of research.
+
+For this reason, research data and software codes should also be subject to indicators that measure their openness. As many studies (https://arxiv.org/abs/1907.02565) underline the direct correlation between reporting of associated data and citation of articles, this practice can only be encouraged. 
+ 
+The objective of this new BSO is therefore to measure the implementation of a public policy on data, whose major milestones span several decades: the CADA law, the law for a Republic, the Bothorel report, and the Prime Minister's circular dated April 27, 2021. 
+
 <!--- The project is led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (INRIA), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.  -->
 
 ## Quality criteria for Open Science indicators
