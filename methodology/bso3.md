@@ -191,12 +191,12 @@ Mining dataset and software mentions in scientific publications can provide solu
 
 In the context of Open Science, ODDPub has been developed to detect open data statements in full text. It implements a rule-based approach for capturing data sharing patterns. ODDPub gives then a global information about sharing of open data and open software for the document. The rules have been developed for biomedical literature. Limitations:
 
-- rule-based, low accuracy and portability to other domains
-- lack of data for proper evaluation for code sharing 
-- no clear distinction between code and data (we found 40% of shared data in the code sharing evaluation data)
-- no information about creation of data and code, so impossible to estimate the ratio of created data which is shared
+- Rule-based approaches are outdated, they perform with lower accuracy and portability to other domains that modern machine learning []
+- Regarding code sharing accuracy, there is a lack of data for significant evaluation  
+- ODDPub has no clear distinction between code and data, we found for instance 40% of shared data in the code sharing evaluation data
+- ODDPub does not produce information about creation of data and code. Therefore, it not impossible to estimate the ratio of created data which is shared. 
 
-Rather than estimating in a binary manner at document-level sharing information, focusing on mention detections and characterizing every mentions in a document in terms of creation and sharing can provide more interpretable information. 
+Rather than estimating in a binary manner at document-level the sharing of data or code, we think that focusing on mention detections and characterizing every mentions in a document in terms of creation and sharing can provide more interpretable information. 
 
 Recognizing dataset and software entities make possible indicators centered not only on documents, but also on global production of research dataset and software and reuse. By recognizing and reporting data and software reuse among a large corpus of publications over time, researchers could receive credit and acknowledgement for the impact of their datasets and software. 
 
@@ -256,11 +256,11 @@ To our knowledge, three systems have used modern Deep Learning techniques and th
 [@10.1145/3459637.3481936], [@10.7717/peerj-cs.835] and [@istrate_2022] all using fine-tuned SciBERT models [@beltagy2019scibert]. 
 
 
-[@10.1145/3459637.3481936] is the earliest published system and was developed in parallel with the Softcite dataset development. The system includes a variety of models trained with the Softcite dataset using sampling techniques to augment the dataset with negative examples to mitiguate the problem of mention sparsity. The best model is a SciBERT model, with a CRF activation layer, fine-tuned with the positive examples of the Softcite dataset and additional negative examples selected with a new technique called active sampling. The training set uses a 1:20 ratio (20 paragraphs without annotations for one paragraph with at least one annotation) and the model has been evaluated on full paper content. 
+[@10.1145/3459637.3481936] is the earliest published system and was developed in parallel with the Softcite dataset development. The system includes a variety of models trained with the Softcite dataset using sampling techniques to augment the dataset with negative examples to mitiguate the problem of mention sparsity. The best model is a SciBERT model, with a CRF activation layer, fine-tuned with the positive examples of the Softcite dataset and additional negative examples selected with a new technique called active sampling. The training set uses a 1:20 ratio (20 paragraphs without annotations for one paragraph with at least one annotation) and the model has been evaluated on full paper content. Additional entity disambiguation is used to filter out false positives and document-level mention propagation is used to increase recall.
 
 [@10.7717/peerj-cs.835] is trained with the SoMeSci dataset [@10.1145/3459637.3482017], which is smaller and limited to Life Sciences, but has a more comprehensive set of annotations than [@du_softcite_2021], including relationships between mentioned software. 
 The model uses a more complex architecture to also predict these relationships. 
-Training is realized only with the annotated corpus, which include only the positive sentences (sentence with at least one software mention) for 1,267 articles and complete content for 100 articles. The distribution of software mentions is thus highly oversampled as compared to the actual distribution. The system supports JATS XML documents as input. 
+Training is realized with the annotated corpus, which include only the positive sentences (sentence with at least one software mention) for 1,267 articles and complete content for 100 articles. The distribution of software mentions is thus highly oversampled as compared to the actual distribution. The system supports JATS XML documents as input. 
 
 [@istrate_2022] is the latest published system, but also the simplest, with a more limited scope. It is a SciBERT model fine-tuned with the Softcite dataset [@du_softcite_2021]. The trained model used software name and version information and does not cover the other annotated attributes available in the dataset (url, publisher). The model is trained only on the positive training examples of the dataset (the paragraphs with at least one software mention). The model can then be used in a pipeline starting from XML documents as input, relying on GNU parallel command line. 
 
@@ -300,16 +300,15 @@ For a more detailed discussion and more examples, see https://github.com/Baromet
 
 A software mention contains at least a software substantive, which could be a proper name or an implicit name like _script_, _program_, etc., and optional attributes: a URL, a publisher (organization or individual which publishes the software), a version, a programming language and one or several bibliographical references. 
 
-In order to characterize software contributions in research papers, we need to identify precisely the created software parts. For example when a script is developed and should be run in a particular environment, we distinguish the script as one software component distinct from its software environment. For this, we introduce the typing for software mention: 
+In order to characterize software contributions in research papers, we need to identify precisely the created software parts. For example when a script is developed and should be run in a particular environment, we distinguish the script as one software component distinct from its software environment. For this, we introduce a typing for software mention: 
 
-- standalone software
+- **standalone software**: a software expressed in the mention context without dependency to another software and which does not require code 
 
-- software environment
+- **software environment**: a software requiring some code/scripts to realize the research task, expressed in the mention context with or without dependency to another software
 
-- named software component
+- **named software component**: a named software depending on another software environment to run, the software environment being expressed in the mention context
 
-- implicit software component
-
+- **implicit software component**: an unnamed software depending on another software environment to run, the software environment being expressed in the mention context, and where the software refering expression is a generic term for program. such as program, code, script, macro, package, library, etc.
 
 
 #### Annotations
@@ -465,13 +464,22 @@ The following scores are thus produced using 10-fold cross-validation based on t
 
 ## 2.3 Research datasets
 
-### Implicit versus explicit research datasets
+### Data model and training data
+
+Dataset mentions are usually less complex that software mentions, but the exact scope of "research datasets" varies from one existing work/annotated corpus to another and needs some clarifications. 
+
+#### Implicit versus explicit research datasets
 
 Although the production of various data is very common is a scientific work, a large amount of the raw data discussed in scientific articles are actually not named, not curated and not shared. For examples: 
 
+```
+The 47 tilapia DNA samples were sent to Beijing Genome Institute (BGI) for 101 bp 
+paired-end sequencing using Illumina Hiseq 2500. 
+```
 
+The Illumina Hiseq 2500 device produces sequencing data, which are part of the described study. These sequencing data are however not named and not shared, they remain implicit.
 
-We define this sort of research data as _implicit dataset_. These data are generally not considered as valuable by the researchers and often not in a sharable state (proprietary format, embedded as project resources). We consider fully automatic recognition of this kind of datasets currently beyond what is feasable given the current existing annotated corpus and machine learning technique accuracy for information extraction.  
+We define this sort of research data as _implicit dataset_. These data are generally not considered as valuable by the researchers and often not in a sharable state (proprietary format, embedded as project resources). We consider fully automatic recognition of this kind of datasets currently beyond what is feasable given the current existing annotated corpus and machine learning technique accuracy.  
 
 In contrast, in this work, we focus on _explicitly mentioned datasets_: 
 - named datasets 
@@ -479,8 +487,38 @@ In contrast, in this work, we focus on _explicitly mentioned datasets_:
 
 _Explicitly mentioned datasets_ are research data identified as such by the authors, discussed and considered valuable with respect to the scientific claims of the publication and usually available in a form that makes sharing possible. 
 
+#### Databases 
 
-### Data model and training data
+Is a mention to a database the same as a mention to a dataset? We consider that the answer depends on the context, whether the research work is actually refering to the data/dataset stored in the database or more generally to the software or the service associated to the database. 
+If some research data has been loaded and shared via this database, we can can consider in general that this data are packaged as a dataset.
+On the other hand, a "dataset" can exists independently from a database management system and is not ambiguous with respect to its storage and software access environment.
+
+#### Data sharing initiative/project
+
+It is frequent that a reference is made not and to a single dataset (with a dataset name), but to a collection of datasets developed by this initiative/project, with the name of a data sharing initiative/project. For example the Coleridge Kaggle dataset (which is a particularly imprecise and incomplete annotated corpus) is annotating the Alzheimer's Disease Neuroimaging Initiative (ADNI) as a dataset name in the following context:
+
+```
+Genome-wide pathway analysis of memory impairment in the Alzheimer’s Disease 
+Neuroimaging Initiative (ADNI) cohort implicates gene candidates, canonical pathways, 
+and networks.
+```
+
+We consider however that this not a standard dataset citation. It informs about the origin and location of some data used in the research work, but does not describe precisely which data is considered. Similarly, we can see references to a large project/collaboration/experiments (collaboration in the sense of HEP or Astronomy, such as ATLAS, CMS, LHCb), for actually referencing data produced/shared by the collaboration and not the collaboration itself. 
+
+To summarize, we currently exclude these general mentions to such data initiatives and projects from our dataset extraction. Only mentions to individual research dataset or collection are considered as "dataset". 
+
+#### Accession number
+
+The references to an entry in a database, for instance via a unique identifier such as an accession number is considered as a valid mention to a dataset. The dataset here is defined by the combination of the data service and the identifier. For example: 
+
+```
+The RNA-seq data generated in this study have been deposited in DDBJ under accession 
+codes DRA001101 and DRA004790."
+```
+
+For a more detailed discussion and more examples, see https://github.com/Barometre-de-la-Science-Ouverte/bso3-techdoc/blob/master/doc/scope_and_sharing.md
+
+#### Annotations
 
 
 
@@ -493,17 +531,32 @@ _Explicitly mentioned datasets_ are research data identified as such by the auth
 
 ### Current performance
 
-The recognition of dataset mentions appears reliable with the current amount of training data.  
+The recognition of mentions of explicit datasets (dataset with names or without name but expressed as dataset or data) appears reliable with the current amount of training data. This result confirms that indicators derived from these extracted mentions can be build in a safe manner.
+
+At this stage, implicit datasets are harder to recognize and will require additional training data and modeling efforts. We also present for reference the current recognition scores for data device mentions, but their manual annotations are still work-in-progress and very limited. We think that the automatic identification of data acquisition devices or data processing devices could help in the future to spot implicit data in a more reliable way.
+
+|                     | precision | recall  |**f-score**| support (10%)|
+|---                  | ---       | ---     | ---       | ---          |
+|**explit dataset**     | 89.04     | 89.46   | **89.24** | 466          |
+|**implicit dataset** | 71.85     | 67.15   | **69.38** | 927          |
+|data device          | 51.91     | 37.94   |   42.61   | 97           |
 
 
+## 2.4 Recognition of data and code availability statements
 
-## 2.4 Matching and aggregation
+We have extended GROBID to identify automatically data and code availability statements in research publications. We define a data and/or code availability statements as a standalone section of a research publication (with a section title and one or several paragraphs) describing how the data and code involved in the research work can or cannot be accessed. 
+
+Data and code availability statements appear usually in the front page of an article or at the end as a annex, but we also considered positions inside the main body, which is actually not rare in preprints. We do not put any constraints on the section title associated to "data availability statements". It appears that, especially in preprints, this section can be introduce with a vast variety of section titles. 
+
+...
+
+## 2.5 Matching and aggregation
 
 At document-level.
 
 At corpus-level, disambiguating mentions of the same dataset or software in different documents could lead to indicators at the level of produced dataset and software. 
 
-## 2.5 Monitoring indicators construction
+## 2.6 Monitoring indicators construction
 
 To help steer French public policy, the BSO must have indicators that meet several conditions:
 
