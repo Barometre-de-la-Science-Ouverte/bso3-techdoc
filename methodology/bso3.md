@@ -1,6 +1,6 @@
 ---
-title: 'Large-scale Machine-Learning analysis of scientific PDF to monitor the production and the openness of research data and software in France'
-subtitle: 'Widening the French Open Science Monitor scope'
+title: 'Monitoring the production and the openness of\newline research data and software in France:\newline Large-scale Machine-Learning analysis of scientific PDF'
+#subtitle: 'Widening the French Open Science Monitor scope'
 author:
   - Aricia Bassinet:
       institute: université de lorraine
@@ -183,9 +183,9 @@ Mining dataset and software mentions in scientific publications can provide solu
 
 - Understandability and interpretability: 
 
-- Consistency
+- Consistency: an automated text mining solution can be re-applied to a full corpus regularly, including back files, and produce consistent indicators over any periods. The process is independent from manual referencing of research data and software that could happen to already published articles, from publishers and from types of publications. 
 
-- Independence and trustfulness
+- Independence and trustfulness: 
 
 
 
@@ -282,7 +282,7 @@ In contrast, [@10.1145/3459637.3481936] explores various sampling ratios and tec
 
 
 
-In addition, the system of [@10.1145/3459637.3481936] has the advantage of being integrated with GROBID to allow processing of PDF, while the other tools work with XML full text inputs and would require further development to support PDF parsing and structuring. The Softcite software mention recognizer also includes comprehensive production-ready releases, including docker image, REST API service and python client for parallel processing, which make it ready to deploy in the existing cloud-based BSO infrastructure and service pipeline. 
+In addition, the system of [@10.1145/3459637.3481936] has the advantage of being integrated with GROBID to allow processing of PDF, while the other tools work with XML full text inputs and would require further development to support PDF parsing and structuring. The Softcite software mention recognizer also includes comprehensive production-ready releases, including docker image, REST API service and python client for parallel processing, which make it ready to deploy in the existing cloud-based BSO infrastructure and service pipeline. The system also includes a web GUI console for the service that display annotations on PDF for easy visual inspection.
 
 We therefore choose to extend the system of [@10.1145/3459637.3481936] for the production of the Open Science indicators, considering its accuracy, the support of PDF and its engineering maturity. Improvements to the system developed in this work includes: a new extended and enriched Softcite corpus, refinement of software types and relationships, automatic caraterization of mention context in term of usage/creation/sharing and improvement of models using LinkBERT fine-tuning [@yasunaga2022linkbert].
 
@@ -313,9 +313,9 @@ In order to characterize software contributions in research papers, we need to i
 
 #### Annotations
 
-The Softcite dataset is encoded in TEI. For robustness, we did not use JATS XML content when available, the content of the articles is extracted from PDF with GROBID to follow the quality level of the expected input in PDF. Mentions are annotated at paragraph-level for two reasons: first to capture possible attributes and relations beyond the same sentence and second to extend the input context to machine learning sequence labeling models. It was reported early that transformers like BERT applied to NER can perform better with extended contexts [@devlin2018bert]. 
+The Softcite dataset is encoded in TEI XML. For robustness, we did not use JATS XML content when available, the content of the articles is extracted from PDF with GROBID to follow the quality level of the expected input in PDF. While annotations are at sentence-level in SoMeSci, mentions are annotated at paragraph-level for two reasons: first to capture possible attributes and relations beyond the same sentence and second to keep the possibility to extend the input context to machine learning sequence labeling models. It was reported early that transformers like BERT applied to NER can perform better with extended contexts [@devlin2018bert]. 
 
-Mentioned standalone software with attributes are annotated as follow: 
+Mentioned standalone software with attributes are annotated as follow - here a software name (_CRISPRFinder_) and two attributes are attached to this named software, a version number and a URL: 
 
 ```xml
  <rs resp="#curator" type="software" xml:id="b308e79ccf-software-1">CRISPRFinder</rs> 
@@ -324,7 +324,7 @@ Mentioned standalone software with attributes are annotated as follow:
  type="url">http://crispr.u-psud.fr/Server/ CRISPRfinder.php</rs>.
 ```
 
-In the first version of Softcite, software mentions were all encoded as standalone software with the above pattern. To produce indicators on software and code sharing assocated to research works, we need to distinguish the created software part from larger software environment or more implicit software. We thus extended the annotations for refining the description of the software mentions as follow. 
+In the first version of the Softcite dataset, software mentions were all encoded as standalone software with the above pattern. To produce indicators on software and code sharing assocated to research works, we need to distinguish the created software part from larger software environment or more implicit software. We thus extended the annotations for refining the description of the software mentions as follow. 
 
 In case the software is an environment that suppose that some scripts exist to realize a particular task, we note the software with the attribute `@subtype=environment`. For example:
 
@@ -336,7 +336,7 @@ type="software" xml:id="b4e3e280d1-software-1">MATLAB</rs>
 
 MATLAB being an statistical analysis environment, scripts have to be written for carrying out the analysis. It is important to distinguish this case, in contrast to the usage of a software without the production of script, because using such _software environment_ means that some code is created and could be shared. 
 
-When a software package or library is developed within a larger software environment, as a _software dependency_, we identify the two software respectively as `@subtype=component` and `@subtype=environment`, with a relationship encoded with `@corresp` pointing to the environment part identifier. The two pieces of software can have their own attributes. 
+When a software package or library is developed within a larger software environment, as a _software dependency_, we identify the two software respectively as `@subtype=component` and `@subtype=environment`, with a relationship encoded with `@corresp` pointing from the component to the environment part identifier. The two pieces of software can have their own attributes. 
 
 ```xml
 <rs corresp="#d984c41c4d-software-1" resp="#annotator22" subtype="component" 
@@ -356,7 +356,7 @@ type="software" xml:id="d984c41c4d-software-1">r</rs> using
     type="software" xml:id="d984c41c4d-software-3">cubist</rs> package, respectively. 
 ```
 
-Another case, less frequent, is to have several dependency relations, which are encoded similarly as follow: 
+Another case, less frequent, is to have several hierarchical dependency relations, which are encoded similarly as follow: 
 
 ```xml
 The package <rs corresp="#d984c41c4d-software-1" resp="#annotator22" 
@@ -377,15 +377,27 @@ type="software" xml:id="e4ab54fee2-software-1">MATLAB</rs> using custom
   type="software" xml:id="e4ab54fee2-software-2">scripts</rs>.
 ```
 
-With these additional dependency annotations between software, the new Softcite dataset version is comparable to SoMeSci in term of annotation comprehensiveness, with the benefit of a larger amount of annotated documents. 
+With these additional dependency annotations between software, the new Softcite dataset version is comparable to SoMeSci in term of annotation comprehensiveness, with the benefit of a larger amount of annotated documents and a coverage not limited to Life Science.  
 
-Like the previous versions of Softcite, the additional annotations have been produced in parallel by 2 annotators and a reconciliation phase have been realized by a curator for all disagreements. ^[It should be noted that the Inter-Annotator Agreement associated to the annotations before reconciliation is not an evaluation of the quality of the final annotations, because all the documents were annotated by at least 2 persons and all disagreements have been subject to a reconciliation. Inter-Annotator Agreement here gives an indication about the complexity of the annotation task.] 
+Like the previous versions of the Softcite dataset, the additional annotations have been produced in parallel by 2 annotators and a reconciliation phase have been realized by a curator for all disagreements. ^[It should be noted that the Inter-Annotator Agreement associated to the annotations before reconciliation is not an evaluation of the quality of the final annotations, because the documents of the Softcite dataset have been annotated by at least 2 persons and all disagreements have been subject to a reconciliation. Inter-Annotator Agreement here gives an indication about the complexity of the annotation task and the requirement of multiple rounds of annotations and reconcialition to reach a "gold" standard.] 
 
-Table [] present some statistics about this new version of the Softcite dataset. 
+Table [] present some statistics about this new revised version (`2.0`) of the Softcite dataset. A significant amount of software mentions have been broken down into software parts to encoded their relationships. The human annotation challenge here is the low frequency of software mentions. A lot of content need to be examined to find one software mention, and even the best annotators easily overlook some mentions. Only 29% of the articles contain at least one sotfware mention. The new version also includes a revision of all the previously non-annotated content to find missing annotations, in particular with the help of consistency scripts, leading to a better coverage of the mentions and a better quality of the "negative" contexts. 
 
+| Softcite dataset version | v1.0 (2020) | v2.0 (2023) | 
+|---                       |---          |---          | 
+| number of documents      | 4,971       | 4,971       |           
+|---                       |---          |---          |
+| software name (total)    | 4,093       | 5,134       |           
+| - environment            |             | 1,089       |           
+| - component              |             |   88        |           
+| - implicit               |             |  106        |           
+|---                       |---          |---          |        
+| version                  | 1,258       | 1,478       |            
+| publisher                | 1,111       | 1,311       |            
+| URL                      |   172       |  231        |            
+| programming language     |             |   71        |            
 
-
-
+The latest version of the Softcite dataset is available on Zenodo: 
 
 
 
@@ -445,20 +457,6 @@ We report the evaluation of our best model for the typing of software mentions, 
 | **all** (micro avg.)| 82.81 | 77.94  | **80.30**  |     136 |
 
 
-**Software mention context characterization**
-
-The following scores are thus produced using 10-fold cross-validation based on three binary classifiers, one per class used/created/shared. The classifiers are fine-tuned LinkBERT base model [@yasunaga2022linkbert]. Binary classifiers for each class perform significantly better than a single multiclass classifier (up to 4 F1-score points). Also note that we use the same classifiers for characterizing both software and dataset mentions.  
-
-|                | precision | recall |**f-score**| support      |
-|---             | ---       | ---    | ---       | ---          |
-| **used**       | 96.83     | 94.18  | **95.49** | 292          |
-| **not used**   | 84.40     | 91.09  | **87.62** | 101          |
-|---             | ---       | ---    | ---       | ---          |
-| **created**    | 81.08     | 83.33  | **82.19** | 31           |
-| **not created**| 98.31     | 98.04  | **98.18** | 362          |
-|---             | ---       | ---    | ---       | ---          |
-| **shared**     | 81.82     | 90.00  | **85.71** | 36           |
-| **not shared** | 99.35     | 98.71  | **99.03** | 285          |
 
 
 
@@ -503,7 +501,7 @@ Neuroimaging Initiative (ADNI) cohort implicates gene candidates, canonical path
 and networks.
 ```
 
-We consider however that this not a standard dataset citation. It informs about the origin and location of some data used in the research work, but does not describe precisely which data is considered. Similarly, we can see references to a large project/collaboration/experiments (collaboration in the sense of HEP or Astronomy, such as ATLAS, CMS, LHCb), for actually referencing data produced/shared by the collaboration and not the collaboration itself. 
+We consider however that this not a standard dataset citation. It informs about the origin and location of some data used in the research work, but does not describe precisely which data is considered. Similarly, we can see references to a large project/collaboration/experiments (collaboration in the sense of HEP or Astronomy, such as ATLAS, CMS, LHCb), for actually referencing in general data produced/shared by the collaboration and not the collaboration itself. Such general reference is again not considered as a dataset mention.  
 
 To summarize, we currently exclude these general mentions to such data initiatives and projects from our dataset extraction. Only mentions to individual research dataset or collection are considered as "dataset". 
 
@@ -519,6 +517,12 @@ codes DRA001101 and DRA004790."
 For a more detailed discussion and more examples, see https://github.com/Barometre-de-la-Science-Ouverte/bso3-techdoc/blob/master/doc/scope_and_sharing.md
 
 #### Annotations
+
+Developing an annotated corpus of dataset mentions from scratch would not have been possible for this project, given that the Softcite dataset took several years of development and involved a total of 38 different human annotators. To train our dataset mention recognizer, we reused existing annotated corpus and re-annotated them to follow our guidelines. 
+
+To tackle the sparsity problem, we could not take advantage of the full text versions of the annotated articles. The existing training data are sets of positive sentences with at least one dataset annotation. There is guarantee that the rest of these articles do not include other datasets and checking such a large amount of content is highly time-consuming. To mitiguate this issue, we separated the task in two steps, the first one to identify the data sentences in a complete article, and the second one to spot dataset mentions in selected data sentences. 
+
+
 
 
 
@@ -537,26 +541,72 @@ At this stage, implicit datasets are harder to recognize and will require additi
 
 |                     | precision | recall  |**f-score**| support (10%)|
 |---                  | ---       | ---     | ---       | ---          |
-|**explit dataset**     | 89.04     | 89.46   | **89.24** | 466          |
+|**explit dataset**   | 89.04     | 89.46   | **89.24** | 466          |
 |**implicit dataset** | 71.85     | 67.15   | **69.38** | 927          |
-|data device          | 51.91     | 37.94   |   42.61   | 97           |
+| data device         | 51.91     | 37.94   |   42.61   | 97           |
 
 
-## 2.4 Recognition of data and code availability statements
+## 2.4 Characterization of mention contexts
+
+Whether or not a research dataset or software mentioned in an article was used, created and shared is important to monitor the compliance with Open Science policies. We hypothesize here that the wording used to introduce and describe a dataset or software mention can characterize its possible usage, creation and sharing. The sentences containing the mentions are used as classifier input, without additional features. 
+As we observed that the wording used to describe the role of these mentions is very similar for dataset and software, we use the same classifiers for characterizing both research dataset and software mentions.  
+
+### Training data
+
+The annotated data for training the classifiers are a combination of existing training data and additional manual annotation realized during the project: 
+
+- l'attribut _used_ of the Softcite dataset 
+
+- the corresponding annotations in the SoMeSci dataset
+
+- an additional set of 500 contexts focusing more on datasets and the minoroty classes (_created_ and _shared_)
+
+Table [] presents the distribution of classes in this training data set.
+
+|  total contexts     |  3,643     | 
+|---                  | ---       |
+|  used               |  2,774         |
+|  not used           |   869        | 
+|---                  | ---       |
+|  created            |  338        | 
+|  not created        |  3,305        | 
+|---                  | ---       |
+| shared              |  266         | 
+| not shared          |  3,377        | 
+
+
+
+### Current performance
+
+The following scores are thus produced using 10-fold cross-validation based on three binary classifiers, one per class used/created/shared. The classifiers are fine-tuned LinkBERT base model [@yasunaga2022linkbert]. Binary classifiers for each class perform significantly better than a single multiclass classifier (up to 4 F1-score points). 
+
+|                | precision | recall |**f-score**| support      |
+|---             | ---       | ---    | ---       | ---          |
+| **used**       | 96.83     | 94.18  | **95.49** | 292          |
+| **not used**   | 84.40     | 91.09  | **87.62** | 101          |
+|---             | ---       | ---    | ---       | ---          |
+| **created**    | 81.08     | 83.33  | **82.19** | 31           |
+| **not created**| 98.31     | 98.04  | **98.18** | 362          |
+|---             | ---       | ---    | ---       | ---          |
+| **shared**     | 81.82     | 90.00  | **85.71** | 36           |
+| **not shared** | 99.35     | 98.71  | **99.03** | 285          |
+
+
+## 2.5 Recognition of availability statements
 
 We have extended GROBID to identify automatically data and code availability statements in research publications. We define a data and/or code availability statements as a standalone section of a research publication (with a section title and one or several paragraphs) describing how the data and code involved in the research work can or cannot be accessed. 
 
-Data and code availability statements appear usually in the front page of an article or at the end as a annex, but we also considered positions inside the main body, which is actually not rare in preprints. We do not put any constraints on the section title associated to "data availability statements". It appears that, especially in preprints, this section can be introduce with a vast variety of section titles. 
+Availability statements appear usually in the front page of an article or at the end as a annex, but we also considered positions inside the main body, which is actually not rare in preprints. We do not put any constraints on the section title associated to "data availability statements". It appears that, especially in preprints, this section can be introduce with a vast variety of section titles. 
 
 ...
 
-## 2.5 Matching and aggregation
+## 2.6 Matching and aggregation
 
 At document-level.
 
-At corpus-level, disambiguating mentions of the same dataset or software in different documents could lead to indicators at the level of produced dataset and software. 
+At corpus-level, disambiguating mentions of the same dataset or software in different documents could lead to indicators at the level of produced dataset and software. Such overall index of research dataset and software is currently out of the scope of the selected indicators. 
 
-## 2.6 Monitoring indicators construction
+## 2.7 Monitoring indicators construction
 
 To help steer French public policy, the BSO must have indicators that meet several conditions:
 
