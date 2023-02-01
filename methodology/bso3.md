@@ -69,7 +69,7 @@ Datasets and software are today core elements of the research activities. 90-95%
 However, in contrast with the well established practice of citing publication, the visibility of research datasets and software is considered largely insufficient. Software is not cited in scholarly publications in a consistent and easily readable manner [@howison_software_2016]. When they exist, the PID associated to software are not used [@du_peerj_2022]. Much of the published data is still essentially unavailable for integration into secondary data analysis and evaluation of reproducibility [@hardwicke2018populating]. The deposited data is also be incomplete, sometimes intentionally and fragmented [@roche2015public]. PID associated to data have a much more limited awareness among researchers as compared to publication PID [@macgregor2022exploring]. 
 
 Multiple initiatives took place in last decade to address this issue, in particular focusing on improving dataset and software cataloging [], advocacy efforts and standards for data and software citation [], with limited impact until now [@du_peerj_2022]. 
-Recently, more pro-active and voluntarist policies to enforce higer standards of openness and visibility for all research results have been introduced. National Open Science policies in particular are currently rapidly developing... 
+Recently, more pro-active and voluntarist policies to enforce higher standards of openness and visibility for all research results have been introduced. National Open Science policies in particular are currently rapidly developing... 
 
 To evaluate, adapt and maximize the adoption of these policies, their effect must be measured. Monitoring tool and dashboards are crucial... 
 
@@ -183,7 +183,7 @@ Mining dataset and software mentions in scientific publications can provide solu
 
 - Understandability and interpretability: 
 
-- Consistency: an automated text mining solution can be re-applied to a full corpus regularly, including back files, and produce consistent indicators over any periods. The process is independent from manual referencing of research data and software that could happen to already published articles, from publishers and from types of publications. 
+- Consistency: an automated text mining solution can be re-applied to a full corpus regularly, including back files, and produces consistent indicators over any periods. The process is independent from manual referencing of research data and software that could happen to already published articles, from publishers and from types of publications. 
 
 - Independence and trustfulness: 
 
@@ -234,7 +234,7 @@ GROBID is an open source library specialized for scholarly PDF implementing a ca
 
 Accuracy of the recognition of software and dataset mentions from within scholar fulltext is challenging first due to the high sparsity of these mentions. 
 
-Considerintg the Softcite dataset, the 4,971 full-texts contain a total of around 46 million tokens, but only 15,280 tokens are relevant to a software mention; so around one token would be positively labeled for each 3,000 "negative" tokens, with a ratio as low as one token per 17,500 tokens for _publishers_ and _URL_ fields. An Imbalance Ratio value above 500 is usually already considered to be extreme [@LeeDeleris:2020]. With the higher observed Imbalance Ratio here, from 3,000 to 17,500, an ML approach to finding new unseen software mentions is very challenging.
+Considerintg the Softcite dataset, the 4,971 full-texts contain a total of around 46 million tokens, but only 15,280 tokens are relevant to a software mention; so around one token would be positively labeled for each 3,000 "negative" tokens, with a ratio as low as one token per 17,500 tokens for _publishers_ and _URL_ fields. An Imbalance Ratio value above 500 is usually already considered to be extreme [@LeeDeleris:2020]. With the higher observed Imbalance Ratio here, from 1:3,000 to 1:17,500, an ML approach to finding new unseen software mentions is very challenging.
 
 We need to address the concrete challenge of applying state-of-the-art ML methods to millions of published PDFs across different scientific domains, where dataset and software mentions represent only a few relevant tokens out of several thousands in every document. 
 
@@ -563,16 +563,16 @@ The annotated data for training the classifiers are a combination of existing tr
 
 Table [] presents the distribution of classes in this training data set.
 
-|  total contexts     |  3,643     | 
+|  total contexts     |  3,643    | 
 |---                  | ---       |
-|  used               |  2,774         |
-|  not used           |   869        | 
+|  used               |  2,774    |
+|  not used           |   869     | 
 |---                  | ---       |
-|  created            |  338        | 
-|  not created        |  3,305        | 
+|  created            |  338      | 
+|  not created        |  3,305    | 
 |---                  | ---       |
-| shared              |  266         | 
-| not shared          |  3,377        | 
+| shared              |  266      | 
+| not shared          |  3,377    | 
 
 
 
@@ -597,6 +597,8 @@ The following scores are thus produced using 10-fold cross-validation based on t
 We have extended GROBID to identify automatically data and code availability statements in research publications. We define a data and/or code availability statements as a standalone section of a research publication (with a section title and one or several paragraphs) describing how the data and code involved in the research work can or cannot be accessed. 
 
 Availability statements appear usually in the front page of an article or at the end as a annex, but we also considered positions inside the main body, which is actually not rare in preprints. We do not put any constraints on the section title associated to "data availability statements". It appears that, especially in preprints, this section can be introduce with a vast variety of section titles. 
+
+
 
 ...
 
