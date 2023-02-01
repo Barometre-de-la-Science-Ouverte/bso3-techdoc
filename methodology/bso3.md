@@ -4,8 +4,8 @@ title: 'Monitoring the production and the openness of\newline research data and 
 author:
   - Aricia Bassinet:
       institute: université de lorraine
-      orcid: 
-      idref: 
+      orcid: 0000-0003-1723-7517
+      idref: 232370028
   - Laetitia Bracco:
       institute: université de lorraine
       orcid: 0000-0002-2939-9110
