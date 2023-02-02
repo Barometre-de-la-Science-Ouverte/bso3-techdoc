@@ -250,41 +250,64 @@ The following technical constraints need to be covered:
 
 ## 2.2 Research software
 
-Automatic recognition of software mentions has attracted a lot of interest in parallel with the development of research software citation advocacy in the last decade. [@kruger_literature_2020] presents these first approaches, based mainly on gazetteers and rules. Machine Learning promises significantly higher accuracy and coverage, but appeared however first limited by the lack of manually annotated training data necessary for reliable models - the largest public dataset until 2020 being limited to only 85 annotated documents. With the development of large annotated gold corpus, the Softcite dataset [@du_softcite_2021], 4,971 articles in Life Sciences and Economics (5,172 software mentions), and the SoMeSci dataset [@10.1145/3459637.3482017], 1,367 articles in Life Sciences (3,756 software mentions), Deep Learning approaches have been recently possible for this task. 
+Automatic recognition of software mentions has attracted a lot of interest in parallel with the development of research software citation advocacy in the last decade. [@kruger_literature_2020] presents these first approaches, based mainly on gazetteers and rules. Machine Learning promises significantly higher accuracy and coverage, but appeared however first limited by the lack of manually annotated training data necessary for reliable models - the largest public dataset until 2020 being limited to only 85 annotated documents. With the development of large annotated gold corpus, the Softcite dataset [@du_softcite_2021], 4,971 articles in Life Sciences and Economics (4,093 software mentions), and the SoMeSci dataset [@10.1145/3459637.3482017], 1,367 articles in Life Sciences (3,756 software mentions), Deep Learning approaches have been recently possible for this task. 
+
+### Prior work
 
 To our knowledge, three systems have used modern Deep Learning techniques and the recent large annotated gold corpus for software mention recognition. 
 [@10.1145/3459637.3481936], [@10.7717/peerj-cs.835] and [@istrate_2022] all using fine-tuned SciBERT models [@beltagy2019scibert]. 
-
 
 [@10.1145/3459637.3481936] is the earliest published system and was developed in parallel with the Softcite dataset development. The system includes a variety of models trained with the Softcite dataset using sampling techniques to augment the dataset with negative examples to mitiguate the problem of mention sparsity. The best model is a SciBERT model, with a CRF activation layer, fine-tuned with the positive examples of the Softcite dataset and additional negative examples selected with a new technique called active sampling. The training set uses a 1:20 ratio (20 paragraphs without annotations for one paragraph with at least one annotation) and the model has been evaluated on full paper content. Additional entity disambiguation is used to filter out false positives and document-level mention propagation is used to increase recall.
 
 [@10.7717/peerj-cs.835] is trained with the SoMeSci dataset [@10.1145/3459637.3482017], which is smaller and limited to Life Sciences, but has a more comprehensive set of annotations than [@du_softcite_2021], including relationships between mentioned software. 
 The model uses a more complex architecture to also predict these relationships. 
-Training is realized with the annotated corpus, which include only the positive sentences (sentence with at least one software mention) for 1,267 articles and complete content for 100 articles. The distribution of software mentions is thus highly oversampled as compared to the actual distribution. The system supports JATS XML documents as input. 
+Training is realized with the annotated corpus, which include only the positive sentences (sentence with at least one software mention) for 787 PLoS articles, method sections for 480 PLoS articles and complete content for 100 articles. The distribution of software mentions is thus significantly oversampled as compared to the actual distribution. The system supports JATS XML documents as input. 
 
-[@istrate_2022] is the latest published system, but also the simplest, with a more limited scope. It is a SciBERT model fine-tuned with the Softcite dataset [@du_softcite_2021]. The trained model used software name and version information and does not cover the other annotated attributes available in the dataset (url, publisher). The model is trained only on the positive training examples of the dataset (the paragraphs with at least one software mention). The model can then be used in a pipeline starting from XML documents as input, relying on GNU parallel command line. 
+[@istrate_2022] is the latest published system, but also the simplest, with a more limited scope. It is a SciBERT model fine-tuned with the Softcite dataset [@du_softcite_2021]. The trained model used software name and version information and does not cover the other annotated attributes available in the dataset (url, publisher). The model is trained only on the training examples of the dataset, which are all positive paragraph examples (the paragraphs with at least one software mention). The model can then be used in a pipeline starting from XML documents as input, relying on GNU parallel command line. 
 
-The accuracy and sparsity aspect is important to stress for comparing these tools. Both [@10.7717/peerj-cs.835] and [@istrate_2022] were trained and evaluated with the annotated corpus. While software mentions are extremely sparse in actual scholar full texts, they are represented in almost every sentences/paragraphs in these training data, which lead to the learning of unrealistic ratio of software mentions if used as such. The models will then tend to predict software in most sentences/paragraphs, leading to a very high amount of false positives. As these models also report evaluation scores produced on partitions of these annotated data, the reported evaluations present similarly unrealistic figures. The invalid evaluation of a model for an unbalanced classification problem after sampling the training data is a known issue discussed in [@VANDEWIELE2021101987]. 
+### Comparing model predictions with real mention destributions
 
-To illustrate the impact of training and predicting software mentions on highly different distributions, Table [] 
+The accuracy and sparsity aspect is important to stress for comparing these tools. Both [@10.7717/peerj-cs.835] and [@istrate_2022] were trained and evaluated with the annotated corpus. While software mentions are extremely sparse in actual scholar full texts, they are represented in almost every sentences/paragraphs in these training data, which lead to model unrealistic ratio of software mentions if used as such. The models tend then to predict software in most sentences/paragraphs, leading to a very high amount of false positives. As these models also report evaluation scores produced on partitions of these annotated data, the reported evaluations present similarly unrealistic figures. The invalid evaluation of a model for an unbalanced classification problem after sampling the training data is a known issue discussed in [@VANDEWIELE2021101987]. 
 
-The average number of software mentions predicted per document is significantly higher for these models than the actual average number in the annotated corpus, showing the generation of a high rate of false positives. For this reason, in [@istrate_2022], manual corrections have been realized at very large scale on the extracted results. 
+Table [] illustrates the issue of training and predicting with very different mention distributions. We indicate reported scores based on cross-evaluation on the annotated corpus (all with over-sampling of mentions) and realistic evaluation scores on the full content of a set of annotated documents. This shows that a parser like [@istrate_2022] trained on unrealistic over-sampled distributions will perform with much lower accuracy when applied to real full documents, producing a high rate of false positive. 
 
+| Software mention recognizer | reported F1-score on annotated corpus | F-1 score, reproduced | F1-score on holdout set (full article content) | Note | 
+|---                          |---                                    |---         |---                                             |--    |
+| [@istrate_2022]             | 92.0                                  | 85.5       | 56.3                                           | (software name and version only) |
+| [@10.7717/peerj-cs.835]     | 88.3                                  | -          | -                                              | (we report here software name only)    |
+| [@10.1145/3459637.3481936] (using 50K negative sampling examples) | - | 82.3     | 79.1                                           | (software name, version, publisher, url) |
 
-
-Table [] further illustrates the issues. We indicate reported scores based on cross-evaluation on the annotated corpus and more realistic evaluation scores on the full content of annotated documents. 
-
-
-
-
-In contrast, [@10.1145/3459637.3481936] explores various sampling ratios and techniques to adapt the model to the actual extremely sparse distribution of mentions. The models are evaluated against an holdout set built with the entire full text content of articles to capture a realistic distribution of mentions. The difference of accuracy with these sampling techniques on realistic input is very significant, as well in term of number of mentions identified by documents. With F1-score above 80% on actual mention distribution, the results then do not require manual corrections for tasks which are robust enough to cope with some uncertainty, like statistical analysis, indicators or knowledge base construction. 
- 
+To further illustrate the impact of training and predicting software mentions on highly different distributions, Table [] shows the prediction rate of software mentions in comparison with the actual rate of software mentions in the manually annotated corpus. 
 
 
+| Software mention recognizer    | distribution in manually annotated training corpus | prediction rate per document   | 
+|---                             |---                                             |---                             | 
+| [@istrate_2022]                |Softcite: 4,093 software mentions in 4,971 doc. **0,82**| * CORD-19: 558,309 mentions in 77,448 doc. **7,20** | 
+|                                | for PMC subset: **1,45**                       | * PMC: 14,770,209 mentions in 2,433,010 doc. **6,07** |
+| [@10.7717/peerj-cs.835]        |SoMeSci: 3,756 software mentions in 1,367 doc. **2,74**| * PMC: 11.8 M mentions in 3,215,386 doc. **3.67** |
+|                                |                                                |                              |
+| [@10.1145/3459637.3481936]     |Softcite: 4,093 software mentions in 4,971 doc. **0,82**| * CORD-19: 652,518 mentions in 296,686 doc. **2,19** |
+|                                | for PMC subset: **1,45**                       | * UPW random subset: 2.6M mentions in 2.5M doc. **1,04** |
 
-In addition, the system of [@10.1145/3459637.3481936] has the advantage of being integrated with GROBID to allow processing of PDF, while the other tools work with XML full text inputs and would require further development to support PDF parsing and structuring. The Softcite software mention recognizer also includes comprehensive production-ready releases, including docker image, REST API service and python client for parallel processing, which make it ready to deploy in the existing cloud-based BSO infrastructure and service pipeline. The system also includes a web GUI console for the service that display annotations on PDF for easy visual inspection.
+PMC: PubMed Central, UPW: UnPayWall 
 
-We therefore choose to extend the system of [@10.1145/3459637.3481936] for the production of the Open Science indicators, considering its accuracy, the support of PDF and its engineering maturity. Improvements to the system developed in this work includes: a new extended and enriched Softcite corpus, refinement of software types and relationships, automatic caraterization of mention context in term of usage/creation/sharing and improvement of models using LinkBERT fine-tuning [@yasunaga2022linkbert].
+Note: In Softcite, half of the documents are in Life Science from PMC, the rest in Economy from UPW. The PMC subcollection mentions/document ratio is: 3639 mentions / 2500 documents = 1,45 
+
+For [@istrate_2022], the average number of software mentions predicted per document is significantly higher for these models than the actual average number in the annotated corpus (6,07 versus 0,82 for PMC), showing the impact of a high rate of false positives. For this reason, in [@istrate_2022], manual corrections have been realized at very large scale on the extracted results. 
+
+The average number of software mentions predicted per document for [@10.7717/peerj-cs.835] (3.67) is much closer to the distribution in the original annotated corpus (2,74). However the original distribution in the SoMeSci corpus is three times higher than the one of Softcite and around two times higher for the PMC sub-collection of Softcite. The SoMeSci corpus is over-representing software mentions due its constructions. SoMeSci reuses sections and sentences from PLOS via the SoSciSoCi corpus [], which have been assembled originally to contain many software mentions (with at least one software mentions for almost all documents). In SoMeSci, only the `Pubmed_fulltext` sub-collection with 100 complete full texts exhibits a random and real distribution of software mentions, with 48% of documents without software mention.  
+
+We can generally observe that recent papers have more software mentions. The extraction exercices on the CORD-19 corpus (publications in 2020 and 2021) show a higher rate of predicted software mentions. However PubMed Central covers the last 3 decades and should in average exhibit a software mention rate closer to the random PubMed Central subset of Softcite and SoMeSci, where around 50% of the publications have at least one software mentions and with an average mention rate per article around 1.5. 
+
+To address false positives, [@10.1145/3459637.3481936] has explored various sampling ratios and techniques to adapt the model to the actual extremely sparse distribution of mentions. The models are evaluated against an holdout set built with the entire full text content of articles to capture a realistic distribution of mentions. The difference of accuracy with these sampling techniques on realistic input is significant (see Table []), which is reflected by the average number of mentions identified by documents of Table []. With F1-score above 80% on actual mention distribution, the results then do not require manual corrections for tasks which are robust enough to cope with some uncertainty, like statistical analysis, indicators or knowledge base construction. 
+
+### Production considerations
+
+The system of [@10.1145/3459637.3481936] has the advantage of being integrated with GROBID to allow processing of PDF, while the other tools work with XML full text inputs and would require further development to support PDF parsing and structuring. 
+
+The Softcite software mention recognizer includes production-ready releases, including docker image, REST API service and python client for parallel processing, which make it ready to deploy in the existing cloud-based BSO infrastructure and service pipeline. The system also includes a web GUI console for the service that display annotations on PDF for easy visual inspection.
+
+We therefore choose to extend the system of [@10.1145/3459637.3481936] for the production of the French Open Science indicators, considering its accuracy, the support of PDF and its engineering maturity. Improvements to the system developed in this work includes: a new extended and enriched Softcite corpus, refinement of software types and relationships, automatic caraterization of mention context in term of usage/creation/sharing and improvement of models using LinkBERT fine-tuning [@yasunaga2022linkbert].
 
 ### Data model and training data
 
@@ -383,6 +406,7 @@ Like the previous versions of the Softcite dataset, the additional annotations h
 
 Table [] present some statistics about this new revised version (`2.0`) of the Softcite dataset. A significant amount of software mentions have been broken down into software parts to encoded their relationships. The human annotation challenge here is the low frequency of software mentions. A lot of content need to be examined to find one software mention, and even the best annotators easily overlook some mentions. Only 29% of the articles contain at least one sotfware mention. The new version also includes a revision of all the previously non-annotated content to find missing annotations, in particular with the help of consistency scripts, leading to a better coverage of the mentions and a better quality of the "negative" contexts. 
 
+
 | Softcite dataset version | v1.0 (2020) | v2.0 (2023) | 
 |---                       |---          |---          | 
 | number of documents      | 4,971       | 4,971       |           
@@ -396,6 +420,7 @@ Table [] present some statistics about this new revised version (`2.0`) of the S
 | publisher                | 1,111       | 1,311       |            
 | URL                      |   172       |  231        |            
 | programming language     |             |   71        |            
+
 
 The latest version of the Softcite dataset is available on Zenodo: 
 
@@ -424,14 +449,14 @@ Two additional external services are used in the process:
 
 ### Evaluation
 
-The following tables present the evaluation of the two main models involved in the identification of software mentions, based on version `0.7.2` of the Softcite software mention recognizer. 
+The following tables present the evaluation of the two main models involved in the identification of software mentions, based on version `0.7.2` of the Softcite software mention recognizer and the updated version 2.0 of the Softcite dataset. 
 
 **Software mentions and attributes**
 
-To evaluate the model on the actual distribution of software mentions in scientific articles, we have created an __holdout set__ containing the complete full text of 20% the Softcite Dataset documents (994 articles), reproducing the overall distribution of documents with annotation (29.0%), the distribution between Biomedicine and Economics fields, and using a stratified sampling to reproduce the overall distribution of mentions per document.
-The __holdout set__ reproduce therefore a realistic distribution of software mentions and can be used to produce stable evaluation using different version of the training data. We used the remaining 80% of documents (3,977 articles), divided at paragraph-level into positive (1,886 paragraphs with at least one manual annotation) and negative (612,597 paragraphs without manual annotations). To optimize the balance between positive and negative sampling for the real distribution, the final model was trained on 50K paragraphs containing the 1,886 positive paragraphs and a set a of 48,114 negative paragraphs selected with active sampling as described in [@10.1145/3459637.3481936]. 
+Similarly to the work in [@10.1145/3459637.3481936], to evaluate the model on the actual distribution of software mentions in scientific articles, we have reused an __holdout set__ containing the complete full text of 20% the Softcite Dataset documents (994 articles), reproducing the overall distribution of documents with annotation (29.0%), the distribution between Biomedicine and Economics fields, and using a stratified sampling to reproduce the overall distribution of mentions per document.
+The __holdout set__ reproduce therefore a realistic distribution of software mentions and can be used to produce stable evaluation using different version of the training data. We used the remaining 80% of documents (3,977 articles), divided at paragraph-level into positive (1,886 paragraphs with at least one manual annotation) and negative (612,597 paragraphs without manual annotations). To optimize the balance between positive and negative sampling for the real distribution, the final model was trained on the 1,886 positive paragraphs of the Softcite dataset and a set a of 50,000 negative paragraphs selected with active sampling as described in [@10.1145/3459637.3481936]. 
 
-Our best model is a fine-tuned LinkBERT base model [@[@yasunaga2022linkbert]] with an additional CRF activation layer, which performs slighly but consistently better for this task than a fine-tuned SciBERT model.
+Our best model is a fine-tuned LinkBERT base model [@yasunaga2022linkbert] with an additional CRF activation layer, which performs slighly but consistently better for this task than a fine-tuned SciBERT model.
 
 |                 | precision | recall |**f1-score**| support |
 |---              |---        |---     |---         |---      |
