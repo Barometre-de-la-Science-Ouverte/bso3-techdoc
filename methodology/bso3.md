@@ -274,24 +274,26 @@ Training is realized with the annotated corpus, which include only the positive 
 
 The accuracy and sparsity aspect is important to stress for comparing these tools. Both [@10.7717/peerj-cs.835] and [@istrate_2022] were trained and evaluated with the annotated corpus. While software mentions are extremely sparse in actual scholar full texts, they are represented in almost every sentences/paragraphs in these training data, which lead to model unrealistic ratio of software mentions if used as such. The models tend then to predict software in most sentences/paragraphs, leading to a very high amount of false positives. As these models also report evaluation scores produced on partitions of these annotated data, the reported evaluations present similarly unrealistic figures. The invalid evaluation of a model for an unbalanced classification problem after sampling the training data is a known issue discussed in [@VANDEWIELE2021101987]. 
 
-Table [] illustrates the issue of training and predicting with very different mention distributions. We indicate reported scores based on cross-evaluation on the annotated corpus (all with over-sampling of mentions) and realistic evaluation scores on the full content of a set of annotated documents. This shows that a parser like [@istrate_2022] trained on unrealistic over-sampled distributions will perform with much lower accuracy when applied to real full documents, producing a high rate of false positive. 
 
-| Software mention recognizer | reported F1-score on annotated corpus in publication | F-1 score, reproduced | F1-score on holdout set (full article content) | Note | 
+| Software mention recognizer | reported F1-score on annotated corpus in publication | F-1 score on annotated corpus, reproduced |**F1-score on holdout set** (full article content) | Note | 
 |---                          |---                                    |---         |---                                             |--    |
-| [@istrate_2022]             | 92.0                                  | 85.5       | 56.3                                           | (software name and version only) |
-| [@10.7717/peerj-cs.835]     | 88.3                                  | -          | -                                              | (we report here "Application" name only)    |
-| [@10.1145/3459637.3481936] (using around 40K negative sampling examples) | - | 82.3     | 79.1                                           | (software name, version, publisher, url) |
+| CZI recognizer [@istrate_2022] | 92.0                                  | 85.5^[Fork for reproduced cross-evaluation and Softcite holdout evaluations available at https://github.com/kermitt2/software-mention-extraction-czi]       | **56.3**                                       | (software name and version only) |
+| SoMeSci recognizer  [@10.7717/peerj-cs.835] | 88.3                                  | 84.0^[Fork for reproduced SoMeSci cross-evaluation and Softcite holdout evaluations available at https://github.com/kermitt2/SoMeNLP]       | **62.4**                                              | ("Application" name only) |
+| Softcite recognizer [@10.1145/3459637.3481936] (using around 40K negative sampling examples) | - | 82.3     | **79.1**                                | (software name, version, publisher, url) |
+
+
+Table [] illustrates the issue of training and predicting with very different mention distributions. We indicate reported scores based on cross-evaluation on the annotated corpus (all with over-sampling of mentions) in the first two columns. In the third column, we report realistic evaluation scores on the full content of a set of annotated documents (the softcite holdout set, 20% of the Softcite articles). This shows that a parser like [@istrate_2022] trained on unrealistic over-sampled distributions will perform with much lower accuracy when applied to real full documents, producing a high rate of false positive. Similar observation applies to [@10.7717/peerj-cs.835], although some difference in the annotation guidelines of "software names" between the SoMeSci and Softcite datasets might also impact the matching accuracy. 
+
 
 To further illustrate the impact of training and predicting software mentions on highly different distributions, Table [] shows the prediction rate of software mentions in comparison with the actual rate of software mentions in the manually annotated corpus. 
 
-
 | Software mention recognizer    | distribution in manually annotated training corpus | prediction rate per document   | 
 |---                             |---                                             |---                             | 
-| [@istrate_2022]                |Softcite: 4,093 software mentions in 4,971 doc. **0,82**| * CORD-19: 558,309 mentions in 77,448 doc. **7,20** | 
+| CZI recognizer [@istrate_2022] |Softcite: 4,093 software mentions in 4,971 doc. **0,82**| * CORD-19: 558,309 mentions in 77,448 doc. **7,20** | 
 |                                | for PMC subset: **1,45**                       | * PMC: 14,770,209 mentions in 2,433,010 doc. **6,07** |
-| [@10.7717/peerj-cs.835]        |SoMeSci: 3,756 software mentions in 1,367 doc. **2,74**| * PMC: 11.8 M mentions in 3,215,386 doc. **3.67** |
+| SoMeSci recognizer [@10.7717/peerj-cs.835] |SoMeSci: 3,756 software mentions in 1,367 doc. **2,74**| * PMC: 11.8 M mentions in 3,215,386 doc. **3.67** |
 |                                |                                                |                              |
-| [@10.1145/3459637.3481936]     |Softcite: 4,093 software mentions in 4,971 doc. **0,82**| * CORD-19: 652,518 mentions in 296,686 doc. **2,19** |
+| Softcite recognizer [@10.1145/3459637.3481936] |Softcite: 4,093 software mentions in 4,971 doc. **0,82**| * CORD-19: 652,518 mentions in 296,686 doc. **2,19** |
 |                                | for PMC subset: **1,45**                       | * UPW random subset: 2.6M mentions in 2.5M doc. **1,04** |
 
 PMC: PubMed Central, UPW: UnPayWall 
@@ -635,9 +637,20 @@ We have extended GROBID to identify automatically data and code availability sta
 
 Availability statements appear usually in the front page of an article or at the end as a annex, but we also considered positions inside the main body, which is actually not rare in preprints. We do not put any constraints on the section title associated to "data availability statements". It appears that, especially in preprints, this section can be introduce with a vast variety of section titles. 
 
+95 articles out of the 520 training articles of the GROBID `segmentation` model have been further annotated with data availability section markups. This GROBID model is used to segment the main zone of a scientific article, such as header, body, bibliographical section, acknowledgement or funding. The data availability section is then structured and identified as such in the file TEI result file.
+
+We evaluated the reliability of recognition on three sets:
+
+- a set of 1000 PLOS articles in PDF and JATS XML containing already data and code availability statement markup
+
+- a set of 1000 eLife articles in PDF and similar JATS markup
+
+- a set of 2000 bioRxiv articles, which have been reviewed and completed manually, containing 473 data availability statements 
+
+The bioRxiv set is the most challenging one because, as a set of preprints, the authors are at this stage more or less free to format and express data availability statements as they want. In contrast, for published articles, the section title of data and code availability statements is constrained by the publisher format and much easier to recognize. 
 
 
-...
+
 
 ## 2.6 Matching and aggregation
 
