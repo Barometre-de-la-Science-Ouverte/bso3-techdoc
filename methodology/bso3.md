@@ -278,7 +278,9 @@ The accuracy and sparsity aspect is important to stress for comparing these tool
 | Software mention recognizer | reported F1-score on annotated corpus in publication | F-1 score on annotated corpus, reproduced |**F1-score on holdout set** (full article content) | Note | 
 |---                          |---                                    |---         |---                                             |--    |
 | CZI recognizer [@istrate_2022] | 92.0                                  | 85.5^[Fork for reproduced cross-evaluation and Softcite holdout evaluations available at https://github.com/kermitt2/software-mention-extraction-czi]       | **56.3**                                       | (software name and version only) |
+|---                          |---                                    |---         |---                                             |--    |
 | SoMeSci recognizer  [@10.7717/peerj-cs.835] | 88.3                                  | 84.0^[Fork for reproduced SoMeSci cross-evaluation and Softcite holdout evaluations available at https://github.com/kermitt2/SoMeNLP]       | **62.4**                                              | ("Application" name only) |
+|---                          |---                                    |---         |---                                             |--    |
 | Softcite recognizer [@10.1145/3459637.3481936] (using around 40K negative sampling examples) | - | 82.3     | **79.1**                                | (software name, version, publisher, url) |
 
 
@@ -627,30 +629,34 @@ The following scores are thus produced using 10-fold cross-validation based on t
 | **created**    | 81.08     | 83.33  | **82.19** | 31           |
 | **not created**| 98.31     | 98.04  | **98.18** | 362          |
 |---             | ---       | ---    | ---       | ---          |
-| **shared**     | 81.82     | 90.00  | **85.71** | 36           |
-| **not shared** | 99.35     | 98.71  | **99.03** | 285          |
+| **shared**     | 81.82     | 90.00  | **85.71** | 26           |
+| **not shared** | 99.35     | 98.71  | **99.03** | 385          |
 
 
 ## 2.5 Recognition of availability statements
 
-We have extended GROBID to identify automatically data and code availability statements in research publications. We define a data and/or code availability statements as a standalone section of a research publication (with a section title and one or several paragraphs) describing how the data and code involved in the research work can or cannot be accessed. 
+We have extended GROBID to identify automatically data and code availability statements in research publications. We define a data and/or code availability statements as a standalone section of a research publication (with a section title and one or several paragraphs) describing how the data and code involved in the research work can or cannot be accessed. We consider no restriction on the types of data described in the sharing statement, e.g. a section describing the accession numbers from a scientific database corresponding to research data used in a research work will be considered as a data availability statement. 
 
-Availability statements appear usually in the front page of an article or at the end as a annex, but we also considered positions inside the main body, which is actually not rare in preprints. We do not put any constraints on the section title associated to "data availability statements". It appears that, especially in preprints, this section can be introduce with a vast variety of section titles. 
+Availability statements appear usually in the front page of an article or at the end as a annex, but we also considered positions inside the main body, which are actually not rare in preprints. We do not put any constraints on the section title associated to "data availability statements". It appears that, especially in preprints, this section can be introduce with a vast variety of section titles. 
 
 95 articles out of the 520 training articles of the GROBID `segmentation` model have been further annotated with data availability section markups. This GROBID model is used to segment the main zone of a scientific article, such as header, body, bibliographical section, acknowledgement or funding. The data availability section is then structured and identified as such in the file TEI result file.
 
-We evaluated the reliability of recognition on three sets:
+We evaluated the reliability of recognition on two sets, one corresponding to high quality publisher publications, and one with only preprints at the other end of the spectrum of difficulty:
 
-- a set of 1000 PLOS articles in PDF and JATS XML containing already data and code availability statement markup
+- a set of 1000 random PLOS articles in PDF and JATS XML (from the complete PLOS collection) containing 779 data and code availability statement markup information
 
-- a set of 1000 eLife articles in PDF and similar JATS markup
+- a set of 2000 bioRxiv articles, which have been reviewed and completed manually regarding data and code availability statement markup, containing 473 data availability statements 
 
-- a set of 2000 bioRxiv articles, which have been reviewed and completed manually, containing 473 data availability statements 
+The bioRxiv set can be seen as the most challenging in general because, as a set of preprints, the authors are at this stage more or less free to format and express data availability statements as they want. In contrast, for published articles such as PLOS, the section title of data and code availability statements is constrained by the publisher format and thus much easier to recognize. 
 
-The bioRxiv set is the most challenging one because, as a set of preprints, the authors are at this stage more or less free to format and express data availability statements as they want. In contrast, for published articles, the section title of data and code availability statements is constrained by the publisher format and much easier to recognize. 
+Table [] presents the accuracy of the data and code availability statement recogntion in a end-to-end scenario (starting with PDF as input). 
 
+| collection            | precision | recall   |**f-score**| support |
+|---                    |---        |---       |---        |---      |
+| PLOS 1000 articles    |   99.57   | 89.73    | **94.4**  | 779     |
+| bioRxiv 2000 articles |   82.7    | 78.25    | **80.41** | 473     |
 
-
+We observed that on recent publications (2020 and after), nearly all PLOS data availability sections are correctly recognized. On the other hand, preprint data availability statements can be challenging to recognized because they can appear in non-usual position in the article (e.g. inside the article body) and can be introduced by a large variety of section titles depending on the described data. In published versions, we generally observe a high regularity and very high precision similar to PLOS articles. 
 
 ## 2.6 Matching and aggregation
 
