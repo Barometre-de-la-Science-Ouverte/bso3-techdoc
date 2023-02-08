@@ -446,10 +446,9 @@ GROBID is then applied to structure the raw PDF stream into header, sections, pa
 Mining for specific entities is only relevant to certain textual structures of a scientific document, such as paragraphs, abstracts, figure captions, etc. In the Softcite corpus, we calculated that, on average, 28% of publication content should be filtered out. This includes metadata (author, affiliations),
 bibliographical sections, table and figure content, formulas, headnotes, page numbers, reference markers, or some editorial annexes (like conflicts of interest). Relying on GROBID not only improve the quality of textual content, but it also makes possible to apply the text mining process only to relevant structures, avoiding a possible source of false recognition. 
 
-...
+For relevant textual structures, a first NER mentions recognition is applied to identify software names and related attributes. A second model is then applied to refine the software mention types. Attachment of the bibliographical references in the context of the software mentions are evaluated and if successful these bibliographical references are fully resolved against CrossRef DOI via the `biblio-glutton` service. An entity disambiguation is realized in context using `entity-fishing` for every software mention candidates. If the candidates is significantly more likely scientific entities different from a software, the candidates are discarded to avoid likely false positives. Otherwise, if the software entity is a known disambiguated software present in Wikidata, the entity is linked via the resulting Q Wikidata identifier. Finally a document-level propagation is realized to identified possible overlooked software name matches in the same article in order to improve recall.
 
-
-Two additional external services are used in the process:  
+The additional external services used in the process:  
 
 * **biblio-glutton**, a large scale and fast bibliographical reference provision and matching service. Bibliographical references attached to software mentions are matched against CrossRef DOI using a 2 stage approach: blocking based on fuzzy text matching and pairwise matching for bibliographical structure comparison.  
 
@@ -571,7 +570,7 @@ To tackle the sparsity problem, we could not take advantage of the full text ver
 
 ![Overview of the DataStet dataset mention recognition process.](workflow_dataset_mention.png){ width=70% }
 
-
+The architecture and process are very similar to the ones of software mention recognition. The main difference is related to the two models applied to recognize dataset mentions. A first classification model is applied to every sentences of relevant section to determine if the sentence is describing or not a dataset. The second model is applied on positive data sentences to identify dataset mention spans and attributes like URL and bibliographical references.  
 
 
 ### Current performance
@@ -651,10 +650,10 @@ The bioRxiv set can be seen as the most challenging in general because, as a set
 
 Table [] presents the accuracy of the data and code availability statement recogntion in a end-to-end scenario (starting with PDF as input). 
 
-| collection            | precision | recall   |**f-score**| support |
-|---                    |---        |---       |---        |---      |
-| PLOS 1000 articles    |   99.57   | 89.73    | **94.4**  | 779     |
-| bioRxiv 2000 articles |   82.7    | 78.25    | **80.41** | 473     |
+| collection              | precision | recall   |**f-score**| support |
+|---                      |---        |---       |---        |---      |
+| **PLOS 1000 articles**  |   99.57   | 89.73    | **94.4**  | 779     |
+|**bioRxiv 2000 articles**|   82.7    | 78.25    | **80.41** | 473     |
 
 We observed that on recent publications (2020 and after), nearly all PLOS data availability sections are correctly recognized. On the other hand, preprint data availability statements can be challenging to recognized because they can appear in non-usual position in the article (e.g. inside the article body) and can be introduced by a large variety of section titles depending on the described data. In published versions, we generally observe a high regularity and very high precision similar to PLOS articles. 
 
