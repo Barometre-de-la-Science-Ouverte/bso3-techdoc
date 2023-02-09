@@ -560,7 +560,7 @@ For a more detailed discussion and more examples, see https://github.com/Baromet
 
 Developing an annotated corpus of dataset mentions from scratch would not have been possible for this project, given that the Softcite dataset took several years of development and involved a total of 38 different human annotators. To train our dataset mention recognizer, we reused existing annotated corpus and re-annotated them to follow our guidelines. 
 
-To tackle the sparsity problem, we could not take advantage of the full text versions of the annotated articles. The existing training data are sets of positive sentences with at least one dataset annotation. There is guarantee that the rest of these articles do not include other datasets and checking such a large amount of content is highly time-consuming. To mitiguate this issue, we separated the task in two steps, the first one to identify the data sentences in a complete article, and the second one to spot dataset mentions in selected data sentences. 
+To tackle the sparsity problem, we could not take advantage of the full text versions of the annotated articles. The existing training data are sets of positive sentences with at least one dataset annotation. There is no guarantee that the rest of these articles do not include other datasets and checking such a large amount of content is highly time-consuming. To mitiguate this issue, we separated the task in two steps, the first one to identify the data sentences in a complete article, and the second one to spot dataset mentions in selected data sentences. 
 
 
 
@@ -570,7 +570,7 @@ To tackle the sparsity problem, we could not take advantage of the full text ver
 
 ![Overview of the DataStet dataset mention recognition process.](workflow_dataset_mention.png){ width=70% }
 
-The architecture and process are very similar to the ones of software mention recognition. The main difference is related to the two models applied to recognize dataset mentions. A first classification model is applied to every sentences of relevant section to determine if the sentence is describing or not a dataset. The second model is applied on positive data sentences to identify dataset mention spans and attributes like URL and bibliographical references.  
+The architecture and process are very similar to the ones of software mention recognition. The main difference is related to the two models applied to recognize dataset mentions. A first classification model is applied to every sentences of relevant section to determine if the sentence is describing or not a dataset. The second model is applied on positive data sentences to identify dataset mention spans and attributes like URL and bibliographical references. This division of the recognition task into two steps is introduced to mitigate the problem of lack of annotations for complete documents, mentioned in the previous section.  
 
 
 ### Current performance
@@ -644,18 +644,23 @@ We evaluated the reliability of recognition on two sets, one corresponding to hi
 
 - a set of 1000 random PLOS articles in PDF and JATS XML (from the complete PLOS collection) containing 779 data and code availability statement markup information
 
+- a set of 984 random eLife articles in PDF and JATS XML (from the complete eLife collection) containing 585 data availability statements markup information
+
 - a set of 2000 bioRxiv articles, which have been reviewed and completed manually regarding data and code availability statement markup, containing 473 data availability statements 
 
-The bioRxiv set can be seen as the most challenging in general because, as a set of preprints, the authors are at this stage more or less free to format and express data availability statements as they want. In contrast, for published articles such as PLOS, the section title of data and code availability statements is constrained by the publisher format and thus much easier to recognize. 
+Note that the markup information and encoding available in the publisher or bioRxiv XML is not always 100% accurate, because the content of the XML and the PDF versions can slightly change, and the XML can typically contain more information than what is in the PDF (for instance eLife XML contain the author keywords, while they are not present in the final published PDF). However, although we do not obtain perfect absolute evaluation scores, comparing automatic extraction from PDF with the publisher XML give a good estimation of the extraction accuracy in general. 
 
-Table [] presents the accuracy of the data and code availability statement recogntion in a end-to-end scenario (starting with PDF as input). 
+The bioRxiv set can be seen as the most challenging in general because, as a set of preprints, the authors are at this stage more or less free to format and express data availability statements as they want. In contrast, for published articles such as PLOS or eLife, the section title of data and code availability statements is constrained by the publisher format and thus much easier to recognize. 
+
+Table [] presents an evaluation of the accuracy of the data and code availability statement recogntion in a end-to-end scenario (starting with PDF as input). 
 
 | collection              | precision | recall   |**f-score**| support |
 |---                      |---        |---       |---        |---      |
 | **PLOS 1000 articles**  |   99.57   | 89.73    | **94.4**  | 779     |
+| **eLife 984 articles**  |   96.62   | 92.82    | **94.68** | 585     |
 |**bioRxiv 2000 articles**|   82.7    | 78.25    | **80.41** | 473     |
 
-We observed that on recent publications (2020 and after), nearly all PLOS data availability sections are correctly recognized. On the other hand, preprint data availability statements can be challenging to recognized because they can appear in non-usual position in the article (e.g. inside the article body) and can be introduced by a large variety of section titles depending on the described data. In published versions, we generally observe a high regularity and very high precision similar to PLOS articles. 
+We observed that on recent publications (2020 and after), nearly all PLOS and eLife data availability sections are correctly recognized. On the other hand, preprint data availability statements can be challenging to recognized because they can appear in non-usual position in the article (e.g. inside the article body) and can be introduced by a large variety of section titles depending on the described data. In published versions, we generally observe a high regularity and very high precision similar to PLOS/eLife articles. 
 
 ## 2.6 Matching and aggregation
 
