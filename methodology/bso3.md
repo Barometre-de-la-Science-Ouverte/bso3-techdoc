@@ -503,7 +503,7 @@ The __holdout set__ reproduce therefore a realistic distribution of software men
 
 Our best model is a fine-tuned LinkBERT base model [@yasunaga2022linkbert] with an additional CRF activation layer, which performs slighly but consistently better for this task than a fine-tuned SciBERT model.
 
-|                 | precision | recall |**f1-score**| support |
+|                 | precision | recall |**F1-score**| support |
 |---              |---        |---     |---         |---      |
 |  **publisher**  |  75.51    | 88.80  | **81.62**  |   250   |
 |  **software**   |  74.01    | 88.98  | **80.81**  |   989   |
@@ -620,7 +620,7 @@ The architecture and process are very similar to the ones of software mention re
 
 As presented above, in order to manage sparcity of dataset mentions, a first model is classifying if a sentence introduces a dataset or not. A 10-fold cross-validation on our dataset gives the following accuracy:
 
-|                      | precision | recall  |**f-score**| support (10%)|
+|                      | precision | recall  |**F1-score**| support (10%)|
 |---                   | ---       | ---     | ---       | ---          |
 | **data setence**     | 93.70     |  96.21  | 94.94     |     200      |
 | **not data sentence**|  97.56    |  95.92  | 96.73     |    2000      |
@@ -629,7 +629,7 @@ Similarly, we evaluate the mention recognition using 10-fold cross-validation on
 
 At this stage, implicit datasets are harder to recognize and will require additional training data and modeling efforts. We also present for reference the current recognition scores for data device mentions, but their manual annotations are still work-in-progress and very limited. We think that the automatic identification of data acquisition devices or data processing devices could help in the future to spot implicit data in a more reliable way.
 
-|                     | precision | recall  |**f-score**| support (10%)|
+|                     | precision | recall  |**F1-score**| support (10%)|
 |---                  | ---       | ---     | ---       | ---          |
 |**explicit dataset** | 89.04     | 89.46   | **89.24** | 466          |
 |**implicit dataset** | 71.85     | 67.15   | **69.38** | 927          |
@@ -670,7 +670,7 @@ Table [] presents the distribution of classes in this training data set.
 
 The following scores are thus produced using 10-fold cross-validation based on three binary classifiers, one per class used/created/shared. The classifiers are fine-tuned LinkBERT base model [@yasunaga2022linkbert]. Binary classifiers for each class perform significantly better than a single multiclass classifier (up to 4 F1-score points). 
 
-|                | precision | recall |**f-score**| support      |
+|                | precision | recall |**F1-score**| support      |
 |---             | ---       | ---    | ---       | ---          |
 | **used**       | 96.83     | 94.18  | **95.49** | 292          |
 | **not used**   | 84.40     | 91.09  | **87.62** | 101          |
@@ -704,7 +704,7 @@ The bioRxiv set can be seen as the most challenging in general because, as a set
 
 Table [] presents an evaluation of the accuracy of the data and code availability statement recognition in a end-to-end scenario (starting with PDF as input). 
 
-| collection              | precision | recall   |**f-score**| support |
+| collection              | precision | recall   |**F1-score**| support |
 |---                      |---        |---       |---        |---      |
 | **PLOS 1000 articles**  |   99.57   | 89.73    | **94.4**  | 779     |
 | **eLife 984 articles**  |   96.62   | 92.82    | **94.68** | 585     |
@@ -820,7 +820,7 @@ The ability to measure the research activity at different scale, from a given or
 
 #### 5.2.1 Domain coverage
 
-Dataset and software mention recognizers are limited by the poor multidisciplinary coverage of the training data. [@10.1145/3459637.3481936] shows that the recognition performance falls by around 20 points F-score on a new scientific domain. 
+Dataset and software mention recognizers are limited by the poor multidisciplinary coverage of the training data. [@10.1145/3459637.3481936] shows that the recognition performance falls by around 20 points F1-score on a new scientific domain. 
 
 #### 5.2.2 Large-scale research entity disambiguation
 
