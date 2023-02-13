@@ -595,9 +595,9 @@ For a more detailed discussion and more examples, see https://github.com/Baromet
 
 #### Annotations
 
-Developing an annotated corpus of dataset mentions from scratch would not have been possible for this project, given that the Softcite dataset took several years of development and involved a total of 38 different human annotators. To train our dataset mention recognizer, we reused existing annotated corpus and re-annotated them to follow our guidelines. 
+Developing an annotated corpus of dataset mentions entirely from scratch would not have been possible for this project, given that the Softcite dataset took several years of development and involved a total of 38 different human annotators. To train our dataset mention recognizer, we reused existing annotated corpus, re-annotated them to follow our guidelines and produce some additional annotations for a limited subset. 
 
-To tackle the sparsity problem, we could not take advantage of the full text versions of the annotated articles. The existing training data are sets of positive sentences with at least one dataset annotation. There is no guarantee that the rest of these articles do not include other datasets and checking such a large amount of content is highly time-consuming. To mitiguate this issue, we separated the task in two steps, the first one to identify the data sentences in a complete article, and the second one to spot dataset mentions in selected data sentences. 
+To tackle the sparsity problem, we could not take advantage of the full text versions of the annotated articles. The existing training data are sets of positive sentences with at least one dataset annotation. There is no guarantee that the rest of these articles do not include other datasets and checking such a large amount of content is highly time-consuming. To mitiguate this issue, we separated the task in two steps, the first one to identify the data sentences in a complete article, and the second one to spot dataset mentions in selected data sentences. This two steps approach was already implemented in the DataSeer project and gave satisfactory performance. However, as the DataSeer annotated data has not been released publicly, we reused and developed ourself additional annotated data.  
 
 For the dataset mention recognition, we use the following resources:
 
@@ -613,8 +613,7 @@ For the data sentence classification model, we used 2,000 positive sentences con
 
 ![Overview of the DataStet dataset mention recognition process.](workflow_dataset_mention.png){ width=70% }
 
-The architecture and process are very similar to the ones of software mention recognition. The main difference is related to the two models applied to recognize dataset mentions. A first classification model is applied to every sentences of relevant section to determine if the sentence is describing or not a dataset. The second model is applied on positive data sentences to identify dataset mention spans and attributes like URL and bibliographical references. This division of the recognition task into two steps is introduced to mitigate the problem of lack of annotations for complete documents, mentioned in the previous section.  
-
+The architecture and process are very similar to the ones of software mention recognition. The main difference is related to the two models applied to recognize dataset mentions. A first classification model is applied to every sentences of relevant section to determine if the sentence is describing or not a dataset. The second model is applied on positive data sentences to identify dataset mention spans and attributes like URL and bibliographical references. This division of the recognition task into two steps is introduced to mitigate the problem of lack of annotations for complete documents, mentioned in the previous section. 
 
 ### Current performance
 
@@ -625,7 +624,7 @@ As presented above, in order to manage sparcity of dataset mentions, a first mod
 | **data setence**     | 93.70     |  96.21  | 94.94     |     200      |
 | **not data sentence**|  97.56    |  95.92  | 96.73     |    2000      |
 
-Similarly, we evaluate the mention recognition using 10-fold cross-validation on the annotated dataset. In the real application of the models, the second model is applied only to sentences detected as "data sentence", so the error of the previous model delecting "data sentences" will be propagated to the second model. However, even combining the two error rates, the recognition of mentions of explicit datasets (dataset with names or without name but expressed as dataset or data) appears reliable with the current amount of training data. This result confirms that indicators derived from these extracted mentions can be build in a safe manner.
+Similarly, we evaluate the mention recognition using 10-fold cross-validation on the annotated dataset. In the real application of the models, the second model is applied only to sentences detected as "data sentence", so the error of the previous model detecting "data sentences" will be propagated to the second model. However, even combining the two error rates, the recognition of mentions of explicit datasets (dataset with names or without name but expressed as dataset or data) appears reliable with the current amount of training data. This result confirms that indicators derived from these extracted mentions can be build in a safe manner.
 
 At this stage, implicit datasets are harder to recognize and will require additional training data and modeling efforts. We also present for reference the current recognition scores for data device mentions, but their manual annotations are still work-in-progress and very limited. We think that the automatic identification of data acquisition devices or data processing devices could help in the future to spot implicit data in a more reliable way.
 
