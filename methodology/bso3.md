@@ -599,9 +599,15 @@ Developing an annotated corpus of dataset mentions from scratch would not have b
 
 To tackle the sparsity problem, we could not take advantage of the full text versions of the annotated articles. The existing training data are sets of positive sentences with at least one dataset annotation. There is no guarantee that the rest of these articles do not include other datasets and checking such a large amount of content is highly time-consuming. To mitiguate this issue, we separated the task in two steps, the first one to identify the data sentences in a complete article, and the second one to spot dataset mentions in selected data sentences. 
 
+For the dataset mention recognition, we use the following resources:
 
+* a re-annotated version of https://github.com/xjaeh/ner_dataset_recognition (`ner_dataset_recognition/`), a set of 6,000 sentences in the IR/ML/NLP domain with 3,684 dataset mentions. We fully reviewed the dataset and re-annotated to follow our dataset annotation principles: it covers now new dataset (not just reused ones) and annotation is at dataset level (avoid one annotation for a conjunction expression of datasets).   
 
+* a set of approx. 1000 sentences from PubMed Central full-texts with at least one dataset mention (explicit and implicit datasets) and partial data acquisition device annotations.
 
+These resources were used to train a LinkBERT base model [@yasunaga2022linkbert] with an additional CRF activation layer.
+
+For the data sentence classification model, we used 2,000 positive sentences containing at least one dataset mention and 20,000 negative data sentences without dataset mention from PubMed Central full-texts and from the Coleridge dataset ^[https://www.kaggle.com/competitions/coleridgeinitiative-show-us-the-data/data]. This dataset was used to train a LinkBERT base model binary classifier. 
 
 ### Architecture
 
@@ -612,13 +618,20 @@ The architecture and process are very similar to the ones of software mention re
 
 ### Current performance
 
-The recognition of mentions of explicit datasets (dataset with names or without name but expressed as dataset or data) appears reliable with the current amount of training data. This result confirms that indicators derived from these extracted mentions can be build in a safe manner.
+As presented above, in order to manage sparcity of dataset mentions, a first model is classifying if a sentence introduces a dataset or not. A 10-fold cross-validation on our dataset gives the following accuracy:
+
+|                      | precision | recall  |**f-score**| support (10%)|
+|---                   | ---       | ---     | ---       | ---          |
+| **data setence**     | 93.70     |  96.21  | 94.94     |     200      |
+| **not data sentence**|  97.56    |  95.92  | 96.73     |    2000      |
+
+Similarly, we evaluate the mention recognition using 10-fold cross-validation on the annotated dataset. In the real application of the models, the second model is applied only to sentences detected as "data sentence", so the error of the previous model delecting "data sentences" will be propagated to the second model. However, even combining the two error rates, the recognition of mentions of explicit datasets (dataset with names or without name but expressed as dataset or data) appears reliable with the current amount of training data. This result confirms that indicators derived from these extracted mentions can be build in a safe manner.
 
 At this stage, implicit datasets are harder to recognize and will require additional training data and modeling efforts. We also present for reference the current recognition scores for data device mentions, but their manual annotations are still work-in-progress and very limited. We think that the automatic identification of data acquisition devices or data processing devices could help in the future to spot implicit data in a more reliable way.
 
 |                     | precision | recall  |**f-score**| support (10%)|
 |---                  | ---       | ---     | ---       | ---          |
-|**explit dataset**   | 89.04     | 89.46   | **89.24** | 466          |
+|**explicit dataset** | 89.04     | 89.46   | **89.24** | 466          |
 |**implicit dataset** | 71.85     | 67.15   | **69.38** | 927          |
 | data device         | 51.91     | 37.94   |   42.61   | 97           |
 
@@ -636,7 +649,7 @@ The annotated data for training the classifiers are a combination of existing tr
 
 - the corresponding annotations in the SoMeSci dataset
 
-- an additional set of 500 contexts focusing more on datasets and the minoroty classes (_created_ and _shared_)
+- an additional set of 500 contexts manually annotated focusing more on datasets and the minoroty classes (_created_ and _shared_)
 
 Table [] presents the distribution of classes in this training data set.
 
