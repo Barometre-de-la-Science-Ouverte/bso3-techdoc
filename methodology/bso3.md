@@ -24,8 +24,8 @@ author:
       idref: 157929930
   - Laurent Romary:
       institute: inria
-      orcid: 
-      idref: 
+      orcid: 0000-0002-0756-0508
+      idref: 060702494
 
 institute:
   - mesr:
@@ -111,7 +111,7 @@ For this reason, research data and software codes should also be subject to indi
  
 The objective of this new BSO is therefore to measure the implementation of a public policy on data, whose major milestones span several decades: the CADA law, the law for a Republic, the Bothorel report, and the Prime Minister's circular dated April 27, 2021. 
 
-<!--- The project is led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (INRIA), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.  -->
+<!--- The project is led by a team with varied backgrounds and skills: Laetitia Bracco (University of Lorraine, project leader), Jean-François Lutz (University of Lorraine), Aricia Bassinet (University of Lorraine), Emmanuel Weisenburger (MESR), Eric Jeangirard (MESR), Anne L'Hôte (Inria), Patrice Lopez (science-miner) and Laurent Romary (Inria). A technical and usage committee, which associates the University of Grenoble-Alpes, Inist-CNRS and the Data College of the Committee for Open Science, will support the project team.  -->
 
 ## Quality criteria for Open Science indicators
 
@@ -829,7 +829,7 @@ Dataset and software mention recognizers are limited by the poor multidisciplina
 
 # Data and software availability
 
-The data resulting from this work are publicly available on the French Ministry of Higher Education, Research and Innovation open data portal: 
+The data resulting from this work are publicly available on the French Ministry of Higher Education and Research open data portal: 
 
 The source code used for the French Open Science Monitor is available on GitHub, and shared with open source licences.
 
