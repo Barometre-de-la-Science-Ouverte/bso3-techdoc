@@ -99,7 +99,7 @@ Open Science is the unrestricted dissemination of research publications, data an
 
 The French Open Science Monitor, also called BSO for 'Baromètre de la Science Ouverte', is a tool for monitoring and steering the public policy linked to the first French National Plan for Open Science [@mesri_national_2018]. A first version of the tool was launched in 2019 providing measurements on the rate of Open Access publications produced by all public French research entities. In 2020, the University of Lorraine published the first local version of the with the online publication of the Lorraine Open Science Barometer. This publication has led to many monitors by other institutions such as the University of Evry, the University of Paris Saclay, and the University of Versailles-Saint-Quentin-en-Yvelines. 
 
-In 2021, the new version of BSO, BSO 2, was extended in the field of health, including new information on clinical trials and observational studies. The BSO is therefore constantly evolving. While publications are an essential aspect of Open Science, they are not sufficient to capture all its facets. Indeed, it is reductive to consider it from this angle alone: the opening of research data software codes, descriptive metadata of publications and data (see the work of OpenCitations on this subject) promotes the reproducibility of research results, the reuse of reuse of data and the transparency of research. For this reason, research data and software codes should also be subject to indicators that measure their openness. As many studies (https://arxiv.org/abs/1907.02565) underline the direct correlation between reporting of associated data and citation of articles, this practice can only be encouraged.
+In 2021, the new version of BSO, BSO 2, was extended in the field of health, including new information on clinical trials and observational studies. The BSO is therefore constantly evolving. While publications are an essential aspect of Open Science, they are not sufficient to capture all its facets. Indeed, it is reductive to consider it from this angle alone: the opening of research data software codes, descriptive metadata of publications and data (see the work of OpenCitations on this subject) promotes the reproducibility of research results, the reuse of reuse of data and the transparency of research. For this reason, research data and software codes should also be subject to indicators that measure their openness. As many studies (https://arxiv.org/abs/1907.02565) underline the direct correlation between reporting of associated data and citation of articles, this practice can only be encouraged. The raising awereness of the scientific value of research datasets and software is also clearly visible in many statements regarding the evaluation of research (DORA, Open Science European Conference 2022, CoARA..).
 
 A follow-up second Plan for Open Science [@mesri_2nd_2021] has started to further promote and develop the French open science policy, including a focus on research datasets and software. The French Open Science Monitor is updated every year [@bracco_extending_2022], however measurements related to research datasets and software were not covered yet.
 
@@ -121,21 +121,21 @@ What are the quality criteria for useful and reliable indicators on the producti
  
 - **Freshness**: Policy indicators are developed to capture recent changes in publishing practices. The data acquisition underlying these indicators should reduce as much as possible delays between actual publication dates and measurements. 
 
-- **Adaptibility to different geographical and organizational levels**: To exploit indicators, we expect that further analyses are possible beyond national level. Deriving indicators at the level of geographical areas and at the level of organizations (Universities, research intitutes) are requirements for proper study and adaptation an Open Science policy.
+- **Adaptability to different geographical and organizational levels**: To exploit indicators, we expect that further analyses are possible beyond national level. Deriving indicators at the level of geographical areas and at the level of organizations (Universities, research intitutes) are requirements for proper study and adaptation of an Open Science policy.
 
 - **Adaptibility to different research domains**: We know that pratices can vary significantly from one research domains to another one. The volume of scientific production is also specific to research areas, and can be entirely diluted and invisible with global indicators. Following the evolution of indicators by scientific and technical domains is a key requirement. 
 
 - **Fairness**: Indicators should maintain consistency in terms of domains and languages. As much as possible, we want to avoid exclusion of some research areas and languages. This aspect is challenging for example with Social Sciences and Humanities, where publications are more incompletely referenced by large bibliographical index, and in general for languages other English. 
 
-- **Understandability and interpretability**: Indicators should present measurements easy to comprehend for researchers and for the public. For example, if expressed as a percentage, the indicator maximum value (100%) should be clear and directly correspond to a goal of the evaluated public policy.
+- **Understandability and interpretability**: Indicators should present measurements easy to comprehend for researchers and for the public. For example, if expressed as a percentage, the indicator maximum value (100%) should be clear and correspond directly to a goal of the evaluated public policy.
 
-- **Consistency maintained over time**: Indicators produced for a given year must be directly comparable with the indicators from previous years, in order to follow correctly the evaluation of research activity over time. The consistency should be valid in term of measurement methodology, corpus, and presentation. 
+- **Consistency maintained over time**: Indicators produced for a given year must be directly comparable with the indicators from previous years, in order to follow correctly the evaluation of research activity over time. The consistency should be valid in terms of measurement methodology, corpus, and presentation. 
 
-- **Independence and trustfulness for the researchers**: to be trusted by public researchers, public indicators should be as much as possible independent from commercial resources, limitations and interests. Open source, open data and open access documentation... 
+- **Independence and trustfulness for the researchers**: to be trusted by public researchers, public indicators should be as much as possible independent from commercial resources, limitations and interests. Open source, open data and open access documentation are therefore required.
 
 ## Existing Open Science indicators for research datasets and research software
 
-There currently few examples of deployed Open Science monitors related to research data and software. How do they perform regarding the quality criteria presented in the previous section? 
+There are currently few examples of deployed Open Science monitors related to research data and software. How do they perform regarding the quality criteria presented in the previous section? 
 
 ### OpenAire
 
@@ -145,7 +145,7 @@ Such limited coverage leads to extremely biased and unreliable indicators, leadi
 
 Sources only correspond to those implementing manual reference via PID. They are thus biased to a handful of publishers which have invested in this effort. Coverage of research domains is largely incomplete and not consistent.    
 
-The method for generating the indicators is not documented, beyond an indication that it relies on "PID graph". As such, it illustrates the limit of an approach relaying on PID and manual referencing for research data and software, but overall lacks transparency. 
+The method for generating the indicators is not documented, beyond an indication that it relies on "PID graph". As such, it illustrates the limit of an approach relaying on PID and manual referencing for research datasets and software, but overall lacks transparency. 
 
 ### PLOS Open Science indicators
 
@@ -154,12 +154,12 @@ This work relies on DataSeer text mining tools.
 <!---
 ## Challenges
 
-In view of the slow adoption of more comprehensive formal and manual reference workflows, mining dataset and software mentions in scientific publications appeared early as a possible solution to increase at scale the visibility of these new key research products. 
+In view of the slow adoption of more comprehensive formal and manual reference workflows, mining research datasets and software mentions in scientific publications appeared early as a possible solution to increase at scale the visibility of these new key research products. 
 
 Description of prior works... dictionary/term search, regular expressions, domain-specific rules, restriction to XML full texts availability. 
 Lack of annotated data and reliable evaluations. 
 
-Characterizing the data and software usage and sharing: Often too much "publication centric" (e.g. is the publication uses/shares some data and code? versus what are the data/code product and how these data and software are they shared and reused?)
+Characterizing the research datasets and software usage and sharing: Often too much "publication centric" (e.g. is the publication uses/shares some data and code? versus what are the data/code product and how these data and software are they shared and reused?)
 
 Lack of quality metadata and considerable fragmentation of source code repositories. 
 
@@ -173,23 +173,23 @@ Because it can offer a more trustful snapshot of the scientific production, but 
 
 ## 2.1 Machine Learning for mention detection and characterization
 
-As discussed in the previous section, PID and metadata driven approach related to data and software cannot lead currently to realistic evaluations and indicators due to very low adoptions and lack of awareness. In contrast, automatic recognition of dataset and software mentions from the full texts offers potentially a factual and comprehensive approach, directly usable to estimate quantitatively these research activities. 
+As discussed in the previous section, PID and metadata driven approach related to research datasets and software cannot lead currently to realistic evaluations and indicators due to very low adoptions and lack of awareness. In contrast, automatic recognition of these mentions from the full texts offers potentially a factual and comprehensive approach, directly usable to estimate quantitatively these research activities. 
 
-We think that mining dataset and software mentions in scientific publications can provide solutions for most of the quality criteria for indicators introduced in section:
+We think that mining research datasets and software mentions in scientific publications can provide solutions for most of the quality criteria for indicators introduced in section:
 
-- In term of **coverage and freshness**, a corpus of scientific publication can offer a trustful snapshot of the scientific production if the text mining is applied to a very significant amount of scientific publications. With a ratio of Open Access publication today of more than 50% and copyright exception for text mining for subscription-based publications, harvesting legally a large corpus close to completeness is realistic. 
+- In term of **coverage and freshness**, a corpus of scientific publications can offer a trustful snapshot of the scientific production if the text mining is applied to a very significant amount of scientific publications. With a ratio of Open Access publication today of more than 50% and copyright exception for text mining for subscription-based publications, harvesting legally a large corpus close to completeness is realistic. 
 
-- The **accuracy** of modern machine learning techniques, in particular based on Deep Learning architecture, has improved significantly when enough training data is available. Large scale datasets of manually annotated software and datasets mentions have been released recently, and we can expect reaching a satisfactory accuracy when taking advantage of these latest progress. 
+- The **accuracy** of modern machine learning techniques, in particular based on Deep Learning architecture, has improved significantly when enough training data is available. Large scale datasets of manually annotated research datasets and software mentions have been released recently, and we can expect reaching a satisfactory accuracy when taking advantage of these latest progress. 
 
-- The **adaptibility** to different geographical and organizational levels and different scientific and technical domains have already been addressed with high reliability at the level of publication in the previous version of the French Open Access Monitor [reference needed] 
+- The **adaptability** to different geographical and organizational levels and different scientific and technical domains have already been addressed with high reliability at the level of publication in the previous version of the French Open Access Monitor [reference needed] 
 
 - With respect to **fairness**, the systematic application of text mining on a comprehensive corpus can cover research domains where awareness of metadata and PID referencing is very low, because online access to full-texts publications is today a universal practice, avoiding their exclusions. 
 
-- Understandability and interpretability: 
+- **Understandability and interpretability**: every graph generated within the extension of the BSO will be provided with a detailed explaination so that every indicator is easily understandable.
 
-- Consistency: an automated text mining solution can be re-applied to a full corpus regularly, including back files, and produces consistent indicators over any periods. The process is independent from manual referencing of research data and software that could happen to already published articles, from publishers and from types of publications. 
+- **Consistency**: an automated text mining solution can be re-applied to a full corpus regularly, including back files, and produces consistent indicators over any periods. The process is independent from manual referencing of research datasets and software that could happen to already published articles, from publishers and from types of publications. 
 
-- Independence and trustfulness: ...
+- **Independence and trustfulness**: the software used to obtain these indicators is open source and publicly displayed.
 
 
 The first text-mining approaches related to capturing openness information on data and software have been rule-based techniques. We discuss in the next section their different limitations, and more particularly the case of ODDPub, the best representive system for this approach.
@@ -271,7 +271,7 @@ GROBID is an open source library specialized for scholarly PDF implementing a ca
 
 Accuracy of the recognition of software and dataset mentions from within scholar fulltext is challenging first due to the high sparsity of these mentions. 
 
-Considerintg the Softcite dataset, the 4,971 full-texts contain a total of around 46 million tokens, but only 15,280 tokens are relevant to a software mention; so around one token would be positively labeled for each 3,000 "negative" tokens, with a ratio as low as one token per 17,500 tokens for _publishers_ and _URL_ fields. An Imbalance Ratio value above 500 is usually already considered to be extreme [@LeeDeleris:2020]. With the higher observed Imbalance Ratio here, from 1:3,000 to 1:17,500, an ML approach to finding new unseen software mentions is very challenging.
+Considering the Softcite dataset, the 4,971 full-texts contain a total of around 46 million tokens, but only 15,280 tokens are relevant to a software mention; so around one token would be positively labeled for each 3,000 "negative" tokens, with a ratio as low as one token per 17,500 tokens for _publishers_ and _URL_ fields. An Imbalance Ratio value above 500 is usually already considered to be extreme [@LeeDeleris:2020]. With the higher observed Imbalance Ratio here, from 1:3,000 to 1:17,500, an ML approach to finding new unseen software mentions is very challenging.
 
 We need to address the concrete challenge of applying state-of-the-art ML methods to millions of published PDFs across different scientific domains, where dataset and software mentions represent only a few relevant tokens out of several thousands in every document. 
 
@@ -530,7 +530,7 @@ We report the evaluation of our best model for the typing of software mentions, 
 
 ### Existing work
 
-Following the success of CrossRef DOI for identifying publications, some researchers have advocated the use of persistent identifiers to research data as a long-term solution to addressing data mention detection and disambiguation [@10.5334/dsj-2019-009]. However, in view of the slow adoption and usage of PID for data citations, recent works are exploring methods for detecting and linking informal data mentions from article full-texts. Similarly to softare mentions, as data citations are inconsistent, vague, incomplete and indirect [@10.1087/20110204], detecting information data citations must rely on NLP techniques, and more particularly on the accurate and robust modern machine learning techniques.  
+Following the success of CrossRef DOI for identifying publications, some researchers have advocated for the use of persistent identifiers to research datasets as a long-term solution to addressing data mention detection and disambiguation [@10.5334/dsj-2019-009]. However, in view of the slow adoption and usage of PID for data citations, recent works are exploring methods for detecting and linking informal data mentions from article full-texts. Similarly to softare mentions, as data citations are inconsistent, vague, incomplete and indirect [@10.1087/20110204], detecting information data citations must rely on NLP techniques, and more particularly on the accurate and robust modern machine learning techniques.  
 
 ... using GROBID [@10.1002/pra2.614]... (however here dataset and model not shared)
 
@@ -551,7 +551,7 @@ paired-end sequencing using Illumina Hiseq 2500.
 
 The Illumina Hiseq 2500 device produces sequencing data, which are part of the described study. These sequencing data are however not named and not shared, they remain implicit.
 
-We define this sort of research data as _implicit dataset_. These data are generally not considered as valuable by the researchers and often not in a sharable state (proprietary format, embedded as project resources). We consider fully automatic recognition of this kind of datasets currently beyond what is feasable given the current existing annotated corpus and machine learning technique accuracy.  
+We define this sort of research dataset as _implicit dataset_. These data are generally not considered as valuable by the researchers and often not in a sharable state (proprietary format, embedded as project resources). We consider fully automatic recognition of this kind of datasets currently beyond what is feasable given the current existing annotated corpus and machine learning technique accuracy.  
 
 In contrast, in this work, we focus on _explicitly mentioned datasets_: 
 - named datasets 
@@ -559,10 +559,14 @@ In contrast, in this work, we focus on _explicitly mentioned datasets_:
 
 _Explicitly mentioned datasets_ are research data identified as such by the authors, discussed and considered valuable with respect to the scientific claims of the publication and usually available in a form that makes sharing possible. 
 
+**Ajouter un exemple**
+
 #### Databases 
 
 Is a mention to a database the same as a mention to a dataset? We consider that the answer depends on the context, whether the research work is actually refering to the data/dataset stored in the database or more generally to the software or the service associated to the database. 
+
 If some research data has been loaded and shared via this database, we can can consider in general that this data are packaged as a dataset.
+
 On the other hand, a "dataset" can exists independently from a database management system and is not ambiguous with respect to its storage and software access environment.
 
 #### Data sharing initiative/project
@@ -598,7 +602,7 @@ To tackle the sparsity problem, we could not take advantage of the full text ver
 
 For the dataset mention recognition, we use the following resources:
 
-* a re-annotated version of https://github.com/xjaeh/ner_dataset_recognition (`ner_dataset_recognition/`), a set of 6,000 sentences in the IR/ML/NLP domain with 3,684 dataset mentions. We fully reviewed the dataset and re-annotated to follow our dataset annotation principles: it covers now new dataset (not just reused ones) and annotation is at dataset level (avoid one annotation for a conjunction expression of datasets).   
+* a re-annotated version of https://github.com/xjaeh/ner_dataset_recognition (`ner_dataset_recognition/`), a set of 6,000 sentences in the IR/ML/NLP domain with 3,684 dataset mentions. We fully reviewed the dataset and re-annotated to follow our dataset annotation principles: it covers now new datasets (not just reused ones) and annotation is at dataset level (avoid one annotation for a conjunction expression of datasets).   
 
 * a set of approx. 1000 sentences from PubMed Central full-texts with at least one dataset mention (explicit and implicit datasets) and partial data acquisition device annotations.
 
@@ -647,7 +651,7 @@ The annotated data for training the classifiers are a combination of existing tr
 
 - an additional set of 500 contexts manually annotated focusing more on datasets and the minoroty classes (_created_ and _shared_)
 
-Table [] presents the distribution of classes in this training data set.
+Table [] presents the distribution of classes in this training dataset.
 
 |  total contexts     |  3,643    | 
 |---                  | ---       |
@@ -816,7 +820,7 @@ The ability to measure the research activity at different scale, from a given or
 
 #### 5.2.1 Domain coverage
 
-Dataset and software mention recognizers are limited by the poor multidisciplinary coverage of the training data. [@10.1145/3459637.3481936] shows that the recognition performance falls by around 20 points F1-score on a new scientific domain. 
+Research datasets and software mention recognizers are limited by the poor multidisciplinary coverage of the training data. [@10.1145/3459637.3481936] shows that the recognition performance falls by around 20 points F1-score on a new scientific domain. 
 
 #### 5.2.2 Large-scale research entity disambiguation
 
