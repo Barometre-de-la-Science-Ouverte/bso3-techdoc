@@ -37,7 +37,7 @@ institute:
   - inria:
       name: 'Inria, France'
 bibliography: bso3.bib
-date: January 2023
+date: February 2023
 keywords:
   - research software
   - research data
@@ -51,13 +51,13 @@ geometry: "left=3cm, right=3cm, top=3cm, bottom=3cm"
 
 # Abstract
 
-There is today no standard way for referencing research datasets and software in scientific communication. Emerging editorial workflows and supporting infrastructures dedicated to dataset and software are still poorly adopted by current publishing practices and are highly fragmented.
+There is today no standard way for referencing research datasets and software in scientific communication. Emerging editorial workflows and supporting infrastructures dedicated to research datasets and software are still poorly adopted by current publishing practices and are highly fragmented.
 
 To better follow the production of research datasets and software, we present a text mining method applied to scientific publications at scale and implemented at the French national level.
 
 Our approach relies on state-of-the-art Machine Learning and document engineering techniques to ensure satisfactory accuracy across multiple research areas and document types, combining full-text harvesting, mention extraction, context characterization and corpus-level analysis. 
 
-The annotations produced by our method are used by the French Open Science Monitor (BSO) [platform](https://frenchopensciencemonitor.esr.gouv.fr) to follow the production and the openness of research data and software, in the context of the second National Plan for Open Science.
+The annotations produced by our system are used by the French Open Science Monitor (BSO) [platform](https://frenchopensciencemonitor.esr.gouv.fr) to follow the production and the openness of research datasets and software, in the context of the second National Plan for Open Science.
 
 The source code and the data of the French Open Science Monitor, as well as all the associated tools and training datasets, are available under open licences.
 
@@ -133,13 +133,13 @@ What are the quality criteria for useful and reliable indicators on the producti
 
 - **Independence and trustfulness for the researchers**: to be trusted by public researchers, public indicators should be as much as possible independent from commercial resources, limitations and interests. Open source, open data and open access documentation are therefore required.
 
-## Existing Open Science indicators for research datasets and research software
+## Existing Open Science indicators for research datasets and software
 
 There are currently few examples of deployed Open Science monitors related to research data and software. How do they perform regarding the quality criteria presented in the previous section? 
 
 ### OpenAire
 
-...
+OpenAire is an infrastructure dedicated to open science and mainly funded by EU Horizon 2020 programme. Among other tools its developped the Open Science Observatory which aims at a better understanding of the European open research landscape. If we focus on France this observatory references 396 Open Access datasets affiliated to an organization in the country and 16,863 Open Access datasets in the country's repositories.
 
 Such limited coverage leads to extremely biased and unreliable indicators, leading to counter-productive dashboards (for instance indicating incorrectly that only a handful of datasets is produced at the scale of a whole University during one year). Publishing aggregated dashboard on unreliable and non-representative data can lead to disengagement of the public for the tool, false interpretation, wrong public policy decisions and unability to assess public the application of Open Science policies.
 

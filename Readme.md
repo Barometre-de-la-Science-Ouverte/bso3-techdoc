@@ -6,8 +6,11 @@
 
   * [Discussion on software and dataset scope and sharing](doc/scope_and_sharing.md)
 
+  * [Methodological paper](methodology/bso3.md)
 
-# Generate publication
+
+## Generate publication
+
 ```shell
 cd methodology
 sh build_pdf.sh
