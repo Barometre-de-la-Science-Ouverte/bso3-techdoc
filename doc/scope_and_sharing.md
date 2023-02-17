@@ -10,11 +10,9 @@
 
 ## 1) Software
 
-From the point of view of software sharing, "research software" is usually software produced by researchers or by research software engineers. 
+We consider mentions of software in scientific literature without limitation to "research software". We found the notion of "research software" unclear. 
 
-From the point of view of software citation, "research software" is software mentioned in scholar literature - this is "software of interest" for research. This could cover also general purposes and mainstream software such as Excel, Photoshop or PostgresSQL. 
-
-Software products correspond in practice to various artefacts, which are not always clear to consider as "software". This is particularly challenging from the point of view of software citation, but this remains an issue even when identifying software sharing. 
+From the point of view of software sharing, "research software" is usually understood as software produced by researchers or by research software engineers. However, mainstream commercial software are very broadly used in science and mentioned in scholar papers when describing research activities. Examples of very commonly mentioned general purposes and mainstream software are Excel, Photoshop or PostgresQL. Such general software can also be the object of a research study. So, from the point of view of software citation, any software mentioned in scholar literature - they are "software of interest" for research and should be annotated. 
 
 A standard definition of software is "a collection of computer programs that provides the instructions for telling a computer what to do and how to do it" (Wikipedia). Everything that can provide processing instructions to a computer, whatever its form, can therefore be seen as software. This relatively broad definition of software covers a large variety of software products, for instance from macro and formula part of an Excel sheet to large software project with multiple components, hundred thousand lines of source code and binary packages for a variety of computing environments. 
 
@@ -26,6 +24,8 @@ The types/formats of software depend a lot on the technical domain and the used 
 
 - **Software** products typically can be published as standalone applications or libraries/plugins, either as executable code (binaries), package (e.g. R package, combining script and binaries), as a more comprehensive open source project (program, script, data resources, documentation, build scripts, etc.), script program or macro to be interpreted and exectuted within a particular software environment, source code that require manual building, small standalone script (e.g. "gist"), plaform (including data, data management software and service software), web services, images to be executed as containers, or software embedded in an hardware device.
 
+All these software distribution formats are considered as software to be annotated for the present annotations guidelines. 
+
 - **Algorithm** versus software: it is quite frequent that the name of an algorithm and its implementation (so as software) are used in papers in an interchangeable manner. While it is clear that we want to exclude "algorithm names" from software entities, they can be used to refer to the implementation. This is one of the most frequent ambiguity we have identified in Softcite and this was similarly reported by [3]. The distinction could sometime be done in context, but a guideline is necessary when the usage of the name is general and ambiguous on purpose. 
 
 Examples: 
@@ -35,7 +35,7 @@ Examples:
     Finally, we applied the EIGENSTRAT method [46], which relies on patterns of correlation 
     between individuals to detect stratification, to our Icelandic discovery sample. 
 
-*EIGENSTRAT* here is the name of the method and of the software implementing the method.
+*EIGENSTRAT* here is the name of the method and of the software implementing the method. As the context describes the application of the method of the algorithm on actual data, it refers to the use of the software implementation and it should therefore be annotated as a software mention.
 
 [10.1038/bjc.2016.25](https://www.nature.com/articles/bjc201625)
 
@@ -43,9 +43,11 @@ Examples:
     for BON-1; HPRT and YWAZ for QGP-1) according to the geNorm algorithm (Mestdagh et 
     al, 2009). 
 
-*geNorm* is an algorithm and referenced as such above, but it is software too - and the software is actually used for the normalization in the described research.
+*geNorm* is an algorithm and referenced as such above, but it is software too - and the software is actually used for the normalization in the described research. It should therefore be annotated as a software mention.
 
 - The notion of **models** (machine learning models, simulation models) versus software is unclear. Models encode data processing and executable action/prediction process. They are however in a format closer to data, because the "instructions" are only digital transformations. Models themselves should be run in a software environment. Despite their "executable" nature, models are usually not considered as software and have dedicated distinct sharing infrastructure (e.g. the [CoMSES Net](https://www.comses.net)). We propose **not** to consider standalone models as software product. 
+
+So as a general guideline, standalone models are **not** to consider as software product. 
 
 However, like algorithms, we observe that it can be relatively frequent (in the machine learning area for example) to use the same name to refer both for a model and a software product for implementing/running a model. For example, `BERT` is a python software project (https://github.com/google-research/bert), a model, a family of models (retrained on different domains), or a ML approach (a Deep Learning architecture and methodology for training it):
 
@@ -56,7 +58,7 @@ However, like algorithms, we observe that it can be relatively frequent (in the 
 
 Similarly as for algorithm, we need to identify wheter the mention refers to the model product, the approach/method or the software to decide if the mention shall be considered as software mention or not. In case the reference is made in general to the whole framework, including the software, we would consider it as software mention. 
 
-- **Database** versus software: in scientific publications, it is quite frequent to mention a database name as a general service covering the data and  software to access/search the data (including web services and database management software, e.g. PostgresSQL). 
+- **Database** versus software: in scientific publications, it is quite frequent to mention a database name as a general service covering the data and  software to access/search the data (including web services and database management software, e.g. PostgresQL). 
 
 * PMC4863732
 
@@ -96,13 +98,20 @@ This is however less an issue for software sharing (software here is part of a c
  
 - **Software components** of a more complete infrastructure: A reference is made to a general infrastructure, including some software components. For example in [10.20955/r.2018.1-16](http://herosolutions.com.pk/breera/foundation/images/whitepaper.pdf) "Bitcoin wallet". 
 
-- Reference to a **programming languages**. For example:
+- Reference to a **programming language**. For example:
 
 [10.1257/jep.4.1.99](https://www.aeaweb.org/articles?id=10.1257/jep.4.1.99)
 
     It is written in BASIC, a close analogue to FORTRAN.
 
-Software language (written in BASIC, in FORTRAN, ...) are normally not software per se, but software tools for implementing a software language (like a C compiler, a Java virtual machine, an Integrated Development Environment like R-Studio, etc.) are. 
+Software languages (written in BASIC, in FORTRAN, ...) are normally not software per se, because they are specifications (a grammar), similar to a protocol specification. When used together with a specific software mention, programing language are considered as "attributes" of this software (e.g. written in R). They are not annotated as software but with the mark-up `<rs type="language">`, which identifies in context the programming language of the mentioned software. 
+
+Software tools for implementing a software language (like a C compiler, a Java virtual machine, an Integrated Development Environment like R-Studio, etc.) are software, they are annotated as a software mention. 
+
+- **Operating system** (OS): when used together with a specific software mention, they are considered as "attributes" of this software (e.g. running on Windows). The reference to the OS here is just a further specification about the main software that is discussed. In this case, OS are not annotated as additional software mention. 
+
+However, OS can also be referenced as such when the mention refers specifically to the OS implementation and not to some software using them. In this case, the OS is annotated as software. 
+
 
 - Non-named usage of a programming environment. Software was produced on the environment (some code was written), but it is implicit, not shared, nor reusable. 
 
@@ -112,7 +121,9 @@ Example:
 
     Multiple imputation was conducted in R 2.11." 
 
-- **Workflow** as high-level specifications: in data-intensive scientific domains, the complexity of data processing has led to the common definiton and usage of workflows associated to a scientific experiments. Examples of such workflow systems are [Galaxy](https://galaxyproject.org) (life science), [Kepler](https://kepler-project.org) (physics and environment sciences), [Apache Taverna](https://incubator.apache.org/projects/taverna.html) (bioinformatics, astronomy, biodiversity - now retired), or [KNIME](https://www.knime.com). As workflows are formal instructions similar to high level scripting language, interpreted in a computer environment, and actually shared for reproducibility and reuse purposes, we consider them as software product. 
+The programming environment here is clearly a software and should be annotated as such. In addition, the non-named usage corresponding to the written code is also a software, implicit, running in the R environment, and should be annotated as a software mention. 
+
+- **Workflow** as high-level specifications: in data-intensive scientific domains, the complexity of data processing has led to the common definiton and usage of workflows associated to a scientific experiments. Examples of such workflow systems are [Galaxy](https://galaxyproject.org) (life science), [Kepler](https://kepler-project.org) (physics and environment sciences), [Apache Taverna](https://incubator.apache.org/projects/taverna.html) (bioinformatics, astronomy, biodiversity - now retired), or [KNIME](https://www.knime.com). As workflows are formal instructions similar to high level scripting language, interpreted in a computer environment, and actually shared for reproducibility and reuse purposes. Therefore, we consider such executable workflows as software products. 
 
 - **API**: An API is an intermediary product between documentation and executable software. It is challenging to decide if an API should be considered as software, because it requires an implementation to be executable. On the other hand, an API corresponds to instructions that can be executed when used on an environment or with other software components implementing the API, like other software depending on other software components. Given that it is the nature of an API to be shared and used for collaborative work in software, we consider API product as software too. 
 
@@ -145,7 +156,7 @@ We follow the same exclusions regarding data formats and identifiers, but we fur
     - Programming Environment (includes compilers or interpreters)
 ```
 
-We consider and annotate mentions to application and plugin as standard software mention too. Relatively to OS and programing environment, when used together with a specific software mention, OS and programing environments are considered as "attributes" of this software (e.g. running on Windows, developed with R-Studio). However, OS and programing environments can also be referenced as such when the mention refer specifically to the OS implementation or programming language tools/libraries and not to some software using them. 
+We consider and annotate mentions to application and plugin as standard software mention too. Relatively to OS and programing language, when used together with a specific software mention, OS and programing languages are considered as "attributes" of this software (e.g. running on Windows, written in R). However, OS and programing environments can also be referenced as such when the mention refer specifically to the OS implementation or programming language tools/libraries (programming "environment"). 
 
 
 ## 2) Dataset
