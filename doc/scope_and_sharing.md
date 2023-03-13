@@ -28,20 +28,22 @@ All these software distribution formats are considered as software to be annotat
 
 - **Algorithm** versus software: it is quite frequent that the name of an algorithm and its implementation (so as software) are used in papers in an interchangeable manner. While it is clear that we want to exclude "algorithm names" from software entities, they can be used to refer to the implementation. This is one of the most frequent ambiguity we have identified in Softcite and this was similarly reported by [3]. The distinction could sometime be done in context, but a guideline is necessary when the usage of the name is general and ambiguous on purpose. 
 
-Examples: 
+Examples: [10.1038/ng.2007.13](https://pubmed.ncbi.nlm.nih.gov/17952075/)
 
-[10.1038/ng.2007.13](https://pubmed.ncbi.nlm.nih.gov/17952075/)
-
+```
     Finally, we applied the EIGENSTRAT method [46], which relies on patterns of correlation 
     between individuals to detect stratification, to our Icelandic discovery sample. 
+```
 
 *EIGENSTRAT* here is the name of the method and of the software implementing the method. As the context describes the application of the method of the algorithm on actual data, it refers to the use of the software implementation and it should therefore be annotated as a software mention.
 
 [10.1038/bjc.2016.25](https://www.nature.com/articles/bjc201625)
 
+```
     Messenger RNA expression was normalised to household gene expression (GAPDH and RPL13A 
     for BON-1; HPRT and YWAZ for QGP-1) according to the geNorm algorithm (Mestdagh et 
     al, 2009). 
+```
 
 *geNorm* is an algorithm and referenced as such above, but it is software too - and the software is actually used for the normalization in the described research. It should therefore be annotated as a software mention.
 
@@ -53,8 +55,10 @@ However, like algorithms, we observe that it can be relatively frequent (in the 
 
 [10.48550/arXiv.2103.11943](https://arxiv.org/pdf/2103.11943.pdf)
 
+```
     The representation of the BERT system allows it to be used as a basis for measuring the 
     similarity of sentences in natural languages
+```
 
 Similarly as for algorithm, we need to identify wheter the mention refers to the model product, the approach/method or the software to decide if the mention shall be considered as software mention or not. In case the reference is made in general to the whole framework, including the software, we would consider it as software mention. 
 
@@ -62,33 +66,39 @@ Similarly as for algorithm, we need to identify wheter the mention refers to the
 
 * PMC4863732
 
-    PubMed MEDLINE
+```
+    Scientific articles were obtained through PubMed MEDLINE
+```
 
 MEDLINE is at the same time a large metadata collection and a database service to query this catalogue. 
 
 * 10.1002/pam.22030
 
+```
     Data come from the Integrated Public Use Microdata Series (IPUMS) database
+```
 
 Integrated Public Use Microdata Series (IPUMS) is a database and an online platform.
 
 The related guideline for the Softcite corpus [1] was as follow: 
 
+```
     "The relevant distinction should be whether the text is referring to a data collection/dataset 
     (ie the data in the database) or to the software that provides access to a dataset. If it is 
     clear that they are referring to the data inside, it is not a reference to a software." 
+```
 
 The guideline thus also means that when it is not clear that we refer to the data inside the database, it should be considered as software too. 
 
 - Very common is life science, **scientific devices** are used in most of the experiments. They usually includes software, embedded or to be install on a PC to control the device, process the aquired data, export the data, etc.. 
 
-Example:
+Example: [PMC4644012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4644012/)
 
-[PMC4644012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4644012/)
-
+```
     The Gram-negative coccobacilli were initially identified as Pasturella pneumotropica by the 
     VITEK 2 system, software version 06.01 (BioMerieux, France) using the GN card, with bionumber 
     0001010210040001 and an excellent identification (probability 99%).
+```
 
 The [VITEK 2 system](https://www.biomerieux-usa.com/clinical/vitek-2-healthcare) embeds software performing predictions. 
 
@@ -96,13 +106,13 @@ Given the variety of software embodiments, what is mentioned is often larger sys
 
 This is however less an issue for software sharing (software here is part of a commercial product, not really produced by researchers and described in a research publication), and it is more relevant to research software citation. 
  
-- **Software components** of a more complete infrastructure: A reference is made to a general infrastructure, including some software components. For example in [10.20955/r.2018.1-16](http://herosolutions.com.pk/breera/foundation/images/whitepaper.pdf) "Bitcoin wallet". 
+- **Software components** of a more complete infrastructure: A reference is made to a general infrastructure, including some software components. For example in [10.20955/r.2018.1-16](http://herosolutions.com.pk/breera/foundation/images/whitepaper.pdf) "Bitcoin wallet". We consider that we are refering to a software environment, and thus annotate this as a software mention. 
 
-- Reference to a **programming language**. For example:
+- Reference to a **programming language**. For example: [10.1257/jep.4.1.99](https://www.aeaweb.org/articles?id=10.1257/jep.4.1.99)
 
-[10.1257/jep.4.1.99](https://www.aeaweb.org/articles?id=10.1257/jep.4.1.99)
-
+```
     It is written in BASIC, a close analogue to FORTRAN.
+```
 
 Software languages (written in BASIC, in FORTRAN, ...) are normally not software per se, because they are specifications (a grammar), similar to a protocol specification. When used together with a specific software mention, programing language are considered as "attributes" of this software (e.g. written in R). They are not annotated as software but with the mark-up `<rs type="language">`, which identifies in context the programming language of the mentioned software. 
 
@@ -112,14 +122,13 @@ Software tools for implementing a software language (like a C compiler, a Java v
 
 However, OS can also be referenced as such when the mention refers specifically to the OS implementation and not to some software using them. In this case, the OS is annotated as software. 
 
-
 - Non-named usage of a programming environment. Software was produced on the environment (some code was written), but it is implicit, not shared, nor reusable. 
 
-Example:
+Example: [10.1136/gut.2011.238386](https://gut.bmj.com/content/gutjnl/61/1/69.full.pdf)
 
-[10.1136/gut.2011.238386](https://gut.bmj.com/content/gutjnl/61/1/69.full.pdf)
-
+```
     Multiple imputation was conducted in R 2.11." 
+```
 
 The programming environment here is clearly a software and should be annotated as such. In addition, the non-named usage corresponding to the written code is also a software, implicit, running in the R environment, and should be annotated as a software mention. 
 
@@ -165,12 +174,12 @@ Actual dataset mentions also present some heterogeneity, as observed for softwar
 
 - **Implicit versus named datasets**: most mention of sets of data are implicit. The research study can mention some data acquisition, but the dataset is not named, nor shared. Most of the data discussed in papers in the biomedical field for instance are created for the study, but remain implicit and not shared. 
 
-For example:
+For example: [10.1038/srep14168](https://www.nature.com/articles/srep14168)
 
-[10.1038/srep14168](https://www.nature.com/articles/srep14168)
-
+```
     The 47 tilapia DNA samples were sent to Beijing Genome Institute (BGI) for 101 bp 
     paired-end sequencing using Illumina Hiseq 2500. 
+```
 
 The Illumina Hiseq 2500 device produces sequencing data, which are part of the described study. These data are however not named and not shared. 
 
@@ -189,8 +198,10 @@ On the other hand, a "dataset" typically exists independently from a database ma
 
 For example the Coleridge Kaggle dataset (which is a particularly "noisy", imprecise and incomplete annotated corpus) is annotating the Alzheimer's Disease Neuroimaging Initiative (ADNI) as a dataset name: 
 
+```
     Genome-wide pathway analysis of memory impairment in the Alzheimer’s Disease Neuroimaging 
     Initiative (ADNI) cohort implicates gene candidates, canonical pathways, and networks.
+```
 
 This is however not a standard dataset citation. It informs about the origin and location of some data used in the research work, but does not describe precisely which data is considered. 
 
@@ -198,36 +209,37 @@ Very similar, we can see references to a large project/collaboration/experiments
 
 - Reference to an **entry in a database**, for instance via a unique identifier such as an accession number. The dataset here is defined by the combination of the data service and the identifier. 
 
-For example: 
-
-https://doi.org/10.1038/nature21374
+For example: https://doi.org/10.1038/nature21374
     
+```    
     The RNA-seq data generated in this study have been deposited in DDBJ under accession codes 
     DRA001101 and DRA004790."
+```
 
 https://doi.org/10.1371/journal.pone.0204936
 
+```
     The mutations in selected resistance genes (gyrA, gryB, parC, parE, mexR, ampC, ampD and 
     ampR) of each strain were determined with reference to P. aeruginosa PAO1 (Genbank RefSeq 
     accession no. NC_002516.2).
+```
 
 - **Primary versus secondary data**: It is normally expected that the raw primary data are shared (e.g. sequence data, MR images, etc.) and it appears usually the case from the existing manually labeled corpus. 
 
-As example for primary data:
+As example for primary data: https://doi.org/10.1016/j.ijmm.2016.03.004
 
-https://doi.org/10.1016/j.ijmm.2016.03.004
-
+```
     anonymized sequence data can be accessed online under the accession number 
     PRJEB12853 at the European Nucleotide Archive.
+```
 
 However, sometimes only secondary data (analysis of raw data, summary of raw data, etc.) are shared. The sharing could be limited to the values of a figure or table that underline characteristics of raw data. 
 
-Similarly the sharing of data can be limited to the reference of figures or tables in the article (which is a human presentation of a summary of some researchdata), for example:
+Similarly the sharing of data can be limited to the reference of figures or tables in the article (which is a human presentation of a summary of some researchdata), for example: [PMC6956868](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6956868/)
 
-[PMC6956868](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6956868/)
-
+```
     The data supporting this article are available in Figures 1–12. 
-
+```
 
 ## 3) Sharing
 
@@ -250,20 +262,24 @@ Furthermore, such promise/intent expressions actually indicate that, on the cont
     * sharing is stated with some public URI, but the links are invalid/outdated
     * "data are available in article and/or supplementary data", which means that the figures/tables are supposed to disclose the data. However, what is disclosed is a visualization, a summary or a selection of the data, not in an exploitable format for computers, and not the actual and usable primary data.
 
-For example:
+For example: https://doi.org/10.1186/s13064-019-0127-z
 
-https://doi.org/10.1186/s13064-019-0127-z
-
+```
     All data generated of analyzed during the current study are included in this
     published article.
+```
 
 https://doi.org/10.1371/journal.pone.0210388
 
+```
     All relevant data are within the manuscript and its Supporting Information files
+```
 
 These vague statements are very common and introduce a major difference between declared and actual sharing of data (e.g. via URL, Datacite PID, accession number, ...). In [5] for instance in relation to clinical trial data: 
 
+```
     In this cross-sectional study of 487 clinical trials published in JAMA, Lancet, and New England Journal of Medicine, 334 articles (68.6%) declared data sharing. Only 2 (0.6%) individual-participant data sets were actually deidentified and publicly available on a journal website
+```
 
 - The case of software sharing limited to the sharing of the API (probably to be discussed, but only relevant in a limited manner to the fields of computer science and telecommunication).
 
