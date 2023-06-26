@@ -6,5 +6,5 @@
 
   * [Discussion on software and dataset scope and sharing](doc/scope_and_sharing.md)
 
-  * [Pre-print on the methodologie and implementation](https://hal.science/hal-04121339)
+  * [Pre-print on methodology and implementation](https://hal.science/hal-04121339)
 
