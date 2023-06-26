@@ -6,12 +6,5 @@
 
   * [Discussion on software and dataset scope and sharing](doc/scope_and_sharing.md)
 
-  * [Methodological paper](methodology/bso3.md)
+  * [Pre-print on the methodologie and implementation](https://hal.science/hal-04121339)
 
-
-## Generate publication
-
-```shell
-cd methodology
-sh build_pdf.sh
-```
